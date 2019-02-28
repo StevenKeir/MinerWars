@@ -29,20 +29,4 @@ public class MultiplayerSetting : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    
-    void Start()
-    {
-        
-    }
-
-
-
-    void Update()
-    {
-        
-    }
-
-
-
-
 }

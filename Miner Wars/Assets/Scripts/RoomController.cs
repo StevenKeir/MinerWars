@@ -171,11 +171,13 @@ public class RoomController : MonoBehaviourPunCallbacks, IInRoomCallbacks
         isGameLoaded = true;
         if(!PhotonNetwork.IsMasterClient)
         return;
+
         if(MultiplayerSetting.multiplayerSetting.delayStart)
         {
             PhotonNetwork.CurrentRoom.IsOpen = false;
         }
         PhotonNetwork.LoadLevel(MultiplayerSetting.multiplayerSetting.multiplayerScene);
+        
     }
 
     void RestartTimer()

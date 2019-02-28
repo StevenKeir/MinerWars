@@ -9,8 +9,9 @@ using UnityEngine.UI;
 
 public class Lobby : MonoBehaviourPunCallbacks
 {
-
+    private PhotonView PV;
     public static Lobby lobby;
+    public AllRoomInfo roomInfo;
 
     public GameObject joinButton;
     public GameObject cancelButton;
@@ -22,6 +23,7 @@ public class Lobby : MonoBehaviourPunCallbacks
     private void Awake()
     {
         lobby = this;
+        PV = GetComponent<PhotonView>();
     }
 
     private void Start()
@@ -35,6 +37,8 @@ public class Lobby : MonoBehaviourPunCallbacks
         joinButton.SetActive(true);
         PhotonNetwork.AutomaticallySyncScene = true;
     }
+
+
 
     public void OnJoinButtonClick()
     {
@@ -50,17 +54,32 @@ public class Lobby : MonoBehaviourPunCallbacks
         CreateRoom();
     }
 
+
     void CreateRoom()
     {
+
+        
         Debug.Log("Trying to create room");
         int randRoomName = Random.Range(0, 1000);
         RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)MultiplayerSetting.multiplayerSetting.maxPlayers };
         PhotonNetwork.CreateRoom("Room " + randRoomName, roomOptions);
+
+        //Sets the RoomInfo
+        roomInfo.numberMaxPlayers = MultiplayerSetting.multiplayerSetting.maxPlayers;
+        roomInfo.roomName = ("Room" + randRoomName).ToString();
+        roomInfo.roomNumber = randRoomName;
+        
+
+        
+
     }
+
+
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Room joined");
+        //base.OnJoinedRoom();
         //cancelButton.SetActive(false);
         //offlineButton.SetActive(false);
         //currentRoomButton.SetActive(true);

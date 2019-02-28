@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 74921961}
   - component: {fileID: 74921960}
   - component: {fileID: 74921959}
+  - component: {fileID: 74921963}
   m_Layer: 0
   m_Name: RoomController
   m_TagString: Untagged
@@ -184,6 +185,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &74921963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74921958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41cf8c7df8e05942a7f3b9e3c851ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomName: 
+  roomNumber: 0
+  numberMaxPlayers: 0
+  currentPlayers: 0
 --- !u!1 &294241069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22373693fc6f34d66b881af1d625f65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomInfo: {fileID: 74921963}
   joinButton: {fileID: 295294630}
   cancelButton: {fileID: 294241069}
   offlineButton: {fileID: 871222729}
@@ -1037,9 +1055,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1559562464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275d3492dd7a54b72a289f67fbde2710, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 854
+  InstantiationId: 854
+  isRuntimeInstantiated: 0
 --- !u!1 &1584824037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,4 +1261,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1980856867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980856869}
+  - component: {fileID: 1980856868}
+  m_Layer: 0
+  m_Name: RoomList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1980856868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980856867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f9568b83f2b86458edc7ebff6c9352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomInfo: []
+--- !u!4 &1980856869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980856867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
