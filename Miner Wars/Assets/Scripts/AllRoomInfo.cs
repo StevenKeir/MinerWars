@@ -6,7 +6,7 @@ public class AllRoomInfo : MonoBehaviourPunCallbacks
     PhotonView PV;
 
     public string roomName;
-    public int roomNumber;
+    //public int roomNumber;
     public int numberMaxPlayers;
     public int currentPlayers;
 

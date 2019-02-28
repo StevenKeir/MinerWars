@@ -66,8 +66,8 @@ public class Lobby : MonoBehaviourPunCallbacks
 
         //Sets the RoomInfo
         roomInfo.numberMaxPlayers = MultiplayerSetting.multiplayerSetting.maxPlayers;
-        roomInfo.roomName = ("Room" + randRoomName).ToString();
-        roomInfo.roomNumber = randRoomName;
+        roomInfo.roomName = ("Room " + randRoomName).ToString();
+        //roomInfo.roomNumber = randRoomName;
         
 
         
