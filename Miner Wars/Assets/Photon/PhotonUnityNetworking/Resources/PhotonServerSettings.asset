@@ -36,5 +36,6 @@ MonoBehaviour:
   - RPC_LoadedGameScene
   - RPC_RoomListInfo
   - RPC_AddRoomInfo
+  - RPC_PlaceDynamite
   DisableAutoOpenWizard: 1
   ShowSettings: 1

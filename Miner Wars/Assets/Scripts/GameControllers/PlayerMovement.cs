@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using System.IO;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,11 +12,43 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed;
     public float rotationSpeed;
 
+    public float cooldown = 3f;
+    public float startCooldown = 3f;
+    public bool startTimer = false;
+    public bool offCooldown = true;
+
     // Start is called before the first frame update
     void Start()
     {
         PV = GetComponent<PhotonView>();
         myCharacterController = GetComponent<CharacterController>();
+        offCooldown = true;
+    }
+
+
+    private void Update()
+    {
+
+
+        if (PV.IsMine)
+        {
+            PlaceDynamite();
+            if (startTimer == true)
+            {
+                cooldown -= Time.deltaTime;
+            }
+            if (cooldown <= 0)
+            {
+                startTimer = false;
+                offCooldown = true;
+                cooldown = startCooldown;
+
+            }
+
+        }
+
+
+
     }
 
     // Update is called once per frame
@@ -25,10 +58,10 @@ public class PlayerMovement : MonoBehaviour
         {
             BasicMovement();
             BasicRotation();
+
         }
 
 
-        
     }
 
 
@@ -58,5 +91,23 @@ public class PlayerMovement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
         transform.Rotate(new Vector3(0,mouseX,0));
     }
+
+    void PlaceDynamite()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && offCooldown == true)
+        {
+            PV.RPC("RPC_PlaceDynamite", RpcTarget.MasterClient);
+            offCooldown = false;
+            startTimer = true;
+        }
+    }
+
+
+    [PunRPC]
+    void RPC_PlaceDynamite()
+    {
+        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity,0);
+    }
+
 
 }
