@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.IO;
 
 public class Dynamite : MonoBehaviour
 {
-    //PhotonView PV;
+    PhotonView PV;
     bool starttimer;
     float floatTime;
 
     private void Start()
     {
-       //PV = GetComponent<PhotonView>();
+       PV = GetComponent<PhotonView>();
         starttimer = true;
         floatTime = 3;
 
@@ -28,8 +29,17 @@ public class Dynamite : MonoBehaviour
         }
         if(floatTime <= 0)
         {
+            PV.RPC("RPC_ExplosionSpawn", RpcTarget.MasterClient);
             PhotonNetwork.Destroy(this.gameObject);
         }
 
     }
+
+
+    [PunRPC]
+    void RPC_ExplosionSpawn()
+    {
+        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Explosion_Big"), transform.position, Quaternion.identity, 0);
+    }
+
 }
