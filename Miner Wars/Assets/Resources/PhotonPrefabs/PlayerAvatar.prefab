@@ -203,3 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterValue: 0
   myCharacter: {fileID: 0}
+  playerHealth: 100
+  playerDamage: 20
+  immuneTimer: 0
+  initialImmuneTimer: 3
+  immuneTime: 0

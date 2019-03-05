@@ -7,6 +7,9 @@ public class GameSettings : MonoBehaviour
     public static GameSettings GS;
     
     public Transform[] spawnPoints;
+    public int[] scoreCount;
+    public PlayerInfo[] players;
+
 
     private void OnEnable() 
     {
@@ -15,4 +18,9 @@ public class GameSettings : MonoBehaviour
             GameSettings.GS = this;
         }    
     }
+
+
+
+
+
 }
