@@ -59,10 +59,15 @@ public class AvatarSetup : MonoBehaviour
     {
         if(collision.gameObject.tag == "Explosion")
         {
-            if(immuneTime == false)
+            if (immuneTime == false)
             {
-             playerHealth -= playerDamage;
-             immuneTime = true;
+                playerHealth -= playerDamage;
+                immuneTime = true;
+                if (PV.IsMine)
+                {
+                    GameSettings.GS.healthBar.value = playerHealth;
+                }
+                
             }
 
         }

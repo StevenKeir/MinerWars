@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 595}
   - component: {fileID: 594}
   - component: {fileID: 593}
-  - component: {fileID: 534}
-  - component: {fileID: 541}
-  - component: {fileID: 635}
+  - component: {fileID: 533}
+  - component: {fileID: 540}
+  - component: {fileID: 596}
   m_Layer: 0
   m_Name: PlayerAvatar
   m_TagString: Player
@@ -142,7 +142,7 @@ MonoBehaviour:
   offCooldown: 1
   minSpeed: 0
   duration: 1.5
---- !u!50 &534
+--- !u!50 &533
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &541
+--- !u!61 &540
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &635
+--- !u!114 &596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,3 +208,4 @@ MonoBehaviour:
   immuneTimer: 0
   initialImmuneTimer: 3
   immuneTime: 0
+  isAlive: 0

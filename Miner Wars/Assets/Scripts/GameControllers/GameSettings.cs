@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSettings : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameSettings : MonoBehaviour
     public Transform[] spawnPoints;
     public int[] scoreCount;
     public PlayerInfo[] players;
+    public Slider healthBar;
 
 
     private void OnEnable() 
@@ -18,8 +20,6 @@ public class GameSettings : MonoBehaviour
             GameSettings.GS = this;
         }    
     }
-
-
 
 
 
