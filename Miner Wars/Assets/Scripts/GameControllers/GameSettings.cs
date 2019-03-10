@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,10 +7,14 @@ using UnityEngine.UI;
 public class GameSettings : MonoBehaviour
 {
     public static GameSettings GS;
-    
+
     public Transform[] spawnPoints;
     public int[] scoreCount;
-    public PlayerInfo[] players;
+
+    public int[] gold;
+    
+
+
     public Slider healthBar;
 
 
@@ -21,6 +26,11 @@ public class GameSettings : MonoBehaviour
         }    
     }
 
+    private void Start()
+    {
+        int players = MultiplayerSetting.multiplayerSetting.maxPlayers;
+        gold = new int[players];
+    }
 
 
 }

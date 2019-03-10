@@ -107,6 +107,7 @@ public class RoomController : MonoBehaviourPunCallbacks, IInRoomCallbacks
             }
 
         }
+
     }
 
         public override void OnJoinedRoom()

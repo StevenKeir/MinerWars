@@ -8,14 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 280}
-  - component: {fileID: 567}
-  - component: {fileID: 595}
-  - component: {fileID: 594}
-  - component: {fileID: 593}
-  - component: {fileID: 533}
-  - component: {fileID: 540}
-  - component: {fileID: 596}
+  - component: {fileID: 284}
+  - component: {fileID: 583}
+  - component: {fileID: 615}
+  - component: {fileID: 614}
+  - component: {fileID: 613}
+  - component: {fileID: 541}
+  - component: {fileID: 549}
+  - component: {fileID: 616}
   m_Layer: 0
   m_Name: PlayerAvatar
   m_TagString: Player
@@ -23,7 +23,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &280
+--- !u!4 &284
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &567
+--- !u!212 &583
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &595
+--- !u!114 &615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,11 +103,11 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 594}
+  - {fileID: 614}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
---- !u!114 &594
+--- !u!114 &614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &593
+--- !u!114 &613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   offCooldown: 1
   minSpeed: 0
   duration: 1.5
---- !u!50 &533
+--- !u!50 &541
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &540
+--- !u!61 &549
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &596
+--- !u!114 &616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,6 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterValue: 0
   myCharacter: {fileID: 0}
+  myGoldCount: 0
+  myNumber: 0
   playerHealth: 100
   playerDamage: 20
   immuneTimer: 0

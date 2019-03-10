@@ -9,6 +9,8 @@ public class AvatarSetup : MonoBehaviour
     public int characterValue;
     public GameObject myCharacter;
 
+    public int myGoldCount;
+    public int myNumber = 10;
     public int playerHealth;
     public int playerDamage;
     [SerializeField]
@@ -24,26 +26,38 @@ public class AvatarSetup : MonoBehaviour
         if (PV.IsMine)
         {
             PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
+
+            if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
+            {
+                myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
+            }
+            myGoldCount = GameSettings.GS.gold[myNumber];
+
+
         }
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
+
+        //myNumber = RoomController.room.myNumberInRoom;
+        
     }
 
     private void Update()
     {
-        if(immuneTime == true)
+
+        if (immuneTime == true)
         {
             immuneTimer -= Time.deltaTime;
         }
 
-        if(immuneTimer <= 0)
+        if (immuneTimer <= 0)
         {
             immuneTime = false;
             immuneTimer = initialImmuneTimer;
         }
 
 
-        if(playerHealth <= 0)
+        if (playerHealth <= 0)
         {
             isAlive = false;
         }
@@ -52,6 +66,17 @@ public class AvatarSetup : MonoBehaviour
             isAlive = true;
         }
 
+
+
+        if (GameSettings.GS.gold[myNumber] <= myGoldCount)
+        {
+            GameSettings.GS.gold[myNumber] = myGoldCount;
+        }
+        else
+        {
+            myGoldCount = GameSettings.GS.gold[myNumber];
+
+        }
     }
 
 
