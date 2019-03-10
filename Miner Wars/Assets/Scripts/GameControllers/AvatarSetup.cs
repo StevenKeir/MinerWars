@@ -21,6 +21,14 @@ public class AvatarSetup : MonoBehaviour
     private bool immuneTime;
     public bool isAlive;
 
+    private void Awake()
+    {
+        if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
+        {
+            myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
+        }
+    }
+
     private void Start()
     {
         PV = GetComponent<PhotonView>();
@@ -29,15 +37,12 @@ public class AvatarSetup : MonoBehaviour
             PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
 
 
-            //PV.RPC("RPC_SendGold", RpcTarget.MasterClient);
+            PV.RPC("RPC_SendInfo", RpcTarget.AllBuffered);
 
         }
 
-        if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
-        {
-            myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
-        }
-        myGoldCount = GameSettings.GS.gold[myNumber];
+
+
 
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
@@ -48,14 +53,12 @@ public class AvatarSetup : MonoBehaviour
 
     private void Update()
     {
-        if (myGoldCount != GameSettings.GS.gold[myNumber])
-        {
-            myGoldCount = GameSettings.GS.gold[myNumber];
-        }
-
 
         PlayerInformation();
-        UpdateGold();       
+
+
+        //Doesn't work as i intended keep for later evaluation 
+        //UpdateGold();       
 
     }
 
@@ -75,6 +78,12 @@ public class AvatarSetup : MonoBehaviour
 
             }
 
+        }
+
+        if(collision.gameObject.tag == "Gold")
+        {
+            myGoldCount += 10;
+            Destroy(collision.gameObject);
         }
     }
 
@@ -102,18 +111,18 @@ public class AvatarSetup : MonoBehaviour
         }
     }
 
-    void UpdateGold()
-    {
-        if (PV.IsMine)
-        {
-            if (updatedGoldCount < myGoldCount)
-            {
-                updatedGoldCount = myGoldCount;
-                PV.RPC("RPC_SendGold", RpcTarget.AllBuffered);
-            }
-        }
+    //void UpdateGold()
+    //{
+    //    if (PV.IsMine)
+    //    {
+    //        if (updatedGoldCount < myGoldCount)
+    //        {
+    //            updatedGoldCount = myGoldCount;
+    //            PV.RPC("RPC_SendGold", RpcTarget.AllBuffered);
+    //        }
+    //    }
 
-    }
+    //}
 
     [PunRPC]
     void RPC_AddCharacter(int whichCharacter)
@@ -127,5 +136,11 @@ public class AvatarSetup : MonoBehaviour
     {
         updatedGoldCount = GameSettings.GS.gold[myNumber];
         Debug.Log("Gold Changed");
+    }
+    
+    [PunRPC]
+    void RPC_SendInfo()
+    {
+        GameSettings.GS.players.Add(this.myNumber);
     }
 }

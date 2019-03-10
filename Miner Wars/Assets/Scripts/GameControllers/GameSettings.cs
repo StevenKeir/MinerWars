@@ -9,6 +9,7 @@ public class GameSettings : MonoBehaviour
     public static GameSettings GS;
 
     public Transform[] spawnPoints;
+    public List<int> players = new List<int>();
     public int[] scoreCount;
 
     public int[] gold;
