@@ -126,5 +126,6 @@ public class AvatarSetup : MonoBehaviour
     void RPC_SendGold()
     {
         updatedGoldCount = GameSettings.GS.gold[myNumber];
+        Debug.Log("Gold Changed");
     }
 }
