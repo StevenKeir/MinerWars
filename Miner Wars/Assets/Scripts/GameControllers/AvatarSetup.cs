@@ -28,14 +28,17 @@ public class AvatarSetup : MonoBehaviour
         {
             PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
 
-            if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
-            {
-                myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
-            }
-            myGoldCount = GameSettings.GS.gold[myNumber];
+
             //PV.RPC("RPC_SendGold", RpcTarget.MasterClient);
 
         }
+
+        if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
+        {
+            myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
+        }
+        myGoldCount = GameSettings.GS.gold[myNumber];
+
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
 
