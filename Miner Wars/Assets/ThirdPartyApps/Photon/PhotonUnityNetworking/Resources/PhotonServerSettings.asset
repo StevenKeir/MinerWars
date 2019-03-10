@@ -40,5 +40,7 @@ MonoBehaviour:
   - RPC_ExplosionSpawn
   - RPC_SendDamage
   - RPC_AddCharacter
+  - RPC_SendGold
+  - RPC_UpdateGold
   DisableAutoOpenWizard: 1
   ShowSettings: 1

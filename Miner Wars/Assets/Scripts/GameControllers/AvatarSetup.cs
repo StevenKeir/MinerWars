@@ -10,6 +10,7 @@ public class AvatarSetup : MonoBehaviour
     public GameObject myCharacter;
 
     public int myGoldCount;
+    int updatedGoldCount;
     public int myNumber = 10;
     public int playerHealth;
     public int playerDamage;
@@ -32,19 +33,50 @@ public class AvatarSetup : MonoBehaviour
                 myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
             }
             myGoldCount = GameSettings.GS.gold[myNumber];
-
+            //PV.RPC("RPC_SendGold", RpcTarget.MasterClient);
 
         }
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
 
         //myNumber = RoomController.room.myNumberInRoom;
-        
+
     }
 
     private void Update()
     {
+        if (myGoldCount != GameSettings.GS.gold[myNumber])
+        {
+            myGoldCount = GameSettings.GS.gold[myNumber];
+        }
 
+
+        PlayerInformation();
+        UpdateGold();       
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Explosion")
+        {
+            if (immuneTime == false)
+            {
+                playerHealth -= playerDamage;
+                immuneTime = true;
+                if (PV.IsMine)
+                {
+                    GameSettings.GS.healthBar.value = playerHealth;
+                }
+
+            }
+
+        }
+    }
+
+    void PlayerInformation()
+    {
         if (immuneTime == true)
         {
             immuneTimer -= Time.deltaTime;
@@ -65,37 +97,19 @@ public class AvatarSetup : MonoBehaviour
         {
             isAlive = true;
         }
-
-
-
-        if (GameSettings.GS.gold[myNumber] <= myGoldCount)
-        {
-            GameSettings.GS.gold[myNumber] = myGoldCount;
-        }
-        else
-        {
-            myGoldCount = GameSettings.GS.gold[myNumber];
-
-        }
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    void UpdateGold()
     {
-        if(collision.gameObject.tag == "Explosion")
+        if (PV.IsMine)
         {
-            if (immuneTime == false)
+            if (updatedGoldCount < myGoldCount)
             {
-                playerHealth -= playerDamage;
-                immuneTime = true;
-                if (PV.IsMine)
-                {
-                    GameSettings.GS.healthBar.value = playerHealth;
-                }
-                
+                updatedGoldCount = myGoldCount;
+                PV.RPC("RPC_SendGold", RpcTarget.AllBuffered);
             }
-
         }
+
     }
 
     [PunRPC]
@@ -105,4 +119,9 @@ public class AvatarSetup : MonoBehaviour
         myCharacter = Instantiate(PlayerInfo.playerInfo.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
     }
 
+    [PunRPC]
+    void RPC_SendGold()
+    {
+        updatedGoldCount = GameSettings.GS.gold[myNumber];
+    }
 }

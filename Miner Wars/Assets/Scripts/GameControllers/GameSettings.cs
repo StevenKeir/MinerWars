@@ -32,5 +32,9 @@ public class GameSettings : MonoBehaviour
         gold = new int[players];
     }
 
+    [PunRPC]
+    void RPC_UpdateGold()
+    {
 
+    }
 }
