@@ -44,7 +44,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PV.IsMine)
         {
-            PlaceDynamite();
+            //PlaceDynamite();
+            PlaceDynamiteClient();
             if (startTimer == true)
             {
                 cooldown -= Time.deltaTime;
@@ -135,16 +136,26 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(new Vector3(0,mouseX,0));
     }
 
-    void PlaceDynamite()
+    //void PlaceDynamite()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E) && offCooldown == true)
+    //    {
+    //        PV.RPC("RPC_PlaceDynamite", RpcTarget.MasterClient);
+    //        offCooldown = false;
+    //        startTimer = true;
+    //    }
+    //}
+
+    void PlaceDynamiteClient()
     {
         if (Input.GetKeyDown(KeyCode.E) && offCooldown == true)
         {
-            PV.RPC("RPC_PlaceDynamite", RpcTarget.MasterClient);
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
             offCooldown = false;
             startTimer = true;
         }
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Explosion")
@@ -152,6 +163,9 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Hit");
         }
     }
+
+
+
 
     [PunRPC]
     void RPC_PlaceDynamite()

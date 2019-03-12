@@ -29,9 +29,19 @@ public class Dynamite : MonoBehaviour
         }
         if(floatTime <= 0)
         {
-            PV.RPC("RPC_ExplosionSpawn", RpcTarget.MasterClient);
-            PhotonNetwork.Destroy(this.gameObject);
+            //PV.RPC("RPC_ExplosionSpawn", RpcTarget.MasterClient);
+            if (PV.IsMine)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Explosion_Big"), transform.position, Quaternion.identity, 0);
+                PhotonNetwork.Destroy(this.gameObject);
+            }
+
         }
+
+
+
+
+
     }
 
 

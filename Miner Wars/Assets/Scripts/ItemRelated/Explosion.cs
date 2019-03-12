@@ -28,17 +28,4 @@ public class Explosion : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        PV.RPC("RPC_SendDamage", RpcTarget.Others);
-
-
-    }
-
-    [PunRPC]
-    void RPC_SendDamage()
-    {
-        Debug.Log("Hit");
-    }
-
 }
