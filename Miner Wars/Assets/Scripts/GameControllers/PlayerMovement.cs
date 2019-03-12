@@ -28,9 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float minSpeed;
     public float duration;
     private float startTime;
-    public float moveX;
-    public float moveY;
-    public Vector3 moveVector;
+
 
     // Start is called before the first frame update
     void Start()
@@ -98,9 +96,9 @@ public class PlayerMovement : MonoBehaviour
     void OtherMovement() 
     //Simple movement for now
     {
-        moveX = Input.GetAxis("Horizontal");
-        moveY = Input.GetAxis("Vertical");
-        moveVector = new Vector3(moveX, moveY);
+        float moveX = Input.GetAxis("Horizontal");
+        float moveY = Input.GetAxis("Vertical");
+        Vector3 moveVector = new Vector3(moveX, moveY);
       
 
         transform.Translate(moveVector * movementSpeed * Time.fixedDeltaTime);

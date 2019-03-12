@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
-  m_SynchronizeRotation: 0
+  m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
 --- !u!114 &613
 MonoBehaviour:
@@ -142,9 +142,6 @@ MonoBehaviour:
   offCooldown: 1
   minSpeed: 0
   duration: 1.5
-  moveX: 0
-  moveY: 0
-  moveVector: {x: 0, y: 0, z: 0}
 --- !u!50 &541
 Rigidbody2D:
   serializedVersion: 4
