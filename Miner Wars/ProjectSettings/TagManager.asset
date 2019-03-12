@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Explosion
   - Wall
-  - Gold
   layers:
   - Default
   - TransparentFX

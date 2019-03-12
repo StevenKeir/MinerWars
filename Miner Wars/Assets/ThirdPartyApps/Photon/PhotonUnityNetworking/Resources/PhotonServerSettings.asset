@@ -42,6 +42,5 @@ MonoBehaviour:
   - RPC_AddCharacter
   - RPC_SendGold
   - RPC_UpdateGold
-  - RPC_SendInfo
   DisableAutoOpenWizard: 1
   ShowSettings: 1

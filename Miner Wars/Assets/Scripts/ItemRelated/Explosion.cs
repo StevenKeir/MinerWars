@@ -30,11 +30,7 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (PV.IsMine)
-        {
-            PV.RPC("RPC_SendDamage", RpcTarget.Others);
-        }
-        
+        PV.RPC("RPC_SendDamage", RpcTarget.Others);
 
 
     }
