@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Photon.Pun;
 using System.IO;
+using UnityEngine;
 
-public class Dynamite : MonoBehaviour
+public class Dynamite2 : MonoBehaviour
 {
     PhotonView PV;
     bool starttimer;
@@ -12,7 +12,7 @@ public class Dynamite : MonoBehaviour
 
     private void Start()
     {
-       PV = GetComponent<PhotonView>();
+        PV = GetComponent<PhotonView>();
         starttimer = true;
         //floatTime = 3;
 
@@ -23,16 +23,16 @@ public class Dynamite : MonoBehaviour
     void Update()
     {
         //Checks for timer to start a timer for which destroys the object and creates the explosion hitbox
-        if(starttimer == true)
+        if (starttimer == true)
         {
             floatTime -= Time.deltaTime;
         }
-        if(floatTime <= 0)
+        if (floatTime <= 0)
         {
             //PV.RPC("RPC_ExplosionSpawn", RpcTarget.MasterClient);
             if (PV.IsMine)
             {
-                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Explosion"), transform.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Explosion2"), transform.position, Quaternion.identity, 0);
                 PhotonNetwork.Destroy(this.gameObject);
             }
 
@@ -50,5 +50,4 @@ public class Dynamite : MonoBehaviour
     {
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Explosion"), transform.position, Quaternion.identity, 0);
     }
-
 }

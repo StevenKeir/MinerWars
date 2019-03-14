@@ -1,0 +1,909 @@
+fileFormatVersion: 2
+guid: fd48b1614d942e642824bac9a0bce25d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tnt small_0
+    21300002: Tnt small_1
+    21300004: Tnt small_2
+    21300006: Tnt small_3
+    21300008: Tnt small_4
+    21300010: Tnt small_5
+    21300012: Tnt small_6
+    21300014: Tnt small_7
+    21300016: Tnt small_8
+    21300018: Tnt small_9
+    21300020: Tnt small_10
+    21300022: Tnt small_11
+    21300024: Tnt small_12
+    21300026: Tnt small_13
+    21300028: Tnt small_14
+    21300030: Tnt small_15
+    21300032: Tnt small_16
+    21300034: Tnt small_17
+    21300036: Tnt small_18
+    21300038: Tnt small_19
+    21300040: Tnt small_20
+    21300042: Tnt small_21
+    21300044: Tnt small_22
+    21300046: Tnt small_23
+    21300048: Tnt small_24
+    21300050: Tnt small_25
+    21300052: Tnt small_26
+    21300054: Tnt small_27
+    21300056: Tnt small_28
+    21300058: Tnt small_29
+    21300060: Tnt small_30
+    21300062: Tnt small_31
+    21300064: Tnt small_32
+    21300066: Tnt small_33
+    21300068: Tnt small_34
+    21300070: Tnt small_35
+    21300072: Tnt small_36
+    21300074: Tnt small_37
+    21300076: Tnt small_38
+    21300078: Tnt small_39
+    21300080: Tnt small_40
+    21300082: Tnt small_41
+    21300084: Tnt small_42
+    21300086: Tnt small_43
+    21300088: Tnt small_44
+    21300090: Tnt small_45
+    21300092: Tnt small_46
+    21300094: Tnt small_47
+    21300096: Tnt small_48
+    21300098: Tnt small_49
+    21300100: Tnt small_50
+    21300102: Tnt small_51
+    21300104: Tnt small_52
+    21300106: Tnt small_53
+    21300108: Tnt small_54
+    21300110: Tnt small_55
+    21300112: Tnt small_56
+    21300114: Tnt small_57
+    21300116: Tnt small_58
+    21300118: Tnt small_59
+    21300120: Tnt small_60
+    21300122: Tnt small_61
+    21300124: Tnt small_62
+    21300126: Tnt small_63
+    21300128: Tnt small_64
+    21300130: Tnt small_65
+    21300132: Tnt small_66
+    21300134: Tnt small_67
+    21300136: Tnt small_68
+    21300138: Tnt small_69
+    21300140: Tnt small_70
+    21300142: Tnt small_71
+    21300144: Tnt small_72
+    21300146: Tnt small_73
+    21300148: Tnt small_74
+    21300150: Tnt small_75
+    21300152: Tnt small_76
+    21300154: Tnt small_77
+    21300156: Tnt small_78
+    21300158: Tnt small_79
+    21300160: Tnt small_80
+    21300162: Tnt small_81
+    21300164: Tnt small_82
+    21300166: Tnt small_83
+    21300168: Tnt small_84
+    21300170: Tnt small_85
+    21300172: Tnt small_86
+    21300174: Tnt small_87
+    21300176: Tnt small_88
+    21300178: Tnt small_89
+    21300180: Tnt small_90
+    21300182: Tnt small_91
+    21300184: Tnt small_92
+    21300186: Tnt small_93
+    21300188: Tnt small_94
+    21300190: Tnt small_95
+    21300192: Tnt small_96
+    21300194: Tnt small_97
+    21300196: Tnt small_98
+    21300198: Tnt small_99
+    21300200: Tnt small_100
+    21300202: Tnt small_101
+    21300204: Tnt small_102
+    21300206: Tnt small_103
+    21300208: Tnt small_104
+    21300210: Tnt small_105
+    21300212: Tnt small_106
+    21300214: Tnt small_107
+    21300216: Tnt small_108
+    21300218: Tnt small_109
+    21300220: Tnt small_110
+    21300222: Tnt small_111
+    21300224: Tnt small_112
+    21300226: Tnt small_113
+    21300228: Tnt small_114
+    21300230: Tnt small_115
+    21300232: Tnt small_116
+    21300234: Tnt small_117
+    21300236: Tnt small_118
+    21300238: Tnt small_119
+    21300240: Tnt small_120
+    21300242: Tnt small_121
+    21300244: Tnt small_122
+    21300246: Tnt small_123
+    21300248: Tnt small_124
+    21300250: Tnt small_125
+    21300252: Tnt small_126
+    21300254: Tnt small_127
+    21300256: Tnt small_128
+    21300258: Tnt small_129
+    21300260: Tnt small_130
+    21300262: Tnt small_131
+    21300264: Tnt small_132
+    21300266: Tnt small_133
+    21300268: Tnt small_134
+    21300270: Tnt small_135
+    21300272: Tnt small_136
+    21300274: Tnt small_137
+    21300276: Tnt small_138
+    21300278: Tnt small_139
+    21300280: Tnt small_140
+    21300282: Tnt small_141
+    21300284: Tnt small_142
+    21300286: Tnt small_143
+    21300288: Tnt small_144
+    21300290: Tnt small_145
+    21300292: Tnt small_146
+    21300294: Tnt small_147
+    21300296: Tnt small_148
+    21300298: Tnt small_149
+    21300300: Tnt small_150
+    21300302: Tnt small_151
+    21300304: Tnt small_152
+    21300306: Tnt small_153
+    21300308: Tnt small_154
+    21300310: Tnt small_155
+    21300312: Tnt small_156
+    21300314: Tnt small_157
+    21300316: Tnt small_158
+    21300318: Tnt small_159
+    21300320: Tnt small_160
+    21300322: Tnt small_161
+    21300324: Tnt small_162
+    21300326: Tnt small_163
+    21300328: Tnt small_164
+    21300330: Tnt small_165
+    21300332: Tnt small_166
+    21300334: Tnt small_167
+    21300336: Tnt small_168
+    21300338: Tnt small_169
+    21300340: Tnt small_170
+    21300342: Tnt small_171
+    21300344: Tnt small_172
+    21300346: Tnt small_173
+    21300348: Tnt small_174
+    21300350: Tnt small_175
+    21300352: Tnt small_176
+    21300354: Tnt small_177
+    21300356: Tnt small_178
+    21300358: Tnt small_179
+    21300360: Tnt small_180
+    21300362: Tnt small_181
+    21300364: Tnt small_182
+    21300366: Tnt small_183
+    21300368: Tnt small_184
+    21300370: Tnt small_185
+    21300372: Tnt small_186
+    21300374: Tnt small_187
+    21300376: Tnt small_188
+    21300378: Tnt small_189
+    21300380: Tnt small_190
+    21300382: Tnt small_191
+    21300384: Tnt small_192
+    21300386: Tnt small_193
+    21300388: Tnt small_194
+    21300390: Tnt small_195
+    21300392: Tnt small_196
+    21300394: Tnt small_197
+    21300396: Tnt small_198
+    21300398: Tnt small_199
+    21300400: Tnt small_200
+    21300402: Tnt small_201
+    21300404: Tnt small_202
+    21300406: Tnt small_203
+    21300408: Tnt small_204
+    21300410: Tnt small_205
+    21300412: Tnt small_206
+    21300414: Tnt small_207
+    21300416: Tnt small_208
+    21300418: Tnt small_209
+    21300420: Tnt small_210
+    21300422: Tnt small_211
+    21300424: Tnt small_212
+    21300426: Tnt small_213
+    21300428: Tnt small_214
+    21300430: Tnt small_215
+    21300432: Tnt small_216
+    21300434: Tnt small_217
+    21300436: Tnt small_218
+    21300438: Tnt small_219
+    21300440: Tnt small_220
+    21300442: Tnt small_221
+    21300444: Tnt small_222
+    21300446: Tnt small_223
+    21300448: Tnt small_224
+    21300450: Tnt small_225
+    21300452: Tnt small_226
+    21300454: Tnt small_227
+    21300456: Tnt small_228
+    21300458: Tnt small_229
+    21300460: Tnt small_230
+    21300462: Tnt small_231
+    21300464: Tnt small_232
+    21300466: Tnt small_233
+    21300468: Tnt small_234
+    21300470: Tnt small_235
+    21300472: Tnt small_236
+    21300474: Tnt small_237
+    21300476: Tnt small_238
+    21300478: Tnt small_239
+    21300480: Tnt small_240
+    21300482: Tnt small_241
+    21300484: Tnt small_242
+    21300486: Tnt small_243
+    21300488: Tnt small_244
+    21300490: Tnt small_245
+    21300492: Tnt small_246
+    21300494: Tnt small_247
+    21300496: Tnt small_248
+    21300498: Tnt small_249
+    21300500: Tnt small_250
+    21300502: Tnt small_251
+    21300504: Tnt small_252
+    21300506: Tnt small_253
+    21300508: Tnt small_254
+    21300510: Tnt small_255
+    21300512: Tnt small_256
+    21300514: Tnt small_257
+    21300516: Tnt small_258
+    21300518: Tnt small_259
+    21300520: Tnt small_260
+    21300522: Tnt small_261
+    21300524: Tnt small_262
+    21300526: Tnt small_263
+    21300528: Tnt small_264
+    21300530: Tnt small_265
+    21300532: Tnt small_266
+    21300534: Tnt small_267
+    21300536: Tnt small_268
+    21300538: Tnt small_269
+    21300540: Tnt small_270
+    21300542: Tnt small_271
+    21300544: Tnt small_272
+    21300546: Tnt small_273
+    21300548: Tnt small_274
+    21300550: Tnt small_275
+    21300552: Tnt small_276
+    21300554: Tnt small_277
+    21300556: Tnt small_278
+    21300558: Tnt small_279
+    21300560: Tnt small_280
+    21300562: Tnt small_281
+    21300564: Tnt small_282
+    21300566: Tnt small_283
+    21300568: Tnt small_284
+    21300570: Tnt small_285
+    21300572: Tnt small_286
+    21300574: Tnt small_287
+    21300576: Tnt small_288
+    21300578: Tnt small_289
+    21300580: Tnt small_290
+    21300582: Tnt small_291
+    21300584: Tnt small_292
+    21300586: Tnt small_293
+    21300588: Tnt small_294
+    21300590: Tnt small_295
+    21300592: Tnt small_296
+    21300594: Tnt small_297
+    21300596: Tnt small_298
+    21300598: Tnt small_299
+    21300600: Tnt small_300
+    21300602: Tnt small_301
+    21300604: Tnt small_302
+    21300606: Tnt small_303
+    21300608: Tnt small_304
+    21300610: Tnt small_305
+    21300612: Tnt small_306
+    21300614: Tnt small_307
+    21300616: Tnt small_308
+    21300618: Tnt small_309
+    21300620: Tnt small_310
+    21300622: Tnt small_311
+    21300624: Tnt small_312
+    21300626: Tnt small_313
+    21300628: Tnt small_314
+    21300630: Tnt small_315
+    21300632: Tnt small_316
+    21300634: Tnt small_317
+    21300636: Tnt small_318
+    21300638: Tnt small_319
+    21300640: Tnt small_320
+    21300642: Tnt small_321
+    21300644: Tnt small_322
+    21300646: Tnt small_323
+    21300648: Tnt small_324
+    21300650: Tnt small_325
+    21300652: Tnt small_326
+    21300654: Tnt small_327
+    21300656: Tnt small_328
+    21300658: Tnt small_329
+    21300660: Tnt small_330
+    21300662: Tnt small_331
+    21300664: Tnt small_332
+    21300666: Tnt small_333
+    21300668: Tnt small_334
+    21300670: Tnt small_335
+    21300672: Tnt small_336
+    21300674: Tnt small_337
+    21300676: Tnt small_338
+    21300678: Tnt small_339
+    21300680: Tnt small_340
+    21300682: Tnt small_341
+    21300684: Tnt small_342
+    21300686: Tnt small_343
+    21300688: Tnt small_344
+    21300690: Tnt small_345
+    21300692: Tnt small_346
+    21300694: Tnt small_347
+    21300696: Tnt small_348
+    21300698: Tnt small_349
+    21300700: Tnt small_350
+    21300702: Tnt small_351
+    21300704: Tnt small_352
+    21300706: Tnt small_353
+    21300708: Tnt small_354
+    21300710: Tnt small_355
+    21300712: Tnt small_356
+    21300714: Tnt small_357
+    21300716: Tnt small_358
+    21300718: Tnt small_359
+    21300720: Tnt small_360
+    21300722: Tnt small_361
+    21300724: Tnt small_362
+    21300726: Tnt small_363
+    21300728: Tnt small_364
+    21300730: Tnt small_365
+    21300732: Tnt small_366
+    21300734: Tnt small_367
+    21300736: Tnt small_368
+    21300738: Tnt small_369
+    21300740: Tnt small_370
+    21300742: Tnt small_371
+    21300744: Tnt small_372
+    21300746: Tnt small_373
+    21300748: Tnt small_374
+    21300750: Tnt small_375
+    21300752: Tnt small_376
+    21300754: Tnt small_377
+    21300756: Tnt small_378
+    21300758: Tnt small_379
+    21300760: Tnt small_380
+    21300762: Tnt small_381
+    21300764: Tnt small_382
+    21300766: Tnt small_383
+    21300768: Tnt small_384
+    21300770: Tnt small_385
+    21300772: Tnt small_386
+    21300774: Tnt small_387
+    21300776: Tnt small_388
+    21300778: Tnt small_389
+    21300780: Tnt small_390
+    21300782: Tnt small_391
+    21300784: Tnt small_392
+    21300786: Tnt small_393
+    21300788: Tnt small_394
+    21300790: Tnt small_395
+    21300792: Tnt small_396
+    21300794: Tnt small_397
+    21300796: Tnt small_398
+    21300798: Tnt small_399
+    21300800: Tnt small_400
+    21300802: Tnt small_401
+    21300804: Tnt small_402
+    21300806: Tnt small_403
+    21300808: Tnt small_404
+    21300810: Tnt small_405
+    21300812: Tnt small_406
+    21300814: Tnt small_407
+    21300816: Tnt small_408
+    21300818: Tnt small_409
+    21300820: Tnt small_410
+    21300822: Tnt small_411
+    21300824: Tnt small_412
+    21300826: Tnt small_413
+    21300828: Tnt small_414
+    21300830: Tnt small_415
+    21300832: Tnt small_416
+    21300834: Tnt small_417
+    21300836: Tnt small_418
+    21300838: Tnt small_419
+    21300840: Tnt small_420
+    21300842: Tnt small_421
+    21300844: Tnt small_422
+    21300846: Tnt small_423
+    21300848: Tnt small_424
+    21300850: Tnt small_425
+    21300852: Tnt small_426
+    21300854: Tnt small_427
+    21300856: Tnt small_428
+    21300858: Tnt small_429
+    21300860: Tnt small_430
+    21300862: Tnt small_431
+    21300864: Tnt small_432
+    21300866: Tnt small_433
+    21300868: Tnt small_434
+    21300870: Tnt small_435
+    21300872: Tnt small_436
+    21300874: Tnt small_437
+    21300876: Tnt small_438
+    21300878: Tnt small_439
+    21300880: Tnt small_440
+    21300882: Tnt small_441
+    21300884: Tnt small_442
+    21300886: Tnt small_443
+    21300888: Tnt small_444
+    21300890: Tnt small_445
+    21300892: Tnt small_446
+    21300894: Tnt small_447
+    21300896: Tnt small_448
+    21300898: Tnt small_449
+    21300900: Tnt small_450
+    21300902: Tnt small_451
+    21300904: Tnt small_452
+    21300906: Tnt small_453
+    21300908: Tnt small_454
+    21300910: Tnt small_455
+    21300912: Tnt small_456
+    21300914: Tnt small_457
+    21300916: Tnt small_458
+    21300918: Tnt small_459
+    21300920: Tnt small_460
+    21300922: Tnt small_461
+    21300924: Tnt small_462
+    21300926: Tnt small_463
+    21300928: Tnt small_464
+    21300930: Tnt small_465
+    21300932: Tnt small_466
+    21300934: Tnt small_467
+    21300936: Tnt small_468
+    21300938: Tnt small_469
+    21300940: Tnt small_470
+    21300942: Tnt small_471
+    21300944: Tnt small_472
+    21300946: Tnt small_473
+    21300948: Tnt small_474
+    21300950: Tnt small_475
+    21300952: Tnt small_476
+    21300954: Tnt small_477
+    21300956: Tnt small_478
+    21300958: Tnt small_479
+    21300960: Tnt small_480
+    21300962: Tnt small_481
+    21300964: Tnt small_482
+    21300966: Tnt small_483
+    21300968: Tnt small_484
+    21300970: Tnt small_485
+    21300972: Tnt small_486
+    21300974: Tnt small_487
+    21300976: Tnt small_488
+    21300978: Tnt small_489
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tnt small_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a847f00952f6c344beebcbe2bbce490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0e32dd1b416d94aaaaf891302c7bba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20aa4b192a1acbf42a99ce9a640c8adb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd271044bc3b9e6479c96fc342a55c67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e2b17b35a389b48b19850270f3cea5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7e4c2ffc062e174991cfe2d5bcc9c0d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9822604d684f7c42882d49b018daf68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_7
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb04883573dbcc4292635d22cd915c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfde46c562b27014a881f66d55238692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ec02924dc8977448b816ecb241abc9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a6dc79cc5626d41b4410b7fe920e01
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 640
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e39ef42c0df1540ac33e19c0bfecf2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad2c15b1738eb624c801b2c372c9650a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f13e91933aa77c46808feca5db11312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_14
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a455f76fa26baf4995c42e446e2bcd4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tnt small_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9108c049cdbd7c84a8026e249f2fca50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: e064cab93b4ffd445bfa58dc35130708
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

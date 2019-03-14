@@ -154,6 +154,12 @@ public class PlayerMovement : MonoBehaviour
             offCooldown = false;
             startTimer = true;
         }
+        if (Input.GetKeyDown(KeyCode.R) && offCooldown == true)
+        {
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
+            offCooldown = false;
+            startTimer = true;
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
