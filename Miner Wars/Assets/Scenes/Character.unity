@@ -123,6 +123,8 @@ GameObject:
   - component: {fileID: 748769861}
   - component: {fileID: 748769860}
   - component: {fileID: 748769859}
+  - component: {fileID: 748769862}
+  - component: {fileID: 748769863}
   m_Layer: 0
   m_Name: RobPlayer
   m_TagString: Untagged
@@ -211,6 +213,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748769862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748769858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84c44bc8b8dc4baea67c84553e54add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 300
+  rotationSpeed: 0
+  cooldown: 3
+  startCooldown: 3
+  startTimer: 0
+  offCooldown: 1
+  minSpeed: 5
+  duration: 0
+  dirX: 0
+  dirY: 0
+  anim: {fileID: 748769859}
+--- !u!50 &748769863
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748769858}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &780897202
 GameObject:
   m_ObjectHideFlags: 0

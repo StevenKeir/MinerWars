@@ -29,6 +29,13 @@ public class PlayerMovement : MonoBehaviour
     public float duration;
     private float startTime;
 
+    public float dirX;
+    public float dirY;
+    public bool isWalking;
+    float moveX;
+    float moveY;
+
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (PV.IsMine)
         {
             //PlaceDynamite();
+
             PlaceDynamiteClient();
             if (startTimer == true)
             {
@@ -57,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
                 cooldown = startCooldown;
             }
         }
+
+
+            UpdateAnimator();
+            UpdateDirection();
+
     }
 
     // Update is called once per frame
@@ -97,17 +110,68 @@ public class PlayerMovement : MonoBehaviour
     void OtherMovement() 
     //Simple movement for now
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float moveY = Input.GetAxis("Vertical");
+        moveX = Input.GetAxis("Horizontal");
+        moveY = Input.GetAxis("Vertical");
         Vector3 moveVector = new Vector3(moveX, moveY);
-      
+        if(moveX != 0 || moveY != 0)
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
 
         transform.Translate(moveVector * movementSpeed * Time.fixedDeltaTime);
 
 
+        
+
     }
 
-    
+
+    void UpdateDirection()
+    {
+        if(moveY > 0)
+        {
+            dirY = 1;
+            dirX = 0;
+        }
+        if(moveY < 0)
+        {
+            dirY = -1;
+            dirX = 0;
+        }
+        if(moveX > 0)
+        {
+            dirY = 0;
+            dirX = 1;
+        }
+        if(moveX < 0)
+        {
+            dirY = 0;
+            dirX = -1;
+        }
+    }
+
+    void UpdateAnimator()
+    {
+        if(dirX != 1 || dirY != 1)
+        {
+            anim.SetFloat("dirX", dirX);
+            anim.SetFloat("dirY", dirY);
+        }
+        if(isWalking == true)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        if (isWalking == false)
+        {
+            anim.SetBool("isWalking", false);
+        }
+
+    }
+
     //void BasicMovement()
     //Couldn't use this due to issues with collisions on the character controller.
     //{
@@ -135,6 +199,9 @@ public class PlayerMovement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
         transform.Rotate(new Vector3(0,mouseX,0));
     }
+
+
+
 
     //void PlaceDynamite()
     //{
