@@ -9,32 +9,44 @@ public class GameSettings : MonoBehaviour
     public static GameSettings GS;
 
     public Transform[] spawnPoints;
-    public int[] scoreCount;
-
-    public int[] gold;
-    
-
-
     public Slider healthBar;
+    public GameObject pauseWindow;
 
+    public bool pauseCheck;
 
     private void OnEnable() 
     {
         if (GameSettings.GS == null)
         {
             GameSettings.GS = this;
-        }    
+        }
+
+        pauseCheck = false;
     }
 
-    private void Start()
-    {
-        int players = MultiplayerSetting.multiplayerSetting.maxPlayers;
-        gold = new int[players];
-    }
+    //private void Update()
+    //{
+    //    PauseMenu();
+    //}
 
-    [PunRPC]
-    void RPC_UpdateGold()
-    {
+    //void PauseMenu()
+    //{
+    //    if (Input.GetKey(KeyCode.Escape))
+    //    {
+    //        pauseCheck = true;
+    //    }
+    //    if (Input.GetKey(KeyCode.Escape) && pauseCheck == true)
+    //    {
+    //        pauseCheck = false;
+    //    }
+    //    if(pauseCheck == true)
+    //    {
+    //        pauseWindow.gameObject.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        pauseWindow.gameObject.SetActive(false);
+    //    }
+    //}
 
-    }
 }

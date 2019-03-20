@@ -37,7 +37,7 @@ public class AvatarSetup : MonoBehaviour
         {
             myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
         }
-        myGoldCount = GameSettings.GS.gold[myNumber];
+
 
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
@@ -48,14 +48,11 @@ public class AvatarSetup : MonoBehaviour
 
     private void Update()
     {
-        if (myGoldCount != GameSettings.GS.gold[myNumber])
-        {
-            myGoldCount = GameSettings.GS.gold[myNumber];
-        }
+
 
 
         PlayerInformation();
-        UpdateGold();       
+    
 
     }
 
@@ -102,18 +99,6 @@ public class AvatarSetup : MonoBehaviour
         }
     }
 
-    void UpdateGold()
-    {
-        if (PV.IsMine)
-        {
-            if (updatedGoldCount < myGoldCount)
-            {
-                updatedGoldCount = myGoldCount;
-                PV.RPC("RPC_SendGold", RpcTarget.AllBuffered);
-            }
-        }
-
-    }
 
     [PunRPC]
     void RPC_AddCharacter(int whichCharacter)
@@ -122,10 +107,5 @@ public class AvatarSetup : MonoBehaviour
         myCharacter = Instantiate(PlayerInfo.playerInfo.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
     }
 
-    [PunRPC]
-    void RPC_SendGold()
-    {
-        updatedGoldCount = GameSettings.GS.gold[myNumber];
-        Debug.Log("Gold Changed");
-    }
+
 }

@@ -8,10 +8,10 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private PhotonView PV;
-    private CharacterController myCharacterController;
     [Header("Movement options, used in all movement types")]
     public float movementSpeed;
     public float rotationSpeed;
+    private Rigidbody2D RB;
 
     [Header("Cooldown for TNT")]
     [SerializeField]
@@ -32,16 +32,17 @@ public class PlayerMovement : MonoBehaviour
     public float dirX;
     public float dirY;
     public bool isWalking;
-    float moveX;
-    float moveY;
+    public float moveX;
+    public float moveY;
 
+    bool facingRight;
     public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        myCharacterController = GetComponent<CharacterController>();
+        RB = GetComponent<Rigidbody2D>();
         offCooldown = true;
         startTime = Time.time;
     }
@@ -75,12 +76,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (PV.IsMine && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W)))
+        if (PV.IsMine /*&& (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))*/)
         {
-            //BasicMovement();
-            //BasicRotation();
             OtherMovement();
-            //TestMovement();
+            // for flipping character
+            float h = Input.GetAxis("Horizontal");
+            if (h > 0 && !facingRight)
+                Flip();
+            else if (h < 0 && facingRight)
+                Flip();
+
         }
         else
         {
@@ -88,9 +93,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+
     }
 
-    
+    //flip sprite for left movement
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
     //void TestMovement()
     //Testing Mathf.smoothStep trying to get a smoother movement but ended up worse
     //{
@@ -106,14 +120,14 @@ public class PlayerMovement : MonoBehaviour
     //}
 
 
-    
+
     void OtherMovement() 
     //Simple movement for now
     {
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
-        Vector3 moveVector = new Vector3(moveX, moveY);
-        if(moveX != 0 || moveY != 0)
+        Vector3 moveVector = new Vector3(moveX, moveY, 0.0f);
+        if(moveX != 0.00f || moveY != 0.00f)
         {
             isWalking = true;
         }
@@ -122,11 +136,7 @@ public class PlayerMovement : MonoBehaviour
             isWalking = false;
         }
 
-        transform.Translate(moveVector * movementSpeed * Time.fixedDeltaTime);
-
-
-        
-
+        transform.Translate(moveVector * movementSpeed * Time.deltaTime);
     }
 
 
@@ -172,36 +182,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    //void BasicMovement()
-    //Couldn't use this due to issues with collisions on the character controller.
-    //{
-    //    if (Input.GetKey(KeyCode.W))
-    //    {
-    //        myCharacterController.Move(transform.up * Time.deltaTime * movementSpeed); 
-    //    }
-    //    if (Input.GetKey(KeyCode.A))
-    //    {
-    //        myCharacterController.Move(-transform.right * Time.deltaTime * movementSpeed); 
-    //    }
-    //    if (Input.GetKey(KeyCode.S))
-    //    {
-    //        myCharacterController.Move(-transform.up * Time.deltaTime * movementSpeed); 
-    //    }
-    //    if (Input.GetKey(KeyCode.D))
-    //    {
-    //        myCharacterController.Move(transform.right * Time.deltaTime * movementSpeed); 
-    //    }
-    //}
-
-
-    void BasicRotation()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
-        transform.Rotate(new Vector3(0,mouseX,0));
-    }
-
-
-
 
     //void PlaceDynamite()
     //{
@@ -228,16 +208,6 @@ public class PlayerMovement : MonoBehaviour
             startTimer = true;
         }
     }
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Explosion")
-        {
-            Debug.Log("Hit");
-        }
-    }
-
-
 
 
     [PunRPC]

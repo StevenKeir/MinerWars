@@ -10,12 +10,14 @@ public class Dynamite : MonoBehaviour
     bool starttimer;
     public float floatTime;
 
+    BoxCollider2D col;
+
     private void Start()
     {
        PV = GetComponent<PhotonView>();
         starttimer = true;
         //floatTime = 3;
-
+        col = GetComponent<BoxCollider2D>();
     }
 
 
@@ -42,6 +44,11 @@ public class Dynamite : MonoBehaviour
 
 
 
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        col.isTrigger = false;
     }
 
 
