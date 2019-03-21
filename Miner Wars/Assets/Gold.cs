@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class Gold : MonoBehaviour
 {
-
-    public float goldWorth;
-
-
-
-
-
-
-
+    public int goldWorth;
 
 
 }

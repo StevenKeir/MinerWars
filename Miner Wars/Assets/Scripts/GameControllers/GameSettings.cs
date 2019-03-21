@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameSettings : MonoBehaviour
 {
@@ -10,9 +11,7 @@ public class GameSettings : MonoBehaviour
 
     public Transform[] spawnPoints;
     public Slider healthBar;
-    public GameObject pauseWindow;
-
-    public bool pauseCheck;
+    public TMP_Text text;
 
     private void OnEnable() 
     {
@@ -21,32 +20,9 @@ public class GameSettings : MonoBehaviour
             GameSettings.GS = this;
         }
 
-        pauseCheck = false;
+       
     }
 
-    //private void Update()
-    //{
-    //    PauseMenu();
-    //}
 
-    //void PauseMenu()
-    //{
-    //    if (Input.GetKey(KeyCode.Escape))
-    //    {
-    //        pauseCheck = true;
-    //    }
-    //    if (Input.GetKey(KeyCode.Escape) && pauseCheck == true)
-    //    {
-    //        pauseCheck = false;
-    //    }
-    //    if(pauseCheck == true)
-    //    {
-    //        pauseWindow.gameObject.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        pauseWindow.gameObject.SetActive(false);
-    //    }
-    //}
 
 }

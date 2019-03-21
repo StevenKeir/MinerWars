@@ -38,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
     bool facingRight;
     public Animator anim;
 
+    //public GameObject pauseWindow;
+
+    //public bool pauseCheck;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,14 +49,22 @@ public class PlayerMovement : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         offCooldown = true;
         startTime = Time.time;
+
+        anim = GetComponentInChildren<Animator>();
+
+
+
+        //StartCoroutine(LateStart(0.001f));
     }
 
 
     private void Update()
     {
+
+        UpdateAnimator();
+        UpdateDirection();
         if (PV.IsMine)
         {
-            //PlaceDynamite();
 
             PlaceDynamiteClient();
             if (startTimer == true)
@@ -68,8 +80,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-            UpdateAnimator();
-            UpdateDirection();
+
+
 
     }
 
@@ -183,6 +195,26 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    //void PauseMenu()
+    //{
+    //    if (Input.GetKey(KeyCode.Escape))
+    //    {
+    //        pauseCheck = true;
+    //    }
+    //    if (Input.GetKey(KeyCode.Escape) && pauseCheck == true)
+    //    {
+    //        pauseCheck = false;
+    //    }
+    //    if (pauseCheck == true)
+    //    {
+    //        pauseWindow.gameObject.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        pauseWindow.gameObject.SetActive(false);
+    //    }
+    //}
+
     //void PlaceDynamite()
     //{
     //    if (Input.GetKeyDown(KeyCode.E) && offCooldown == true)
@@ -209,6 +241,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
+
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        
+    }
 
     [PunRPC]
     void RPC_PlaceDynamite()

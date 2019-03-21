@@ -10,18 +10,17 @@ public class AvatarSetup : MonoBehaviour
     public GameObject myCharacter;
 
     public int myGoldCount;
-    int updatedGoldCount;
-    public int myNumber = 10;
+    //public int myNumber = 10;
     public int playerHealth;
+    public bool isAlive;
     public int playerDamage;
     [SerializeField]
     private float immuneTimer;
     public float initialImmuneTimer;
     [SerializeField]
     private bool immuneTime;
-    public bool isAlive;
 
-    private void Start()
+    private void Awake()
     {
         PV = GetComponent<PhotonView>();
         if (PV.IsMine)
@@ -32,11 +31,16 @@ public class AvatarSetup : MonoBehaviour
             //PV.RPC("RPC_SendGold", RpcTarget.MasterClient);
 
         }
+    }
 
-        if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
-        {
-            myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
-        }
+    private void Start()
+    {
+
+
+        //if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
+        //{
+        //    myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
+        //}
 
 
         immuneTime = false;
@@ -65,12 +69,26 @@ public class AvatarSetup : MonoBehaviour
             {
                 playerHealth -= playerDamage;
                 immuneTime = true;
+
+
+
+
                 if (PV.IsMine)
                 {
                     GameSettings.GS.healthBar.value = playerHealth;
                 }
 
             }
+
+        }
+        if(collision.gameObject.tag == "Gold")
+        {
+            myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
+            if (PV.IsMine)
+            {
+                GameSettings.GS.text.text = "Gold: " + myGoldCount;
+            }            
+            Destroy(collision.gameObject);
 
         }
     }
