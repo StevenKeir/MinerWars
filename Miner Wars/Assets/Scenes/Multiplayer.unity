@@ -1088,6 +1088,7 @@ MonoBehaviour:
   - {fileID: 149585787}
   healthBar: {fileID: 1914626586}
   text: {fileID: 1774947825}
+  shopWindow: {fileID: 1349991384}
 --- !u!1 &1199261124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,6 +1101,7 @@ GameObject:
   - component: {fileID: 1199261125}
   - component: {fileID: 1199261128}
   - component: {fileID: 1199261127}
+  - component: {fileID: 1199261129}
   m_Layer: 0
   m_Name: Shop (1)
   m_TagString: Untagged
@@ -1181,6 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f69cac758a139d4cba967aea7d3b268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  someOneInShop: 0
 --- !u!61 &1199261128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1207,6 +1210,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.6, y: 7.14}
   m_EdgeRadius: 0
+--- !u!114 &1199261129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199261124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 271
+  InstantiationId: 271
+  isRuntimeInstantiated: 0
 --- !u!1 &1349991384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1319,7 @@ GameObject:
   - component: {fileID: 1388394401}
   - component: {fileID: 1388394404}
   - component: {fileID: 1388394403}
+  - component: {fileID: 1388394405}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -1375,6 +1401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f69cac758a139d4cba967aea7d3b268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  someOneInShop: 0
 --- !u!61 &1388394404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1401,6 +1428,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.6, y: 7.14}
   m_EdgeRadius: 0
+--- !u!114 &1388394405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388394400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  viewIdField: 272
+  InstantiationId: 272
+  isRuntimeInstantiated: 0
 --- !u!1 &1401130941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,7 +3280,7 @@ PrefabInstance:
     - target: {fileID: 1875843423634277826, guid: d5926582ba8aaa04294d6de9598cfcd6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1001614909950046150, guid: d5926582ba8aaa04294d6de9598cfcd6,
         type: 3}
