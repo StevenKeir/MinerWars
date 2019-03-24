@@ -61,11 +61,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
 
-        UpdateAnimator();
-        UpdateDirection();
+
         if (PV.IsMine)
         {
-
+        UpdateAnimator();
+        UpdateDirection();
             PlaceDynamiteClient();
             if (startTimer == true)
             {
@@ -139,14 +139,7 @@ public class PlayerMovement : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
         Vector3 moveVector = new Vector3(moveX, moveY, 0.0f);
-        if(moveX != 0.00f || moveY != 0.00f)
-        {
-            isWalking = true;
-        }
-        else
-        {
-            isWalking = false;
-        }
+
 
         transform.Translate(moveVector * movementSpeed * Time.deltaTime);
     }
@@ -178,7 +171,16 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimator()
     {
-        if(dirX != 1 || dirY != 1)
+        if (moveX != 0.00f || moveY != 0.00f)
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
+
+        if (dirX != 1 || dirY != 1)
         {
             anim.SetFloat("dirX", dirX);
             anim.SetFloat("dirY", dirY);

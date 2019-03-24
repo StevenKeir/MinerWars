@@ -12,6 +12,7 @@ public class GameSettings : MonoBehaviour
     public Transform[] spawnPoints;
     public Slider healthBar;
     public TMP_Text text;
+    public GameObject shopWindow;
 
     private void OnEnable() 
     {
