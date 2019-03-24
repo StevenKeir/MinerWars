@@ -10,7 +10,6 @@ public class AvatarSetup : MonoBehaviour
     public GameObject myCharacter;
 
     public int myGoldCount;
-    //public int myNumber = 10;
     public int playerHealth;
     public bool isAlive;
     public int playerDamage;
@@ -27,37 +26,20 @@ public class AvatarSetup : MonoBehaviour
         {
             PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
 
-
-            //PV.RPC("RPC_SendGold", RpcTarget.MasterClient);
-
         }
     }
 
     private void Start()
     {
-
-
-        //if (myNumber < PhotonNetwork.CurrentRoom.PlayerCount)
-        //{
-        //    myNumber = PhotonNetwork.CurrentRoom.PlayerCount - 1;
-        //}
-
-
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
 
-        //myNumber = RoomController.room.myNumberInRoom;
 
     }
 
     private void Update()
     {
-
-
-
         PlayerInformation();
-    
-
     }
 
 
@@ -69,8 +51,6 @@ public class AvatarSetup : MonoBehaviour
             {
                 playerHealth -= playerDamage;
                 immuneTime = true;
-
-
 
 
                 if (PV.IsMine)
