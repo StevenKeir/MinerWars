@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9083069589292284168}
   - component: {fileID: 6032658520760591860}
   - component: {fileID: 1036020254264346332}
+  - component: {fileID: 6450292068372110877}
   m_Layer: 0
   m_Name: BlueEyesOpen
   m_TagString: Untagged
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: bc5dc4047c7e0d540a4051e6aaec86fa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c2983c7412c5234391183674fce71f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,7 +115,7 @@ Animator:
   m_GameObject: {fileID: 4585074035389663449}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bf2193cd694c1d1429c40b9e7b4e0a27, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0e8a53ae2d68a994781d516a1e48abd5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -153,3 +154,15 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &6450292068372110877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585074035389663449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df6f93fb803142449decbf142f48541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -42,7 +42,11 @@ public class PlayerMovement : MonoBehaviour
 
     public bool pauseCheck;
 
-
+    private void Awake()
+    {
+        pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +57,8 @@ public class PlayerMovement : MonoBehaviour
         startTime = Time.time;
         anim = GetComponentInChildren<Animator>();
 
-        pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
+
+        
     }
 
 

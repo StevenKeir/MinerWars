@@ -1587,14 +1587,14 @@ MonoBehaviour:
   - {fileID: 4585074035389663449, guid: 8b9a0acf59a8c1841a9b6992258ef0d0, type: 3}
   allSprites:
   - {fileID: 21300000, guid: bc5dc4047c7e0d540a4051e6aaec86fa, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 21300000, guid: 8c2983c7412c5234391183674fce71f8, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
   animControllers:
+  - {fileID: 9100000, guid: bf2193cd694c1d1429c40b9e7b4e0a27, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9100000, guid: 0e8a53ae2d68a994781d516a1e48abd5, type: 2}
 --- !u!4 &1481122694
 Transform:
   m_ObjectHideFlags: 0

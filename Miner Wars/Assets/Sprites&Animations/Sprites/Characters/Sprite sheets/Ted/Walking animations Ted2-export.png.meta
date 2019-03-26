@@ -1,7 +1,20 @@
 fileFormatVersion: 2
 guid: d983c2c3aa121a84781177e003751a69
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Walking animations Ted2-export_0
+    21300002: Walking animations Ted2-export_1
+    21300004: Walking animations Ted2-export_2
+    21300006: Walking animations Ted2-export_3
+    21300008: Walking animations Ted2-export_4
+    21300010: Walking animations Ted2-export_5
+    21300012: Walking animations Ted2-export_6
+    21300014: Walking animations Ted2-export_7
+    21300016: Walking animations Ted2-export_8
+    21300018: Walking animations Ted2-export_9
+    21300020: Walking animations Ted2-export_10
+    21300022: Walking animations Ted2-export_11
+    21300024: Walking animations Ted2-export_12
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,7 +53,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,7 +117,267 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 980
+        width: 100
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f80bd41c07d7048b96a13f6ae69f89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 980
+        width: 110
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ac3f525295c6e4cb0d8911d505152c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_2
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 980
+        width: 150
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a716c02f5f7ac564c98466285b62fbad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_3
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 980
+        width: 140
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee12d8445145b44c916ac9b90f5f27f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 650
+        width: 150
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f51189e2437e804fbfe2aa17be28c73
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 660
+        width: 110
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c19c452eaa7f964cbf358aaa0e68576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_6
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 660
+        width: 100
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1801c7a637ff3bf4a9af39fd5cc9b831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_7
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 660
+        width: 110
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a563f16b03dbc644588dc325c947d503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_8
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 340
+        width: 140
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a64aed15dba1bbd4bbfc14704cf3d711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_9
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 340
+        width: 160
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99542e706b205454ca8a0902828d0d74
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_10
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 340
+        width: 140
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e6b91d8a7218142bbb53da53f48441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_11
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 340
+        width: 110
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736872df181e22d498a769e72ee65635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking animations Ted2-export_12
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 20
+        width: 100
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9761b9cbad11f4428744797ff95f897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

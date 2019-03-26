@@ -19,13 +19,17 @@ public class AvatarSetup : MonoBehaviour
     [SerializeField]
     private bool immuneTime;
 
+    Animator anim;
+    SpriteRenderer sprite;
 
-    public Animator anim;
-    public Sprite sprite;
 
     private void Awake()
     {
+        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         PV = GetComponent<PhotonView>();
+
+
         if (PV.IsMine)
         {
             PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
@@ -37,7 +41,6 @@ public class AvatarSetup : MonoBehaviour
     {
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
-
 
     }
 
@@ -108,7 +111,7 @@ public class AvatarSetup : MonoBehaviour
         characterValue = whichCharacter;
         //myCharacter = Instantiate(PlayerInfo.playerInfo.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
         anim.runtimeAnimatorController = PlayerInfo.playerInfo.animControllers[whichCharacter];
-        sprite = PlayerInfo.playerInfo.allSprites[whichCharacter];
+        sprite.sprite = PlayerInfo.playerInfo.allSprites[whichCharacter];
 
     }
 
