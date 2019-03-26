@@ -10,6 +10,9 @@ public class PlayerInfo : MonoBehaviour
 
     public GameObject[] allCharacters;
 
+    public Sprite[] allSprites;
+    public RuntimeAnimatorController[] animControllers;
+
     private void OnEnable()
     {
         if(PlayerInfo.playerInfo == null)

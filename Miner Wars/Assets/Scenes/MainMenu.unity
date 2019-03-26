@@ -1585,6 +1585,16 @@ MonoBehaviour:
   - {fileID: 4269429442967079912, guid: 20e2dd1f41f43884fa21a24c528fa9c5, type: 3}
   - {fileID: 8246814100458746009, guid: 4b921cd3b7ef18a4eae1adb65fd185ca, type: 3}
   - {fileID: 4585074035389663449, guid: 8b9a0acf59a8c1841a9b6992258ef0d0, type: 3}
+  allSprites:
+  - {fileID: 21300000, guid: bc5dc4047c7e0d540a4051e6aaec86fa, type: 3}
+  - {fileID: 21300000, guid: 8c2983c7412c5234391183674fce71f8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  animControllers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1481122694
 Transform:
   m_ObjectHideFlags: 0
