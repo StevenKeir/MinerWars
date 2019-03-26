@@ -30,19 +30,19 @@ public class MenuController : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("MyCharacter") == 0)
         {
-            text.text = "Selected Character: Pink";
+            text.text = "Selected Character: Rob";
         }
         if (PlayerPrefs.GetInt("MyCharacter") == 1)
         {
-            text.text = "Selected Character: Red";
+            text.text = "Selected Character: Ted";
         }
         if (PlayerPrefs.GetInt("MyCharacter") == 2)
         {
-            text.text = "Selected Character: Yellow";
+            text.text = "Selected Character: Beth";
         }
         if (PlayerPrefs.GetInt("MyCharacter") == 3)
         {
-            text.text = "Selected Character: Cyan";
+            text.text = "Selected Character: Tina";
         }
     }
 

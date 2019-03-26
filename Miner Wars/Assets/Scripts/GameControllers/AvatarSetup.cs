@@ -25,16 +25,16 @@ public class AvatarSetup : MonoBehaviour
 
     private void Awake()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+        //sprite = GetComponent<SpriteRenderer>();
+        //anim = GetComponent<Animator>();
         PV = GetComponent<PhotonView>();
 
 
-        if (PV.IsMine)
-        {
-            PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
+        //if (PV.IsMine)
+        //{
+        //    PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
 
-        }
+        //}
     }
 
     private void Start()
@@ -108,10 +108,10 @@ public class AvatarSetup : MonoBehaviour
     [PunRPC]
     void RPC_AddCharacter(int whichCharacter)
     {
-        characterValue = whichCharacter;
+        //characterValue = whichCharacter;
         //myCharacter = Instantiate(PlayerInfo.playerInfo.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
-        anim.runtimeAnimatorController = PlayerInfo.playerInfo.animControllers[whichCharacter];
-        sprite.sprite = PlayerInfo.playerInfo.allSprites[whichCharacter];
+        //anim.runtimeAnimatorController = PlayerInfo.playerInfo.animControllers[whichCharacter];
+        //sprite.sprite = PlayerInfo.playerInfo.allSprites[whichCharacter];
 
     }
 

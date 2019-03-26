@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 644}
-  - component: {fileID: 1525}
-  - component: {fileID: 1859}
-  - component: {fileID: 1858}
-  - component: {fileID: 1221}
-  - component: {fileID: 1229}
-  - component: {fileID: 1857}
-  - component: {fileID: 1860}
-  - component: {fileID: 1523612844175495417}
-  - component: {fileID: 622622757348699371}
+  - component: {fileID: 645}
+  - component: {fileID: 1531}
+  - component: {fileID: 1866}
+  - component: {fileID: 1865}
+  - component: {fileID: 1223}
+  - component: {fileID: 1232}
+  - component: {fileID: 1864}
+  - component: {fileID: 1867}
+  - component: {fileID: 1516}
+  - component: {fileID: 1918}
   m_Layer: 9
-  m_Name: PlayerAvatar
+  m_Name: P1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &644
+--- !u!4 &645
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,13 +33,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13199893, y: 1.3826182, z: 0.11802703}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1525
+--- !u!212 &1531
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,18 +76,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bc5dc4047c7e0d540a4051e6aaec86fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1859
+--- !u!114 &1866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,11 +105,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1858}
+  - {fileID: 1865}
+  - {fileID: 1918}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
---- !u!114 &1858
+--- !u!114 &1865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 1
---- !u!50 &1221
+--- !u!50 &1223
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -145,7 +146,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &1229
+--- !u!61 &1232
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,7 +164,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 3}
-    newSize: {x: 2.56, y: 2.56}
+    newSize: {x: 2, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -171,7 +172,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &1857
+--- !u!114 &1864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,14 +184,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84c44bc8b8dc4baea67c84553e54add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4.5
+  movementSpeed: 5
   rotationSpeed: 0
   cooldown: 3
   startCooldown: 3
   startTimer: 0
   offCooldown: 1
+  secondCooldown: 1.5
+  secondStartCooldown: 1.5
+  secondStartTimer: 0
+  secondOffCooldown: 1
+  nextDynamite: 0
+  startNextTimer: 0.5
+  nextTimer: 0.5
+  nextTimerStart: 0
   minSpeed: 0
-  duration: 1.5
+  duration: 0
   dirX: 0
   dirY: 0
   isWalking: 0
@@ -199,7 +208,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   pauseWindow: {fileID: 0}
   pauseCheck: 0
---- !u!114 &1860
+--- !u!114 &1867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,7 +229,7 @@ MonoBehaviour:
   immuneTimer: 0
   initialImmuneTimer: 3
   immuneTime: 0
---- !u!95 &1523612844175495417
+--- !u!95 &1516
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -230,7 +239,7 @@ Animator:
   m_GameObject: {fileID: 170}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf2193cd694c1d1429c40b9e7b4e0a27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -239,7 +248,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &622622757348699371
+--- !u!114 &1918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,5 +262,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 1
+    Name: Blend
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalking
+  - Type: 1
+    SynchronizeType: 1
+    Name: dirY
+  - Type: 1
+    SynchronizeType: 1
+    Name: dirX
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0

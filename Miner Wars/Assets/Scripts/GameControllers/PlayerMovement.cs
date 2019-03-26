@@ -22,13 +22,29 @@ public class PlayerMovement : MonoBehaviour
     private bool startTimer = false;
     [SerializeField]
     private bool offCooldown = true;
-
+    [SerializeField]
+    private float secondCooldown = 1.5f;
+    [SerializeField]
+    private float secondStartCooldown = 1.5f;
+    [SerializeField]
+    private bool secondStartTimer = false;
+    [SerializeField]
+    private bool secondOffCooldown = true;
+    [SerializeField]
+    private bool nextDynamite = false;
+    [SerializeField]
+    private float startNextTimer = 0.5f;
+    [SerializeField]
+    private float nextTimer = 0.5f;
+    [SerializeField]
+    bool nextTimerStart;
 
     [Header("Test movement options")]
     public float minSpeed;
     public float duration;
     private float startTime;
 
+    [Header("Animation Settings")]
     public float dirX;
     public float dirY;
     public bool isWalking;
@@ -73,6 +89,10 @@ public class PlayerMovement : MonoBehaviour
             UpdateAnimator();
             UpdateDirection();
             PlaceDynamiteClient();
+
+
+
+
             if (startTimer == true)
             {
                 cooldown -= Time.deltaTime;
@@ -83,6 +103,31 @@ public class PlayerMovement : MonoBehaviour
                 offCooldown = true;
                 cooldown = startCooldown;
             }
+
+
+            if (secondStartTimer == true)
+            {
+                secondCooldown -= Time.deltaTime;
+            }
+            if (secondCooldown <= 0)
+            {
+                secondStartTimer = false;
+                secondOffCooldown = true;
+                nextDynamite = false;
+                secondCooldown = secondStartCooldown;
+            }
+
+            if(nextTimerStart == true)
+            {
+                nextTimer -= Time.deltaTime;
+            }
+            if(nextTimer <= 0)
+            {
+                nextDynamite = true;
+                nextTimerStart = false;
+                nextTimer = startNextTimer;
+            }
+
         }
 
 
@@ -177,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimator()
     {
-        if (moveX != 0.00f || moveY != 0.00f)
+        if ((moveX >= 0.3f || moveY >= 0.3f) || (moveX <= -0.3f || moveY <= -0.3f))
         {
             isWalking = true;
         }
@@ -240,12 +285,29 @@ public class PlayerMovement : MonoBehaviour
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
             offCooldown = false;
             startTimer = true;
+            nextTimerStart = true;
         }
         if (Input.GetKeyDown(KeyCode.R) && offCooldown == true)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
             offCooldown = false;
             startTimer = true;
+            nextTimerStart = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && offCooldown == false && nextDynamite == true)
+        {
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
+            secondOffCooldown = false;
+            secondStartTimer = true;
+            nextDynamite = false;
+        }
+        if (Input.GetKeyDown(KeyCode.R) && offCooldown == false && nextDynamite == true)
+        {
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
+            secondOffCooldown = false;
+            secondStartTimer = true;
+            nextDynamite = false;
         }
     }
 

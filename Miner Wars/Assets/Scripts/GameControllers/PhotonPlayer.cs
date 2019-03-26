@@ -17,7 +17,23 @@ public class PhotonPlayer : MonoBehaviour
 
         if (pv.IsMine)
         {
-            myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerAvatar"), GameSettings.GS.spawnPoints[spawnPicker].position, GameSettings.GS.spawnPoints[spawnPicker].rotation, 0);
+            if (PlayerPrefs.GetInt("MyCharacter") == 0)
+            {
+                myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "P1"), GameSettings.GS.spawnPoints[spawnPicker].position, GameSettings.GS.spawnPoints[spawnPicker].rotation, 0);
+            }
+            if (PlayerPrefs.GetInt("MyCharacter") == 1)
+            {
+                myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "P2"), GameSettings.GS.spawnPoints[spawnPicker].position, GameSettings.GS.spawnPoints[spawnPicker].rotation, 0);
+            }
+            if (PlayerPrefs.GetInt("MyCharacter") == 2)
+            {
+                myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "P3"), GameSettings.GS.spawnPoints[spawnPicker].position, GameSettings.GS.spawnPoints[spawnPicker].rotation, 0);
+            }
+            if (PlayerPrefs.GetInt("MyCharacter") == 3)
+            {
+                myAvatar = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "P4"), GameSettings.GS.spawnPoints[spawnPicker].position, GameSettings.GS.spawnPoints[spawnPicker].rotation, 0);
+            }
+            
         }
     }
 
