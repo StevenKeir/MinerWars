@@ -9,6 +9,8 @@ TagManager:
   - Rock
   - Gold
   - PauseWindow
+  - Shop
+  - ShopWindow
   layers:
   - Default
   - TransparentFX
