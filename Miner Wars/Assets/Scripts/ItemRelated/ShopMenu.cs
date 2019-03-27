@@ -7,56 +7,59 @@ public class ShopMenu : MonoBehaviour
 {
 
     private PhotonView PV;
+   public GameObject shopWindow;
     public bool someOneInShop = false;
+    public bool shopOpen = false;
+
+    private void Awake()
+    {
+        shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+    }
 
     private void Start()
     {
-        PV = GetComponent<PhotonView>();
+        //GameSettings.GS.shopWindow.SetActive(false);
+        shopWindow.SetActive(false);
     }
+
 
     private void Update()
     {
-        if (PV.IsMine)
+        if (Input.GetKeyUp(KeyCode.F) && someOneInShop && !shopOpen)
         {
-            if (someOneInShop)
-            {
-                if (Input.GetKey(KeyCode.F))
-                {
-
-                    GameSettings.GS.shopWindow.SetActive(true);
-                    print("Shop opened");
-                }
-            }
-            else
-            {
-                GameSettings.GS.shopWindow.SetActive(false);
-            }
+            //GameSettings.GS.shopWindow.SetActive(true);
+            shopWindow.SetActive(true);
+            shopOpen = true;
+            print("Shop opened");
         }
-
+        else if (Input.GetKeyUp(KeyCode.F) && someOneInShop && shopOpen)
+        {
+            //GameSettings.GS.shopWindow.SetActive(false);
+            shopWindow.SetActive(false);
+            shopOpen = false;
+        }
+        else if (!someOneInShop)
+        {
+            shopWindow.SetActive(false);
+            shopOpen = false;
+        }
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Shop")
         {
             print("Someone Entered me ;)");
             someOneInShop = true;
         }
-
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Shop")
         {
             print("Someone Left me :(");
             someOneInShop = false;
         }
     }
-
-
 }
