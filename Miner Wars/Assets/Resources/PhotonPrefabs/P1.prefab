@@ -291,4 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f69cac758a139d4cba967aea7d3b268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopWindow: {fileID: 0}
   someOneInShop: 0
+  shopOpen: 0
