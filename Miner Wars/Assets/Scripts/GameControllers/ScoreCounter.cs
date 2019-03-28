@@ -40,6 +40,7 @@ public class ScoreCounter : MonoBehaviour
         scoreList[1] = playerScore;
     }
 
+    [PunRPC]
     void RPC_MasterClientSendScore(int playerScore)
     {
         scoreList[0] = playerScore;
