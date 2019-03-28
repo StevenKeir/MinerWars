@@ -43,5 +43,6 @@ MonoBehaviour:
   - RPC_SendGold
   - RPC_UpdateGold
   - RPC_DestroyMe
+  - RPC_SendScore
   DisableAutoOpenWizard: 1
   ShowSettings: 1
