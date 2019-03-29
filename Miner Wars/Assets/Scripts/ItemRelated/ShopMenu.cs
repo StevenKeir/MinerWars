@@ -11,9 +11,14 @@ public class ShopMenu : MonoBehaviour
     public bool someOneInShop = false;
     public bool shopOpen = false;
 
+    private void OnEnable()
+    {
+         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+    }
+
     private void Awake()
     {
-        shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
+       
     }
 
     private void Start()
