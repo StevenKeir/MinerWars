@@ -2,14 +2,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoreCounter : MonoBehaviour
 {
+    public static ScoreCounter SC;
 
     public int[] scoreList = new int[2];
     public int localScore;
     public PhotonView PV;
+    public TMP_Text playerOneText;
+    public TMP_Text playerTwoText;
 
+
+    private void OnEnable()
+    {
+        if (ScoreCounter.SC == null)
+        {
+            ScoreCounter.SC = this;
+        }
+    }
 
     private void Awake()
     {
@@ -30,20 +42,18 @@ public class ScoreCounter : MonoBehaviour
         }
     }
 
-
-
-
-
     [PunRPC]
     void RPC_SendScore(int playerScore)
     {
         scoreList[1] = playerScore;
+        playerOneText.text = "Player 1: " + playerScore;
     }
 
     [PunRPC]
     void RPC_MasterClientSendScore(int playerScore)
     {
         scoreList[0] = playerScore;
+        playerTwoText.text = "Player 2: " + playerScore;
     }
 
 }
