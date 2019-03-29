@@ -30,6 +30,10 @@ public class ScoreCounter : MonoBehaviour
 
     private void Update()
     {
+
+        playerOneText.text = "Player 1: " + scoreList[0];
+        playerTwoText.text = "Player 2: " + scoreList[1];
+
         if (PhotonNetwork.IsMasterClient)
         {
             scoreList[0] = localScore;
@@ -54,8 +58,8 @@ public class ScoreCounter : MonoBehaviour
     void RPC_MasterClientSendScore(int playerScore)
     {
         scoreList[0] = playerScore;
-        playerOneText.text = "Player 1: " + scoreList[0];
-        playerTwoText.text = "Player 2: " + scoreList[1];
+        //playerOneText.text = "Player 1: " + scoreList[0];
+        //playerTwoText.text = "Player 2: " + scoreList[1];
     }
 
 }
