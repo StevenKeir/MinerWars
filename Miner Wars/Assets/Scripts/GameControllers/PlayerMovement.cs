@@ -51,6 +51,13 @@ public class PlayerMovement : MonoBehaviour
     public float moveX;
     public float moveY;
 
+    [Header("Upgrade Checks")]
+    public bool hasExtraDynamite = false;
+    public bool hasBoots = false;
+    public bool hasUpgradedExplosion = false;
+    public bool hasBaricade = false;
+
+
     bool facingRight;
     public Animator anim;
 
@@ -72,26 +79,18 @@ public class PlayerMovement : MonoBehaviour
         offCooldown = true;
         startTime = Time.time;
         anim = GetComponentInChildren<Animator>();
-
-
-        
     }
 
 
     private void Update()
     {
-       
-
         if (PV.IsMine)
         {
             PauseMenu();
 
             UpdateAnimator();
             UpdateDirection();
-            PlaceDynamiteClient();
-
-
-
+            PlaceDynamiteClient(); 
 
             if (startTimer == true)
             {
@@ -104,7 +103,6 @@ public class PlayerMovement : MonoBehaviour
                 cooldown = startCooldown;
             }
 
-
             if (secondStartTimer == true)
             {
                 secondCooldown -= Time.deltaTime;
@@ -113,33 +111,33 @@ public class PlayerMovement : MonoBehaviour
             {
                 secondStartTimer = false;
                 secondOffCooldown = true;
-                nextDynamite = false;
                 secondCooldown = secondStartCooldown;
+                if (hasExtraDynamite)
+                {
+                    nextDynamite = false;
+                }
             }
 
-            if(nextTimerStart == true)
+            if (hasExtraDynamite)
             {
-                nextTimer -= Time.deltaTime;
+                if (nextTimerStart == true)
+                {
+                    nextTimer -= Time.deltaTime;
+                }
+                if (nextTimer <= 0)
+                {
+                    nextDynamite = true;
+                    nextTimerStart = false;
+                    nextTimer = startNextTimer;
+                }
             }
-            if(nextTimer <= 0)
-            {
-                nextDynamite = true;
-                nextTimerStart = false;
-                nextTimer = startNextTimer;
-            }
-
         }
-
-
-
-
-
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (PV.IsMine /*&& (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))*/)
+        if (PV.IsMine)
         {
             OtherMovement();
             // for flipping character
@@ -168,22 +166,6 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    //void TestMovement()
-    //Testing Mathf.smoothStep trying to get a smoother movement but ended up worse
-    //{
-    //    float t = (Time.time - startTime) / duration;
-
-    //    //float moveX = Input.GetAxis("Horizontal");
-    //    //float moveY = Input.GetAxis("Vertical");
-    //    float moveX = Mathf.SmoothStep(minSpeed, (Input.GetAxis("Horizontal")), t);
-    //    float moveY = Mathf.SmoothStep(minSpeed, (Input.GetAxis("Vertical")), t);
-    //    Vector3 moveVector = new Vector3(moveX, moveY);
-    //    transform.Translate(moveVector * movementSpeed * Time.deltaTime);
-
-    //}
-
-
-
     void OtherMovement() 
     //Simple movement for now
     {
@@ -191,8 +173,15 @@ public class PlayerMovement : MonoBehaviour
         moveY = Input.GetAxis("Vertical");
         Vector3 moveVector = new Vector3(moveX, moveY, 0.0f);
 
-
-        transform.Translate(moveVector * movementSpeed * Time.deltaTime);
+        if (hasBoots)
+        {
+            transform.Translate(moveVector * movementSpeed * 2 * Time.deltaTime);
+        }
+        else
+        {
+            transform.Translate(moveVector * movementSpeed * Time.deltaTime);
+        }
+        
     }
 
 
@@ -268,26 +257,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //void PlaceDynamite()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.E) && offCooldown == true)
-    //    {
-    //        PV.RPC("RPC_PlaceDynamite", RpcTarget.MasterClient);
-    //        offCooldown = false;
-    //        startTimer = true;
-    //    }
-    //}
-
     void PlaceDynamiteClient()
     {
-        if (Input.GetKeyDown(KeyCode.E) && offCooldown == true)
+        if (Input.GetKeyDown(KeyCode.E) && offCooldown == true && hasUpgradedExplosion == false)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
             offCooldown = false;
             startTimer = true;
             nextTimerStart = true;
         }
-        if (Input.GetKeyDown(KeyCode.R) && offCooldown == true)
+        if (Input.GetKeyDown(KeyCode.E) && offCooldown == true && hasUpgradedExplosion == true)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
             offCooldown = false;
@@ -295,14 +274,14 @@ public class PlayerMovement : MonoBehaviour
             nextTimerStart = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && offCooldown == false && nextDynamite == true)
+        if (Input.GetKeyDown(KeyCode.E) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == false)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
             secondOffCooldown = false;
             secondStartTimer = true;
             nextDynamite = false;
         }
-        if (Input.GetKeyDown(KeyCode.R) && offCooldown == false && nextDynamite == true)
+        if (Input.GetKeyDown(KeyCode.E) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == true)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
             secondOffCooldown = false;

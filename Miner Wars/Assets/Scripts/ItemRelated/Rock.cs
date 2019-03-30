@@ -38,7 +38,7 @@ public class Rock : MonoBehaviour
                 }
                 else
                 {
-                    print("No gold found");
+                    //print("No gold found");
                 }
                 PV.RPC("RPC_DestroyMe", RpcTarget.AllBuffered);
                 hit = false;
