@@ -13,13 +13,8 @@ public class ShopMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        
-         shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
-    }
-
-    private void Awake()
-    {
-       
+        shopWindow = GameSettings.GS.shopWindow;
+         //shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
     }
 
     private void Start()
@@ -55,12 +50,8 @@ public class ShopMenu : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            if (PV.IsMine)
-            {
-                print("Someone Entered me ;)");
-                someOneInShop = true;
-            }
-
+            print("Someone Entered me ;)");
+            someOneInShop = true;
         }
     }
 
@@ -68,11 +59,8 @@ public class ShopMenu : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            if (PV.IsMine)
-            {
-                print("Someone Left me :(");
-                someOneInShop = false;
-            }
+            print("Someone Left me :(");
+            someOneInShop = false;
         }
     }
 }

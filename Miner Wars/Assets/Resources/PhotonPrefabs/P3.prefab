@@ -55,11 +55,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300020, guid: ef542636758f9a0479fdbbc70b29f4d9,
-        type: 3}
     - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: viewIdField
       value: 0
@@ -72,6 +67,11 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[1]
       value: 
       objectReference: {fileID: 2422091717923167245}
+    - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300020, guid: ef542636758f9a0479fdbbc70b29f4d9,
+        type: 3}
     - target: {fileID: 1516, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_Controller
       value: 
