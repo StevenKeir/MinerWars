@@ -27,7 +27,7 @@ public class SpawnRocks : MonoBehaviour
         {
             yield return new WaitForSeconds(0f);
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "DestructibleRock"), destructablePoints[i].transform.position, Quaternion.identity, 0);
-            print(i);
+            //print(i);
         }
         for (int i = 0; i < nonDestructablePoints.Length; i++)
         {
