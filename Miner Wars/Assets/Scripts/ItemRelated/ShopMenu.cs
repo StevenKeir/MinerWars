@@ -13,6 +13,7 @@ public class ShopMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        
          shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
     }
 

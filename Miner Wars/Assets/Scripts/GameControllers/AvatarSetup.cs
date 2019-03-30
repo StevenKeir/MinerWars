@@ -71,6 +71,7 @@ public class AvatarSetup : MonoBehaviour
         if(collision.gameObject.tag == "Gold")
         {
             myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
+            ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth / 2;
             if (PV.IsMine)
             {
                 GameSettings.GS.text.text = "Gold: " + myGoldCount;
