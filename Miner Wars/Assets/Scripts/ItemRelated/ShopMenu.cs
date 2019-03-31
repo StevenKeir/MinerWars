@@ -7,42 +7,43 @@ public class ShopMenu : MonoBehaviour
 {
 
     private PhotonView PV;
-   public GameObject shopWindow;
+    public GameObject shopWindow;
     public bool someOneInShop = false;
     public bool shopOpen = false;
 
     private void OnEnable()
     {
         shopWindow = GameSettings.GS.shopWindow;
-         //shopWindow = GameObject.FindGameObjectWithTag("ShopWindow");
     }
 
     private void Start()
     {
-        //GameSettings.GS.shopWindow.SetActive(false);
+        PV = GetComponent<PhotonView>();
         shopWindow.SetActive(false);
     }
 
-
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.F) && someOneInShop && !shopOpen)
+        if (PV.IsMine)
         {
-            //GameSettings.GS.shopWindow.SetActive(true);
-            shopWindow.SetActive(true);
-            shopOpen = true;
-            print("Shop opened");
-        }
-        else if (Input.GetKeyUp(KeyCode.F) && someOneInShop && shopOpen)
-        {
-            //GameSettings.GS.shopWindow.SetActive(false);
-            shopWindow.SetActive(false);
-            shopOpen = false;
-        }
-        else if (!someOneInShop)
-        {
-            shopWindow.SetActive(false);
-            shopOpen = false;
+            if (Input.GetKeyUp(KeyCode.F) && someOneInShop && !shopOpen)
+            {
+                //GameSettings.GS.shopWindow.SetActive(true);
+                shopWindow.SetActive(true);
+                shopOpen = true;
+                print("Shop opened");
+            }
+            else if (Input.GetKeyUp(KeyCode.F) && someOneInShop && shopOpen)
+            {
+                //GameSettings.GS.shopWindow.SetActive(false);
+                shopWindow.SetActive(false);
+                shopOpen = false;
+            }
+            else if (!someOneInShop)
+            {
+                shopWindow.SetActive(false);
+                shopOpen = false;
+            }
         }
     }
 

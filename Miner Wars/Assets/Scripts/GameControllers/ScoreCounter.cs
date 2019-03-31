@@ -58,7 +58,8 @@ public class ScoreCounter : MonoBehaviour
     void RPC_MasterClientSendScore(int playerScore)
     {
         scoreList[0] = playerScore;
-        //playerOneText.text = "Player 1: " + scoreList[0];
+        //
+        playerOneText.text = "Player 1: " + scoreList[0];
         //playerTwoText.text = "Player 2: " + scoreList[1];
     }
 

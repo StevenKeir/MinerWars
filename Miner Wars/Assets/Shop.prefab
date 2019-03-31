@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5554430013253193491}
   - component: {fileID: 8127150079387752001}
   m_Layer: 5
-  m_Name: Item (1)
+  m_Name: Extra Dynamite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 1292419490343974457}
   - component: {fileID: 6810974126622211428}
   m_Layer: 5
-  m_Name: Item (3)
+  m_Name: Health Increase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.03578174}
   m_AnchorMax: {x: 1, y: 0.67234534}
-  m_AnchoredPosition: {x: 0, y: 34.093094}
+  m_AnchoredPosition: {x: 0.000030517578, y: 34.093094}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4431402159095313320
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 5568307235454572334}
   - component: {fileID: 2000763653239896513}
   m_Layer: 5
-  m_Name: Item
+  m_Name: UpgradeDynamite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1362,7 +1362,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1812759131153618803}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &7612969274167425032
@@ -1619,7 +1630,7 @@ GameObject:
   - component: {fileID: 3939468450819904637}
   - component: {fileID: 6694417552232712909}
   m_Layer: 5
-  m_Name: Item (2)
+  m_Name: Speed Boots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -27,28 +27,27 @@ public class AvatarSetup : MonoBehaviour
     {
         //sprite = GetComponent<SpriteRenderer>();
         //anim = GetComponent<Animator>();
-        PV = GetComponent<PhotonView>();
-
-
         //if (PV.IsMine)
         //{
         //    PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
 
         //}
+        PV = GetComponent<PhotonView>();
+
+
+
     }
 
     private void Start()
     {
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
-
     }
 
     private void Update()
     {
         PlayerInformation();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,8 +57,6 @@ public class AvatarSetup : MonoBehaviour
             {
                 playerHealth -= playerDamage;
                 immuneTime = true;
-
-
                 if (PV.IsMine)
                 {
                     GameSettings.GS.healthBar.value = playerHealth;
@@ -68,16 +65,15 @@ public class AvatarSetup : MonoBehaviour
             }
 
         }
-        if(collision.gameObject.tag == "Gold")
+        if (collision.gameObject.tag == "Gold")
         {
-            myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
-            ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth / 2;
             if (PV.IsMine)
             {
+                myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
+                ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth / 2;
                 GameSettings.GS.text.text = "Gold: " + myGoldCount;
-            }            
+            }
             Destroy(collision.gameObject);
-
         }
     }
 
@@ -87,14 +83,11 @@ public class AvatarSetup : MonoBehaviour
         {
             immuneTimer -= Time.deltaTime;
         }
-
         if (immuneTimer <= 0)
         {
             immuneTime = false;
             immuneTimer = initialImmuneTimer;
         }
-
-
         if (playerHealth <= 0)
         {
             isAlive = false;

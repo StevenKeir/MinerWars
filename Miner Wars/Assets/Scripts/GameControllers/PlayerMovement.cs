@@ -55,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
     public bool hasExtraDynamite = false;
     public bool hasBoots = false;
     public bool hasUpgradedExplosion = false;
+    public bool hasHealthIncrease = false;
     public bool hasBaricade = false;
-
 
     bool facingRight;
     public Animator anim;
@@ -68,7 +68,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
-        
+
+
     }
 
     // Start is called before the first frame update
@@ -79,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
         offCooldown = true;
         startTime = Time.time;
         anim = GetComponentInChildren<Animator>();
+
+        if (PV.IsMine)
+        {
+            GameSettings.GS.localPlayer = this;
+        }
     }
 
 
