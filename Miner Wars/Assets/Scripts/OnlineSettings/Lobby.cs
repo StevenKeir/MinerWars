@@ -18,6 +18,7 @@ public class Lobby : MonoBehaviourPunCallbacks
     public GameObject offlineButton;
     public GameObject currentRoomButton;
     public GameObject leaveRoomButton;
+    public GameObject menuStuff;
     public Text roomText;
 
     private void Awake()
