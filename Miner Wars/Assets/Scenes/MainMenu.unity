@@ -272,7 +272,7 @@ MonoBehaviour:
   playersInRoom: 0
   myNumberInRoom: 0
   playerInGame: 0
-  startingTime: 5
+  startingTime: 2
 --- !u!4 &74921961
 Transform:
   m_ObjectHideFlags: 0
