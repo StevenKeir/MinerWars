@@ -4175,11 +4175,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -6.41
       objectReference: {fileID: 0}
-    - target: {fileID: 7470205217726868326, guid: 64c52cacc4dbeb349b71e3549ba2b365,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -12.61
-      objectReference: {fileID: 0}
     - target: {fileID: 7470205218807045073, guid: 64c52cacc4dbeb349b71e3549ba2b365,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4194,11 +4189,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 6.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 7470205217638346365, guid: 64c52cacc4dbeb349b71e3549ba2b365,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.36
       objectReference: {fileID: 0}
     - target: {fileID: 7470205217785597539, guid: 64c52cacc4dbeb349b71e3549ba2b365,
         type: 3}
@@ -4264,6 +4254,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 43.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470205217726868326, guid: 64c52cacc4dbeb349b71e3549ba2b365,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470205217638346365, guid: 64c52cacc4dbeb349b71e3549ba2b365,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64c52cacc4dbeb349b71e3549ba2b365, type: 3}
@@ -6210,7 +6210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ede49356458945ed89a93d810917c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayStart: 0
+  delayStart: 1
   maxPlayers: 2
   menuScene: 0
   multiplayerScene: 2

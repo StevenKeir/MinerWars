@@ -9,7 +9,7 @@ public class GameSettings : MonoBehaviour
 {
     public static GameSettings GS;
     public Transform[] spawnPoints;
-
+    private PhotonView PV;
 
 
     public Slider healthBar;
@@ -19,11 +19,19 @@ public class GameSettings : MonoBehaviour
     [Header("Local Players Reference")]
     public PlayerMovement localPlayer;
     public AvatarSetup localPlayerAvatar;
+
+    [Header("Shop Prices")]
     public int bootPrice;
     public int upgradedExplosionPrice;
     public int extraDynamitePrice;
     public int healthIncreasePrice;
     public int baricadePrice;
+
+    [Header("Timer Settings")]
+    public float startTimerTime;
+    public float gamelength;
+    public TMP_Text timerText;
+    public bool startTimer = false;
 
 
 
@@ -32,6 +40,31 @@ public class GameSettings : MonoBehaviour
         if (GameSettings.GS == null)
         {
             GameSettings.GS = this;
+        }
+    }
+
+    private void Awake()
+    {
+        PV = GetComponent<PhotonView>();
+        UpdateTimerUI();
+        startTimerTime = gamelength;
+    }
+
+    private void Update()
+    {
+        if (startTimer)
+        {
+
+            gamelength -= Time.deltaTime;
+            timerText.text = ((int)gamelength).ToString();
+        }
+    }
+
+    private void UpdateTimerUI()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PV.RPC("RPC_SendTimerUpdate", RpcTarget.AllBuffered);
         }
     }
 
@@ -76,5 +109,9 @@ public class GameSettings : MonoBehaviour
         }
     }
 
-
+    [PunRPC]
+    void RPC_SendTimerUpdate()
+    {
+        this.startTimer = true;
+    }
 }
