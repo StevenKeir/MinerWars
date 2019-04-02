@@ -25,7 +25,6 @@ public class AvatarSetup : MonoBehaviour
 
     private void Awake()
     {
-
         PV = GetComponent<PhotonView>();
         if (PV.IsMine)
         {
