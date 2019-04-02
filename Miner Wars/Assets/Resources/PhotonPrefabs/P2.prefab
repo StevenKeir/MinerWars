@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2
       objectReference: {fileID: 0}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 255773325900865727}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 255773325900865672}
     - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -20,14 +28,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0e8a53ae2d68a994781d516a1e48abd5, type: 2}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 255773325900865727}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: ObservedComponents.Array.data[1]
-      value: 
-      objectReference: {fileID: 255773325900865672}
     - target: {fileID: 644, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.13199893
