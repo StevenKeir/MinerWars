@@ -12,11 +12,13 @@ public class MenuController : MonoBehaviour
     public GameObject characterSelect;
     public GameObject mainButtons;
     public GameObject controlsDisplay;
+    public GameObject waitingText;
 
     private void Start()
     {
         characterSelect.SetActive(false);
         controlsDisplay.SetActive(false);
+        waitingText.SetActive(false);
     }
 
     public void OnClickCharacterPick(int whichCharacter)

@@ -19,6 +19,7 @@ public class Lobby : MonoBehaviourPunCallbacks
     public GameObject currentRoomButton;
     public GameObject leaveRoomButton;
     public GameObject menuStuff;
+    public GameObject waitingText;
     public Text roomText;
 
     private void Awake()
@@ -47,6 +48,7 @@ public class Lobby : MonoBehaviourPunCallbacks
         cancelButton.SetActive(true);
         PhotonNetwork.JoinRandomRoom();
         Debug.Log("Join button was clicked");
+        waitingText.SetActive(true);
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -100,6 +102,7 @@ public class Lobby : MonoBehaviourPunCallbacks
         joinButton.SetActive(true);
         cancelButton.SetActive(false);
         PhotonNetwork.LeaveRoom();
+        waitingText.SetActive(false);
     }
 
     public void OnLeaveRoomClick()
