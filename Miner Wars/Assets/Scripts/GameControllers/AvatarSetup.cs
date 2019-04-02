@@ -25,17 +25,12 @@ public class AvatarSetup : MonoBehaviour
 
     private void Awake()
     {
-        //sprite = GetComponent<SpriteRenderer>();
-        //anim = GetComponent<Animator>();
-        //if (PV.IsMine)
-        //{
-        //    PV.RPC("RPC_AddCharacter", RpcTarget.AllBuffered, PlayerInfo.playerInfo.mySelectedCharacter);
 
-        //}
         PV = GetComponent<PhotonView>();
-
-
-
+        if (PV.IsMine)
+        {
+            GameSettings.GS.localPlayerAvatar = this;
+        }
     }
 
     private void Start()
