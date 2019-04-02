@@ -10,9 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private PhotonView PV;
     [Header("Movement options, used in all movement types")]
     public float movementSpeed;
-    public float rotationSpeed;
+    //public float rotationSpeed;
     private Rigidbody2D RB;
 
+    /*
     [Header("Cooldown for TNT")]
     [SerializeField]
     private float cooldown = 3f;
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private float nextTimer = 0.5f;
     [SerializeField]
     bool nextTimerStart;
+    */
 
     [Header("Test movement options")]
     public float minSpeed;
@@ -58,18 +60,23 @@ public class PlayerMovement : MonoBehaviour
     public bool hasHealthIncrease = false;
     public bool hasBaricade = false;
 
+    [Header("Animator related")]
     bool facingRight;
     public Animator anim;
 
     public GameObject pauseWindow;
-
     public bool pauseCheck;
+
+    [Header("New dynamite system")]
+    public int dynamiteCount = 0;
+    public int maxDynamiteCount = 5;
+    public float startCooldownTimer;
+    public float cooldownTimer;
+    public bool startTimer = false;
 
     private void Awake()
     {
         pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
-
-
     }
 
     // Start is called before the first frame update
@@ -77,9 +84,10 @@ public class PlayerMovement : MonoBehaviour
     {
         PV = GetComponent<PhotonView>();
         RB = GetComponent<Rigidbody2D>();
-        offCooldown = true;
+        //offCooldown = true;
         startTime = Time.time;
         anim = GetComponentInChildren<Animator>();
+        dynamiteCount = maxDynamiteCount;
 
         if (PV.IsMine)
         {
@@ -93,11 +101,25 @@ public class PlayerMovement : MonoBehaviour
         if (PV.IsMine)
         {
             PauseMenu();
-
             UpdateAnimator();
             UpdateDirection();
-            PlaceDynamiteClient(); 
 
+            DynamiteClient();
+
+            if (startTimer)
+            {
+                if(dynamiteCount == maxDynamiteCount)
+                {
+                    startTimer = false;
+                    cooldownTimer = startCooldownTimer;
+                }
+                else
+                {
+                    DynamiteTimer();
+                }
+            }
+            /*
+            PlaceDynamiteClient(); 
             if (startTimer == true)
             {
                 cooldown -= Time.deltaTime;
@@ -137,10 +159,10 @@ public class PlayerMovement : MonoBehaviour
                     nextTimer = startNextTimer;
                 }
             }
+            */
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (PV.IsMine)
@@ -152,15 +174,11 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             else if (h < 0 && facingRight)
                 Flip();
-
         }
         else
         {
             startTime = Time.time;
         }
-
-
-
     }
 
     //flip sprite for left movement
@@ -178,7 +196,6 @@ public class PlayerMovement : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
         Vector3 moveVector = new Vector3(moveX, moveY, 0.0f);
-
         if (hasBoots)
         {
             transform.Translate(moveVector * (movementSpeed + GameSettings.GS.bootSpeedIncrease) * Time.deltaTime);
@@ -187,9 +204,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(moveVector * movementSpeed * Time.deltaTime);
         }
-        
     }
-
 
     void UpdateDirection()
     {
@@ -263,6 +278,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /*
     void PlaceDynamiteClient()
     {
         if (Input.GetKeyDown(KeyCode.Space) && offCooldown == true && hasUpgradedExplosion == false)
@@ -295,14 +311,58 @@ public class PlayerMovement : MonoBehaviour
             nextDynamite = false;
         }
     }
+    */
 
-    
-
-
-    IEnumerator LateStart(float waitTime)
+    void DynamiteTimer()
     {
-        yield return new WaitForSeconds(waitTime);
-        
+        cooldownTimer -= Time.deltaTime;
+        if(cooldownTimer <= 0)
+        {
+            dynamiteCount++;
+            cooldownTimer = startCooldownTimer;
+        }
+    }
+
+    void DynamiteClient()
+    {
+        if(dynamiteCount > maxDynamiteCount)
+        {
+            dynamiteCount = maxDynamiteCount;
+        }
+        if(dynamiteCount < 0)
+        {
+            dynamiteCount = 0;
+        }
+        if(dynamiteCount < maxDynamiteCount)
+        {
+            startTimer = true;
+        }
+        if(dynamiteCount > 0 && dynamiteCount <= maxDynamiteCount)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && hasUpgradedExplosion == false)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
+                dynamiteCount--;
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && hasUpgradedExplosion == true)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
+                dynamiteCount--;
+            }
+        }
+    }
+
+    void ExtraDynamiteCheck(int timesBought)
+    {
+        switch (timesBought)
+        {
+            case 1:
+                maxDynamiteCount = 2;
+                break;
+            case 2:
+                maxDynamiteCount = 3;
+                break;
+        }
     }
 
     [PunRPC]

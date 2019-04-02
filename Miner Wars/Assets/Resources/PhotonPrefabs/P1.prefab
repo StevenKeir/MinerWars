@@ -186,19 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  rotationSpeed: 0
-  cooldown: 3
-  startCooldown: 3
-  startTimer: 0
-  offCooldown: 1
-  secondCooldown: 1.5
-  secondStartCooldown: 1.5
-  secondStartTimer: 0
-  secondOffCooldown: 1
-  nextDynamite: 0
-  startNextTimer: 0.5
-  nextTimer: 0.5
-  nextTimerStart: 0
   minSpeed: 0
   duration: 0
   dirX: 0
@@ -214,6 +201,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   pauseWindow: {fileID: 0}
   pauseCheck: 0
+  dynamiteCount: 0
+  maxDynamiteCount: 1
+  startCooldownTimer: 2
+  cooldownTimer: 0
+  startTimer: 0
 --- !u!114 &1867
 MonoBehaviour:
   m_ObjectHideFlags: 0
