@@ -60,10 +60,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d83691d6e99a20c449b4f12d6c5e8133,
         type: 3}
-    - target: {fileID: 1516, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4b8132254e828c949a5d25a327521d19, type: 2}
     - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: viewIdField
       value: 0
@@ -76,6 +72,10 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[1]
       value: 
       objectReference: {fileID: 9091591924864712239}
+    - target: {fileID: 1516, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b8132254e828c949a5d25a327521d19, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
 --- !u!114 &9091591924864712216 stripped

@@ -20,8 +20,7 @@ public class Rock : MonoBehaviour
 
     private void Update()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
+
             if (hit)
             {
                 if (randomValue >= 9)
@@ -40,9 +39,9 @@ public class Rock : MonoBehaviour
                 {
                     //print("No gold found");
                 }
-                PV.RPC("RPC_DestroyMe", RpcTarget.AllBuffered);
+                PV.RPC("RPC_DestroyMe", RpcTarget.MasterClient);
                 hit = false;
-            }
+
         }
     }
 
