@@ -22,6 +22,7 @@ public class GameSettings : MonoBehaviour
 
     [Header("Shop Prices")]
     public int bootPrice;
+    public float bootSpeedIncrease;
     public int upgradedExplosionPrice;
     public int extraDynamitePrice;
     public int healthIncreasePrice;

@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84c44bc8b8dc4baea67c84553e54add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 6
   rotationSpeed: 0
   cooldown: 3
   startCooldown: 3
@@ -206,6 +206,11 @@ MonoBehaviour:
   isWalking: 0
   moveX: 0
   moveY: 0
+  hasExtraDynamite: 0
+  hasBoots: 0
+  hasUpgradedExplosion: 0
+  hasHealthIncrease: 0
+  hasBaricade: 0
   anim: {fileID: 0}
   pauseWindow: {fileID: 0}
   pauseCheck: 0

@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (hasBoots)
         {
-            transform.Translate(moveVector * movementSpeed * 2 * Time.deltaTime);
+            transform.Translate(moveVector * (movementSpeed + GameSettings.GS.bootSpeedIncrease) * Time.deltaTime);
         }
         else
         {
@@ -265,14 +265,14 @@ public class PlayerMovement : MonoBehaviour
 
     void PlaceDynamiteClient()
     {
-        if (Input.GetKeyDown(KeyCode.E) && offCooldown == true && hasUpgradedExplosion == false)
+        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == true && hasUpgradedExplosion == false)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
             offCooldown = false;
             startTimer = true;
             nextTimerStart = true;
         }
-        if (Input.GetKeyDown(KeyCode.E) && offCooldown == true && hasUpgradedExplosion == true)
+        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == true && hasUpgradedExplosion == true)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
             offCooldown = false;
@@ -280,14 +280,14 @@ public class PlayerMovement : MonoBehaviour
             nextTimerStart = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == false)
+        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == false)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
             secondOffCooldown = false;
             secondStartTimer = true;
             nextDynamite = false;
         }
-        if (Input.GetKeyDown(KeyCode.E) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == true)
+        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == true)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
             secondOffCooldown = false;
