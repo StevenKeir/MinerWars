@@ -46,10 +46,14 @@ public class GameSettings : MonoBehaviour
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
-        UpdateTimerUI();
+        //UpdateTimerUI();
         startTimerTime = gamelength;
     }
 
+    private void Start()
+    {
+        UpdateTimerUI();
+    }
     private void Update()
     {
         if (startTimer)

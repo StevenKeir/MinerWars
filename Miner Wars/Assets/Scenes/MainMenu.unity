@@ -626,7 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.3722855, g: 0.87086326, b: 0.8867924, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3883,7 +3883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 76.1, y: -27.5}
+  m_AnchoredPosition: {x: 76.1001, y: -27.5}
   m_SizeDelta: {x: 62.1, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1003050147
@@ -4078,7 +4078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7643,6 +7643,7 @@ MonoBehaviour:
   offlineButton: {fileID: 871222729}
   currentRoomButton: {fileID: 0}
   leaveRoomButton: {fileID: 0}
+  menuStuff: {fileID: 0}
   roomText: {fileID: 0}
 --- !u!4 &1559562466
 Transform:
