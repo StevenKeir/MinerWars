@@ -41,6 +41,7 @@ public class GameSettings : MonoBehaviour
         {
             localPlayer.hasUpgradedExplosion = true;
             localPlayerAvatar.myGoldCount -= upgradedExplosionPrice;
+            text.text = "Gold: " + localPlayerAvatar.myGoldCount;
         }
     }
     public void OnClickExtraDynamite()
@@ -49,6 +50,8 @@ public class GameSettings : MonoBehaviour
         {
             localPlayer.hasExtraDynamite = true;
             localPlayerAvatar.myGoldCount -= extraDynamitePrice;
+            text.text = "Gold: " + localPlayerAvatar.myGoldCount;
+
 
         }
     }
@@ -58,6 +61,8 @@ public class GameSettings : MonoBehaviour
         {
             localPlayer.hasBoots = true;
             localPlayerAvatar.myGoldCount -= bootPrice;
+            text.text = "Gold: " + localPlayerAvatar.myGoldCount;
+
         }
     }
     public void OnClickHealthIncrease()
@@ -66,6 +71,8 @@ public class GameSettings : MonoBehaviour
         {
             localPlayer.hasHealthIncrease = true;
             localPlayerAvatar.myGoldCount -= healthIncreasePrice;
+            text.text = "Gold: " + localPlayerAvatar.myGoldCount;
+
         }
     }
 
