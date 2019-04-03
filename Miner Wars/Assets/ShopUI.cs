@@ -37,10 +37,12 @@ public class ShopUI : MonoBehaviour
         if(GameSettings.GS.extraDynamiteTimesBought >= 2)
         {
             extraDynamiteButton.interactable = false;
+            extraDynamitePrice.text = "Out of Stock";
         }
         if (GameSettings.GS.upgradedExplosionTimesBought >= 2)
         {
             upgradedDynamiteButton.interactable = false;
+            extraDynamitePrice.text = "Out of Stock";
         }
     }
 

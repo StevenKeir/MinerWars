@@ -84,10 +84,8 @@ public class PlayerMovement : MonoBehaviour
     {
         PV = GetComponent<PhotonView>();
         RB = GetComponent<Rigidbody2D>();
-        //offCooldown = true;
         startTime = Time.time;
         anim = GetComponentInChildren<Animator>();
-        dynamiteCount = maxDynamiteCount;
 
         if (PV.IsMine)
         {
@@ -105,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
             UpdateDirection();
 
             DynamiteClient();
+
+            ExtraDynamiteCheck(GameSettings.GS.extraDynamiteTimesBought);
 
             if (startTimer)
             {

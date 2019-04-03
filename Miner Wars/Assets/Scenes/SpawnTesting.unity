@@ -554,7 +554,7 @@ PrefabInstance:
     - target: {fileID: 7284325707890685534, guid: 1ad40a82cf673459999632193dd6a64a,
         type: 3}
       propertyPath: m_Interactable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3035603514741780557, guid: 1ad40a82cf673459999632193dd6a64a,
         type: 3}
@@ -1766,7 +1766,7 @@ MonoBehaviour:
   extraDynamiteTimesBought: 0
   upgradedExplosionTimesBought: 0
   startTimerTime: 0
-  gamelength: 60
+  gamelength: 300
   timerText: {fileID: 648246546}
   startTimer: 0
 --- !u!114 &1162808919
