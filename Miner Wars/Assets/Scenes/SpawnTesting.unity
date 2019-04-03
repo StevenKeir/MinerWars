@@ -584,6 +584,30 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 277222942}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &277222944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7284325707890685534, guid: 1ad40a82cf673459999632193dd6a64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 277222942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &277222945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1775361818252580907, guid: 1ad40a82cf673459999632193dd6a64a,
+    type: 3}
+  m_PrefabInstance: {fileID: 277222942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &390804970
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +846,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24.95
+  m_fontSize: 25.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1598,6 +1622,8 @@ MonoBehaviour:
   extraDynamitePrice: {fileID: 7880138172152341369}
   healthIncreasePrice: {fileID: 4386693536063165852}
   baricadePrice: {fileID: 1265966904}
+  extraDynamiteButton: {fileID: 277222944}
+  upgradedDynamiteButton: {fileID: 277222945}
 --- !u!1 &1152106084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,6 +1763,8 @@ MonoBehaviour:
   extraDynamitePrice: 60
   healthIncreasePrice: 90
   baricadePrice: 50
+  extraDynamiteTimesBought: 0
+  upgradedExplosionTimesBought: 0
   startTimerTime: 0
   gamelength: 60
   timerText: {fileID: 648246546}
@@ -4464,7 +4492,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24.95
+  m_fontSize: 25.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

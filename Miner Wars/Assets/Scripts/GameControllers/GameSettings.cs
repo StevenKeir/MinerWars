@@ -28,6 +28,10 @@ public class GameSettings : MonoBehaviour
     public int healthIncreasePrice;
     public int baricadePrice;
 
+    [Header("Times purchased")]
+    public int extraDynamiteTimesBought;
+    public int upgradedExplosionTimesBought;
+
     [Header("Timer Settings")]
     public float startTimerTime;
     public float gamelength;
@@ -80,6 +84,7 @@ public class GameSettings : MonoBehaviour
             localPlayer.hasUpgradedExplosion = true;
             localPlayerAvatar.myGoldCount -= upgradedExplosionPrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
+            upgradedExplosionTimesBought++;
         }
     }
     public void OnClickExtraDynamite()
@@ -89,7 +94,7 @@ public class GameSettings : MonoBehaviour
             localPlayer.hasExtraDynamite = true;
             localPlayerAvatar.myGoldCount -= extraDynamitePrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
-
+            extraDynamiteTimesBought++;
 
         }
     }
