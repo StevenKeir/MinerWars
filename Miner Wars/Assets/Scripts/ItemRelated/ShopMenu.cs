@@ -23,8 +23,8 @@ public class ShopMenu : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (PV.IsMine)
+    { 
+        if (PV.IsMine && GameSettings.GS.isGameRunning == true)
         {
             if (Input.GetKeyUp(KeyCode.F) && someOneInShop && !shopOpen)
             {

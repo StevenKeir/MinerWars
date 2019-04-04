@@ -10,9 +10,6 @@ public class SpawnRocks : MonoBehaviour
     public Transform[] destructablePoints;
     public Transform[] nonDestructablePoints;
 
-
-
-
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -31,8 +28,9 @@ public class SpawnRocks : MonoBehaviour
         }
         for (int i = 0; i < nonDestructablePoints.Length; i++)
         {
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(0.05f);
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "NonDestructibleRock"), nonDestructablePoints[i].transform.position, Quaternion.identity, 0);
         }
+        GameSettings.GS.isGameRunning = true;
     }
 }

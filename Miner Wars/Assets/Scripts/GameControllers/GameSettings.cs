@@ -10,7 +10,8 @@ public class GameSettings : MonoBehaviour
     public static GameSettings GS;
     public Transform[] spawnPoints;
     private PhotonView PV;
-
+    public bool isGameRunning = false;
+    public GameObject loadingScreen;
 
     public Slider healthBar;
     public TMP_Text text;
@@ -57,13 +58,13 @@ public class GameSettings : MonoBehaviour
 
     private void Start()
     {
-        UpdateTimerUI();
+        //UpdateTimerUI();
     }
     private void Update()
     {
+        UpdateTimerUI();
         if (startTimer)
         {
-
             gamelength -= Time.deltaTime;
             timerText.text = ((int)gamelength).ToString();
         }
@@ -71,7 +72,8 @@ public class GameSettings : MonoBehaviour
 
     private void UpdateTimerUI()
     {
-        if (PhotonNetwork.IsMasterClient)
+        
+        if (PhotonNetwork.IsMasterClient && GameSettings.GS.isGameRunning == true)
         {
             PV.RPC("RPC_SendTimerUpdate", RpcTarget.AllBuffered);
         }
@@ -85,6 +87,7 @@ public class GameSettings : MonoBehaviour
             localPlayerAvatar.myGoldCount -= upgradedExplosionPrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
             upgradedExplosionTimesBought++;
+            ShopUI.shopUI.upgradedExplosionPrice.text = upgradedExplosionPrice.ToString() + "g  | " + upgradedExplosionTimesBought + "/2";
         }
     }
     public void OnClickExtraDynamite()
@@ -95,7 +98,7 @@ public class GameSettings : MonoBehaviour
             localPlayerAvatar.myGoldCount -= extraDynamitePrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
             extraDynamiteTimesBought++;
-
+            ShopUI.shopUI.extraDynamitePrice.text = extraDynamitePrice.ToString() + "g  | " + extraDynamiteTimesBought + "/2";
         }
     }
     public void OnClickSpeedBoots()
@@ -105,7 +108,7 @@ public class GameSettings : MonoBehaviour
             localPlayer.hasBoots = true;
             localPlayerAvatar.myGoldCount -= bootPrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
-
+            ShopUI.shopUI.bootsButton.interactable = false;
         }
     }
     public void OnClickHealthIncrease()
@@ -115,7 +118,6 @@ public class GameSettings : MonoBehaviour
             localPlayer.hasHealthIncrease = true;
             localPlayerAvatar.myGoldCount -= healthIncreasePrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
-
         }
     }
 
@@ -123,5 +125,7 @@ public class GameSettings : MonoBehaviour
     void RPC_SendTimerUpdate()
     {
         this.startTimer = true;
+        GameSettings.GS.isGameRunning = true;
+        loadingScreen.SetActive(false);
     }
 }

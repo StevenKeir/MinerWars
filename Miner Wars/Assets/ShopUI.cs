@@ -14,6 +14,8 @@ public class ShopUI : MonoBehaviour
 
     public Button extraDynamiteButton;
     public Button upgradedDynamiteButton;
+    public Button bootsButton;
+    public Button healthDynamiteButton;
 
     private void OnEnable()
     {
@@ -26,8 +28,8 @@ public class ShopUI : MonoBehaviour
     private void Start()
     {
         bootPrice.text = GameSettings.GS.bootPrice.ToString() + "g";
-        upgradedExplosionPrice.text = GameSettings.GS.upgradedExplosionPrice.ToString() + "g";
-        extraDynamitePrice.text = GameSettings.GS.extraDynamitePrice.ToString() + "g";
+        upgradedExplosionPrice.text = GameSettings.GS.upgradedExplosionPrice.ToString() + "g  | " + GameSettings.GS.upgradedExplosionTimesBought + "/2";
+        extraDynamitePrice.text = GameSettings.GS.extraDynamitePrice.ToString() + "g  | " + GameSettings.GS.extraDynamiteTimesBought + "/2";
         healthIncreasePrice.text = GameSettings.GS.healthIncreasePrice.ToString() + "g";
         baricadePrice.text = GameSettings.GS.healthIncreasePrice.ToString() + "g";
     }

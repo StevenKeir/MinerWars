@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("New dynamite system")]
     public int dynamiteCount = 0;
     public int maxDynamiteCount = 5;
+    public int explosionUpgradeValue = 0;
     public float startCooldownTimer;
     public float cooldownTimer;
     public bool startTimer = false;
@@ -96,16 +97,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (PV.IsMine)
+        PauseMenu();
+        if (PV.IsMine && GameSettings.GS.isGameRunning == true)
         {
-            PauseMenu();
             UpdateAnimator();
             UpdateDirection();
-
             DynamiteClient();
-
             ExtraDynamiteCheck(GameSettings.GS.extraDynamiteTimesBought);
-
             if (startTimer)
             {
                 if(dynamiteCount == maxDynamiteCount)
@@ -165,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PV.IsMine)
+        if (PV.IsMine && GameSettings.GS.isGameRunning == true)
         {
             OtherMovement();
             // for flipping character
@@ -333,18 +331,31 @@ public class PlayerMovement : MonoBehaviour
         {
             dynamiteCount = 0;
         }
+        if(explosionUpgradeValue > 2)
+        {
+            explosionUpgradeValue = 2;
+        }
+        if(explosionUpgradeValue < 0)
+        {
+            explosionUpgradeValue = 0;
+        }
         if(dynamiteCount < maxDynamiteCount)
         {
             startTimer = true;
         }
-        if(dynamiteCount > 0 && dynamiteCount <= maxDynamiteCount)
+        if (dynamiteCount > 0 && dynamiteCount <= maxDynamiteCount)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && hasUpgradedExplosion == false)
+            if (Input.GetKeyDown(KeyCode.Space) && explosionUpgradeValue == 0)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
-            if (Input.GetKeyDown(KeyCode.Space) && hasUpgradedExplosion == true)
+            if (Input.GetKeyDown(KeyCode.Space) && explosionUpgradeValue == 1)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
+                dynamiteCount--;
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && explosionUpgradeValue == 2)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;

@@ -679,7 +679,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18.4
+  m_fontSize: 25.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1398,16 +1398,24 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 7891463}
   - {fileID: 149585787}
+  isGameRunning: 0
   healthBar: {fileID: 1914626586}
   text: {fileID: 1774947825}
   shopWindow: {fileID: 2122456761891619909}
   localPlayer: {fileID: 0}
   localPlayerAvatar: {fileID: 0}
   bootPrice: 45
+  bootSpeedIncrease: 0
   upgradedExplosionPrice: 70
   extraDynamitePrice: 50
   healthIncreasePrice: 80
   baricadePrice: 0
+  extraDynamiteTimesBought: 0
+  upgradedExplosionTimesBought: 0
+  startTimerTime: 0
+  gamelength: 0
+  timerText: {fileID: 0}
+  startTimer: 0
 --- !u!114 &1162808919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1992,7 +2000,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2486,7 +2494,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18.4
+  m_fontSize: 25.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5138,7 +5146,7 @@ PrefabInstance:
     - target: {fileID: 8097639361396024096, guid: 2ce813de8606af34da9fa377e6c42611,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 8097639361396024096, guid: 2ce813de8606af34da9fa377e6c42611,
         type: 3}
