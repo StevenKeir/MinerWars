@@ -38,6 +38,8 @@ public class GameSettings : MonoBehaviour
     public float gamelength;
     public TMP_Text timerText;
     public bool startTimer = false;
+    public bool gameEnded = false;
+   
 
 
 
@@ -63,6 +65,7 @@ public class GameSettings : MonoBehaviour
     private void Update()
     {
         UpdateTimerUI();
+        EndGame();
         if (startTimer)
         {
             gamelength -= Time.deltaTime;
@@ -72,8 +75,7 @@ public class GameSettings : MonoBehaviour
 
     private void UpdateTimerUI()
     {
-        
-        if (PhotonNetwork.IsMasterClient && GameSettings.GS.isGameRunning == true)
+        if (PhotonNetwork.IsMasterClient && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false)
         {
             PV.RPC("RPC_SendTimerUpdate", RpcTarget.AllBuffered);
         }
@@ -121,11 +123,30 @@ public class GameSettings : MonoBehaviour
         }
     }
 
+    void EndGame()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if(gamelength <= 0f)
+            {
+                PV.RPC("RPC_GameEnded", RpcTarget.AllBuffered);
+            }
+        }
+    }
+
     [PunRPC]
     void RPC_SendTimerUpdate()
     {
         this.startTimer = true;
         GameSettings.GS.isGameRunning = true;
         loadingScreen.SetActive(false);
+    }
+
+    [PunRPC]
+    void RPC_GameEnded()
+    {
+        gameEnded = true;
+        this.startTimer = false;
+        ScoreCounter.SC.endGamePanel.SetActive(true);
     }
 }

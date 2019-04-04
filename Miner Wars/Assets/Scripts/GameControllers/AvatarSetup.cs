@@ -22,6 +22,9 @@ public class AvatarSetup : MonoBehaviour
     Animator anim;
     SpriteRenderer sprite;
 
+    [Header("End game references")]
+    public Sprite winningStance;
+    public Sprite losingStance;
 
     private void Awake()
     {
@@ -41,6 +44,10 @@ public class AvatarSetup : MonoBehaviour
     private void Update()
     {
         PlayerInformation();
+        if (PV.IsMine)
+        {
+            EndGameSlotUpdater();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -92,6 +99,49 @@ public class AvatarSetup : MonoBehaviour
         }
     }
 
+    void EndGameSlotUpdater()
+    {
+        if ((ScoreCounter.SC.scoreList[0] > ScoreCounter.SC.scoreList[1]) && (GameSettings.GS.gameEnded == true))
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                //winningStance = ScoreCounter.SC.slot1.sprite;
+                PV.RPC("RPC_SendSpriteWinner", RpcTarget.AllBuffered);
+            }
+            else if (!PhotonNetwork.IsMasterClient)
+            {
+                //losingStance = ScoreCounter.SC.slot2.sprite;
+                PV.RPC("RPC_SendSpriteLoser", RpcTarget.AllBuffered);
+            }
+        }
+        else if ((ScoreCounter.SC.scoreList[0] < ScoreCounter.SC.scoreList[1]) && (GameSettings.GS.gameEnded == true))
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                //losingStance = ScoreCounter.SC.slot1.sprite;
+                PV.RPC("RPC_SendSpriteLoser", RpcTarget.AllBuffered);
+            }
+            else if (!PhotonNetwork.IsMasterClient)
+            {
+                //winningStance = ScoreCounter.SC.slot2.sprite;
+                PV.RPC("RPC_SendSpriteWinner", RpcTarget.AllBuffered);
+            }
+        }
+        else if ((ScoreCounter.SC.scoreList[0] == ScoreCounter.SC.scoreList[1]) && (GameSettings.GS.gameEnded == true))
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                //losingStance = ScoreCounter.SC.slot1.sprite;
+                PV.RPC("RPC_SendSpriteDrawMaster", RpcTarget.AllBuffered);
+            }
+            else if (!PhotonNetwork.IsMasterClient)
+            {
+                //losingStance = ScoreCounter.SC.slot2.sprite;
+                PV.RPC("RPC_SendSpriteDrawNotMaster", RpcTarget.AllBuffered);
+            }
+        }
+    }
+
 
     [PunRPC]
     void RPC_AddCharacter(int whichCharacter)
@@ -103,5 +153,25 @@ public class AvatarSetup : MonoBehaviour
 
     }
 
+    [PunRPC]
+    void RPC_SendSpriteWinner()
+    {
+        ScoreCounter.SC.slot1.sprite = winningStance;
+    }
 
+    [PunRPC]
+    void RPC_SendSpriteLoser()
+    {
+        ScoreCounter.SC.slot2.sprite = losingStance;
+    }
+
+    [PunRPC]
+    void RPC_SendSpriteDrawMaster()
+    {
+        ScoreCounter.SC.slot1.sprite = losingStance;
+    }
+    void RPC_SendSpriteDrawNotMaster()
+    {
+        ScoreCounter.SC.slot2.sprite = losingStance;
+    }
 }

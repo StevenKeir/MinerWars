@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScoreCounter : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class ScoreCounter : MonoBehaviour
     public PhotonView PV;
     public TMP_Text playerOneText;
     public TMP_Text playerTwoText;
+    public GameObject endGamePanel;
+    public TMP_Text endGameScoreTally;
+    public Image slot1;
+    public Image slot2;
 
 
     private void OnEnable()
@@ -26,11 +31,13 @@ public class ScoreCounter : MonoBehaviour
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        endGamePanel.SetActive(false);
+        scoreList[0] = 0;
+        scoreList[1] = 0;
     }
 
     private void Update()
     {
-
         playerOneText.text = "Player 1: " + scoreList[0];
         playerTwoText.text = "Player 2: " + scoreList[1];
 
@@ -38,6 +45,7 @@ public class ScoreCounter : MonoBehaviour
         {
             scoreList[0] = localScore;
             PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[0]);
+            EndGameTallyUp();
         }
         else
         {
@@ -46,21 +54,44 @@ public class ScoreCounter : MonoBehaviour
         }
     }
 
+    void EndGameTallyUp()
+    {
+        if((scoreList[0] > scoreList[1]) && (GameSettings.GS.gameEnded == true))
+        {
+            endGameScoreTally.text = "Player 1 Wins!\nScore: " + scoreList[0];
+            PV.RPC("RPC_EndGameSend", RpcTarget.AllBuffered, endGameScoreTally.text);
+        }
+        else if((scoreList[0] < scoreList[1]) && (GameSettings.GS.gameEnded == true))
+        {
+            endGameScoreTally.text = "Player 2 Wins!\nScore: " +  scoreList[1];
+            PV.RPC("RPC_EndGameSend", RpcTarget.AllBuffered, endGameScoreTally.text);
+        }
+        else if((scoreList[0] == scoreList[1]) && (GameSettings.GS.gameEnded == true))
+        {
+            endGameScoreTally.text = "Draw";
+            PV.RPC("RPC_EndGameSend", RpcTarget.AllBuffered, endGameScoreTally.text);
+        }
+    }
+
     [PunRPC]
     void RPC_SendScore(int playerScore)
     {
         scoreList[1] = playerScore;
-        //playerTwoText.text = "Player 2: " + scoreList[1];
-        //playerOneText.text = "Player 1: " + scoreList[0];
     }
 
     [PunRPC]
     void RPC_MasterClientSendScore(int playerScore)
     {
         scoreList[0] = playerScore;
-        //
-        playerOneText.text = "Player 1: " + scoreList[0];
-        //playerTwoText.text = "Player 2: " + scoreList[1];
+        //playerOneText.text = "Player 1: " + scoreList[0];
     }
+
+    [PunRPC]
+    void RPC_EndGameSend(string winner)
+    {
+        endGameScoreTally.text = winner;
+    }
+
+
 
 }

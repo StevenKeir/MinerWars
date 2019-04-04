@@ -9446,7 +9446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ede49356458945ed89a93d810917c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayStart: 0
+  delayStart: 1
   maxPlayers: 2
   menuScene: 0
   multiplayerScene: 2

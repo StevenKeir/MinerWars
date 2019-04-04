@@ -7,6 +7,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 241, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Name
+      value: P3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
+        type: 3}
+    - target: {fileID: 2082, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 2422091717923165010}
+    - target: {fileID: 2082, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 2422091717923165015}
+    - target: {fileID: 2083, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: winningStance
+      value: 
+      objectReference: {fileID: 21300010, guid: ef542636758f9a0479fdbbc70b29f4d9,
+        type: 3}
+    - target: {fileID: 2083, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: losingStance
+      value: 
+      objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
+        type: 3}
+    - target: {fileID: 1637, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
     - target: {fileID: 170, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_Name
       value: P3
@@ -62,11 +93,11 @@ PrefabInstance:
     - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 2422091717923167290}
+      objectReference: {fileID: 0}
     - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
-      objectReference: {fileID: 2422091717923167245}
+      objectReference: {fileID: 0}
     - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -78,9 +109,9 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
---- !u!114 &2422091717923167290 stripped
+--- !u!114 &2422091717923165010 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1865, guid: d9dc834349c544af88bebd51aef8bb98,
+  m_CorrespondingSourceObject: {fileID: 2081, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}
   m_PrefabInstance: {fileID: 2422091717923167091}
   m_PrefabAsset: {fileID: 0}
@@ -90,9 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2422091717923167245 stripped
+--- !u!114 &2422091717923165015 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1918, guid: d9dc834349c544af88bebd51aef8bb98,
+  m_CorrespondingSourceObject: {fileID: 2084, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}
   m_PrefabInstance: {fileID: 2422091717923167091}
   m_PrefabAsset: {fileID: 0}

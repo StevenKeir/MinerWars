@@ -75,9 +75,11 @@ public class PlayerMovement : MonoBehaviour
     public float cooldownTimer;
     public bool startTimer = false;
 
+
+
     private void Awake()
     {
-        pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
+        //pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
     }
 
     // Start is called before the first frame update
@@ -87,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         startTime = Time.time;
         anim = GetComponentInChildren<Animator>();
-
+        
         if (PV.IsMine)
         {
             GameSettings.GS.localPlayer = this;
@@ -98,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         PauseMenu();
-        if (PV.IsMine && GameSettings.GS.isGameRunning == true)
+        if (PV.IsMine && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false)
         {
             UpdateAnimator();
             UpdateDirection();
@@ -163,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PV.IsMine && GameSettings.GS.isGameRunning == true)
+        if (PV.IsMine && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false)
         {
             OtherMovement();
             // for flipping character
@@ -258,21 +260,29 @@ public class PlayerMovement : MonoBehaviour
 
     void PauseMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && pauseCheck == false)
+        if (PV.IsMine)
         {
-            pauseCheck = true;
-        }else if (Input.GetKeyDown(KeyCode.Escape) && pauseCheck == true)
-        {
-            pauseCheck = false;
-        }
+            if (pauseWindow == null)
+            {
+                pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
+            }
+            if (Input.GetKeyDown(KeyCode.Escape) && pauseCheck == false)
+            {
+                pauseCheck = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && pauseCheck == true)
+            {
+                pauseCheck = false;
+            }
 
-        if (pauseCheck == true)
-        {
-            pauseWindow.gameObject.SetActive(true);
-        }
-        else
-        {
-            pauseWindow.gameObject.SetActive(false);
+            if (pauseCheck == true)
+            {
+                pauseWindow.gameObject.SetActive(true);
+            }
+            else
+            {
+                pauseWindow.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -375,6 +385,8 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
     }
+
+
 
     [PunRPC]
     void RPC_PlaceDynamite()

@@ -46,5 +46,11 @@ MonoBehaviour:
   - RPC_SendScore
   - RPC_MasterClientSendScore
   - RPC_SendTimerUpdate
+  - RPC_GameEnded
+  - RPC_EndGameSend
+  - RPC_SendSprite
+  - RPC_SendSpriteLoser
+  - RPC_SendSpriteWinner
+  - RPC_SendSpriteDrawMaster
   DisableAutoOpenWizard: 1
   ShowSettings: 1
