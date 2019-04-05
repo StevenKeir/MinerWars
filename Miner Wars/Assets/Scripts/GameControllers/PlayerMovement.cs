@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("New dynamite system")]
     public int dynamiteCount = 0;
     public int maxDynamiteCount = 5;
-    public int explosionUpgradeValue = 0;
+    //public int explosionUpgradeValue = 0;
     public float startCooldownTimer;
     public float cooldownTimer;
     public bool startTimer = false;
@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             UpdateAnimator();
             UpdateDirection();
             DynamiteClient();
+            ItemUIUpdate();
             ExtraDynamiteCheck(GameSettings.GS.extraDynamiteTimesBought);
             if (startTimer)
             {
@@ -341,13 +342,13 @@ public class PlayerMovement : MonoBehaviour
         {
             dynamiteCount = 0;
         }
-        if(explosionUpgradeValue > 2)
+        if(GameSettings.GS.upgradedExplosionTimesBought > 2)
         {
-            explosionUpgradeValue = 2;
+            GameSettings.GS.upgradedExplosionTimesBought = 2;
         }
-        if(explosionUpgradeValue < 0)
+        if(GameSettings.GS.upgradedExplosionTimesBought < 0)
         {
-            explosionUpgradeValue = 0;
+            GameSettings.GS.upgradedExplosionTimesBought = 0;
         }
         if(dynamiteCount < maxDynamiteCount)
         {
@@ -355,23 +356,57 @@ public class PlayerMovement : MonoBehaviour
         }
         if (dynamiteCount > 0 && dynamiteCount <= maxDynamiteCount)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && explosionUpgradeValue == 0)
+            if (Input.GetKeyDown(KeyCode.Space) && GameSettings.GS.upgradedExplosionTimesBought == 0)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
-            if (Input.GetKeyDown(KeyCode.Space) && explosionUpgradeValue == 1)
+            if (Input.GetKeyDown(KeyCode.Space) && GameSettings.GS.upgradedExplosionTimesBought == 1)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
-            if (Input.GetKeyDown(KeyCode.Space) && explosionUpgradeValue == 2)
+            if (Input.GetKeyDown(KeyCode.Space) && GameSettings.GS.upgradedExplosionTimesBought == 2)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
         }
     }
+
+    void ItemUIUpdate()
+    {
+        if (maxDynamiteCount == 2)
+        {
+            GameSettings.GS.TNT2.color = new Color(GameSettings.GS.TNT2.color.r, GameSettings.GS.TNT2.color.g, GameSettings.GS.TNT2.color.b, 255f);
+            if(dynamiteCount == 1)
+            {
+                //Add Fill code
+                //GameSettings.GS.TNT2FillImage.color = new Color(GameSettings.GS.TNT2FillImage.color.r, GameSettings.GS.TNT2FillImage.color.g, GameSettings.GS.TNT2FillImage.color.g //Something to do with timer);
+            }
+        }
+        if (maxDynamiteCount == 3)
+        {
+            GameSettings.GS.TNT3.color = new Color(GameSettings.GS.TNT3.color.r, GameSettings.GS.TNT3.color.g, GameSettings.GS.TNT3.color.b, 255f);
+            if (dynamiteCount == 2)
+            {
+               //Add Fill code
+               // GameSettings.GS.TNT3FillImage.color = new Color(GameSettings.GS.TNT3FillImage.color.r, GameSettings.GS.TNT3FillImage.color.g, GameSettings.GS.TNT3FillImage.color.g //Something to do with timer);
+            }
+        }
+
+        if (hasBoots)
+        {
+            GameSettings.GS.speedBoots.color = new Color(GameSettings.GS.speedBoots.color.r, GameSettings.GS.speedBoots.color.g, GameSettings.GS.speedBoots.color.b, 255f);
+        }
+
+        if (hasUpgradedExplosion)
+        {
+            GameSettings.GS.upgradedExplosion.color = new Color(GameSettings.GS.upgradedExplosion.color.r, GameSettings.GS.upgradedExplosion.color.g, GameSettings.GS.upgradedExplosion.color.b, 255f);
+        }
+    }
+
+ 
 
     void ExtraDynamiteCheck(int timesBought)
     {

@@ -39,8 +39,16 @@ public class GameSettings : MonoBehaviour
     public TMP_Text timerText;
     public bool startTimer = false;
     public bool gameEnded = false;
-   
 
+    [Header("Item bar settings")]
+    public Image TNT1;
+    public Image TNT2;
+    public Image TNT3;
+    public Image speedBoots;
+    public Image upgradedExplosion;
+    Image alphaChannel;
+    public Image TNT2FillImage;
+    public Image TNT3FillImage;
 
 
     private void OnEnable()
@@ -56,6 +64,12 @@ public class GameSettings : MonoBehaviour
         PV = GetComponent<PhotonView>();
         //UpdateTimerUI();
         startTimerTime = gamelength;
+        TNT2.color = new Color(TNT2.color.r, TNT2.color.g, TNT2.color.b, 0f);
+        TNT3.color = new Color(TNT3.color.r, TNT3.color.g, TNT3.color.b, 0f);
+        speedBoots.color = new Color(speedBoots.color.r, speedBoots.color.g, speedBoots.color.b, 0f);
+        upgradedExplosion.color = new Color(upgradedExplosion.color.r, upgradedExplosion.color.g, upgradedExplosion.color.b, 0f);
+
+
     }
 
     private void Start()

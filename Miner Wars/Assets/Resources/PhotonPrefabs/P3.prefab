@@ -11,8 +11,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: P3
       objectReference: {fileID: 0}
-    - target: {fileID: 1657, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 2083, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: winningStance
+      value: 
+      objectReference: {fileID: 21300010, guid: ef542636758f9a0479fdbbc70b29f4d9,
+        type: 3}
+    - target: {fileID: 2083, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: losingStance
       value: 
       objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
         type: 3}
@@ -24,13 +29,8 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[1]
       value: 
       objectReference: {fileID: 2422091717923165015}
-    - target: {fileID: 2083, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: winningStance
-      value: 
-      objectReference: {fileID: 21300010, guid: ef542636758f9a0479fdbbc70b29f4d9,
-        type: 3}
-    - target: {fileID: 2083, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: losingStance
+    - target: {fileID: 1657, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
         type: 3}
