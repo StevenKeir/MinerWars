@@ -28,7 +28,7 @@ public class ShopUI : MonoBehaviour
     private void Start()
     {
         bootPrice.text = GameSettings.GS.bootPrice.ToString() + "g";
-        upgradedExplosionPrice.text = GameSettings.GS.upgradedExplosionPrice.ToString() + "g  | " + GameSettings.GS.upgradedExplosionTimesBought + "/2";
+        upgradedExplosionPrice.text = GameSettings.GS.upgradedExplosionPrice.ToString() + "g ";
         extraDynamitePrice.text = GameSettings.GS.extraDynamitePrice.ToString() + "g  | " + GameSettings.GS.extraDynamiteTimesBought + "/2";
         healthIncreasePrice.text = GameSettings.GS.healthIncreasePrice.ToString() + "g";
         baricadePrice.text = GameSettings.GS.healthIncreasePrice.ToString() + "g";
@@ -41,11 +41,13 @@ public class ShopUI : MonoBehaviour
             extraDynamiteButton.interactable = false;
             extraDynamitePrice.text = "Out of Stock";
         }
+        /*
         if (GameSettings.GS.upgradedExplosionTimesBought >= 2)
         {
             upgradedDynamiteButton.interactable = false;
             upgradedExplosionPrice.text = "Out of Stock";
         }
+        */
     }
 
 }

@@ -356,21 +356,23 @@ public class PlayerMovement : MonoBehaviour
         }
         if (dynamiteCount > 0 && dynamiteCount <= maxDynamiteCount)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && GameSettings.GS.upgradedExplosionTimesBought == 0)
+            if (Input.GetKeyDown(KeyCode.Space) && hasUpgradedExplosion == false)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
-            if (Input.GetKeyDown(KeyCode.Space) && GameSettings.GS.upgradedExplosionTimesBought == 1)
+            if (Input.GetKeyDown(KeyCode.Space) && hasUpgradedExplosion == true)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
+            /*
             if (Input.GetKeyDown(KeyCode.Space) && GameSettings.GS.upgradedExplosionTimesBought == 2)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
+            */
         }
     }
 

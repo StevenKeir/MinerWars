@@ -102,8 +102,11 @@ public class GameSettings : MonoBehaviour
             localPlayer.hasUpgradedExplosion = true;
             localPlayerAvatar.myGoldCount -= upgradedExplosionPrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
-            upgradedExplosionTimesBought++;
-            ShopUI.shopUI.upgradedExplosionPrice.text = upgradedExplosionPrice.ToString() + "g  | " + upgradedExplosionTimesBought + "/2";
+            ShopUI.shopUI.upgradedDynamiteButton.interactable = false;
+            ShopUI.shopUI.upgradedExplosionPrice.text = "Out of Stock";
+
+            //upgradedExplosionTimesBought++;
+            // ShopUI.shopUI.upgradedExplosionPrice.text = upgradedExplosionPrice.ToString() + "g  | " + upgradedExplosionTimesBought + "/2";
         }
     }
     public void OnClickExtraDynamite()
@@ -125,6 +128,7 @@ public class GameSettings : MonoBehaviour
             localPlayerAvatar.myGoldCount -= bootPrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
             ShopUI.shopUI.bootsButton.interactable = false;
+            ShopUI.shopUI.bootPrice.text = "Out of Stock";
         }
     }
     public void OnClickHealthIncrease()
