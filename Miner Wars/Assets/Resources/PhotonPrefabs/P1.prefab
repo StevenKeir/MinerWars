@@ -203,7 +203,6 @@ MonoBehaviour:
   pauseCheck: 0
   dynamiteCount: 0
   maxDynamiteCount: 1
-  explosionUpgradeValue: 0
   startCooldownTimer: 2
   cooldownTimer: 0
   startTimer: 0

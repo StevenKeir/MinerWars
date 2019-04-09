@@ -75,6 +75,9 @@ public class PlayerMovement : MonoBehaviour
     public float cooldownTimer;
     public bool startTimer = false;
 
+    public bool barricadeStartTimer = false;
+    public float startBarricadeCooldownTimer;
+    public float barricadeCooldownTimer;
 
 
     private void Awake()
@@ -106,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
             UpdateDirection();
             DynamiteClient();
             ItemUIUpdate();
+            PlaceBarricade();
             ExtraDynamiteCheck(GameSettings.GS.extraDynamiteTimesBought);
             if (startTimer)
             {
@@ -376,6 +380,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void BarricadeTimer()
+    {
+        barricadeCooldownTimer -= Time.deltaTime;
+        if (cooldownTimer <= 0)
+        {
+            barricadeCooldownTimer = startBarricadeCooldownTimer;
+        }
+    }
+
+    void PlaceBarricade()
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            PV.RPC("RPC_PlaceBarricade", RpcTarget.All);
+        }
+    }
     void ItemUIUpdate()
     {
         if (maxDynamiteCount == 2)
@@ -431,5 +451,10 @@ public class PlayerMovement : MonoBehaviour
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity,0);
     }
 
+    [PunRPC]
+    void RPC_PlaceBarricade()
+    {
+        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Barricade"), transform.position, Quaternion.identity, 0);
+    }
 
 }

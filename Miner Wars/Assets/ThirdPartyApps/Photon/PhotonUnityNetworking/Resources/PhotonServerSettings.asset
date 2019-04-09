@@ -52,5 +52,8 @@ MonoBehaviour:
   - RPC_SendSpriteLoser
   - RPC_SendSpriteWinner
   - RPC_SendSpriteDrawMaster
+  - RPC_DestroyThis
+  - RPC_PlaceBaricade
+  - RPC_PlaceBarricade
   DisableAutoOpenWizard: 1
   ShowSettings: 1
