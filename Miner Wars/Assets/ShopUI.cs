@@ -16,6 +16,7 @@ public class ShopUI : MonoBehaviour
     public Button upgradedDynamiteButton;
     public Button bootsButton;
     public Button healthDynamiteButton;
+    public Button barricadeButton;
 
     private void OnEnable()
     {

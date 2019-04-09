@@ -46,6 +46,7 @@ public class GameSettings : MonoBehaviour
     public Image TNT3;
     public Image speedBoots;
     public Image upgradedExplosion;
+    public Image barricade;
     Image alphaChannel;
     public Image TNT2FillImage;
     public Image TNT3FillImage;
@@ -68,14 +69,16 @@ public class GameSettings : MonoBehaviour
         TNT3.color = new Color(TNT3.color.r, TNT3.color.g, TNT3.color.b, 0f);
         speedBoots.color = new Color(speedBoots.color.r, speedBoots.color.g, speedBoots.color.b, 0f);
         upgradedExplosion.color = new Color(upgradedExplosion.color.r, upgradedExplosion.color.g, upgradedExplosion.color.b, 0f);
+        barricade.color = new Color(barricade.color.r, barricade.color.g, barricade.color.b, 0f);
 
 
     }
 
     private void Start()
     {
-        //UpdateTimerUI();
+
     }
+
     private void Update()
     {
         UpdateTimerUI();
@@ -105,10 +108,12 @@ public class GameSettings : MonoBehaviour
             ShopUI.shopUI.upgradedDynamiteButton.interactable = false;
             ShopUI.shopUI.upgradedExplosionPrice.text = "Out of Stock";
 
+
             //upgradedExplosionTimesBought++;
-            // ShopUI.shopUI.upgradedExplosionPrice.text = upgradedExplosionPrice.ToString() + "g  | " + upgradedExplosionTimesBought + "/2";
+            //ShopUI.shopUI.upgradedExplosionPrice.text = upgradedExplosionPrice.ToString() + "g  | " + upgradedExplosionTimesBought + "/2";
         }
     }
+
     public void OnClickExtraDynamite()
     {
         if (localPlayerAvatar.myGoldCount >= extraDynamitePrice)
@@ -120,6 +125,7 @@ public class GameSettings : MonoBehaviour
             ShopUI.shopUI.extraDynamitePrice.text = extraDynamitePrice.ToString() + "g  | " + extraDynamiteTimesBought + "/2";
         }
     }
+
     public void OnClickSpeedBoots()
     {
         if (localPlayerAvatar.myGoldCount >= bootPrice)
@@ -131,6 +137,7 @@ public class GameSettings : MonoBehaviour
             ShopUI.shopUI.bootPrice.text = "Out of Stock";
         }
     }
+    /*
     public void OnClickHealthIncrease()
     {
         if (localPlayerAvatar.myGoldCount >= healthIncreasePrice)
@@ -138,6 +145,18 @@ public class GameSettings : MonoBehaviour
             localPlayer.hasHealthIncrease = true;
             localPlayerAvatar.myGoldCount -= healthIncreasePrice;
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
+        }
+    }
+    */
+    public void OnClickBarricadeUpgrade()
+    {
+        if(localPlayerAvatar.myGoldCount >= baricadePrice)
+        {
+            localPlayer.hasBaricade = true;
+            localPlayerAvatar.myGoldCount -= baricadePrice;
+            text.text = "Gold: " + localPlayerAvatar.myGoldCount;
+            ShopUI.shopUI.barricadeButton.interactable = false;
+            ShopUI.shopUI.baricadePrice.text = "Out of Stock";
         }
     }
 

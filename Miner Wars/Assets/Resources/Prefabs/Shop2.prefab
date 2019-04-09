@@ -112,10 +112,10 @@ RectTransform:
   - {fileID: 710287603}
   - {fileID: 33586848}
   m_Father: {fileID: 277222944}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.201}
+  m_AnchorMin: {x: 0, y: 0.18938276}
+  m_AnchorMax: {x: 1, y: 0.40300003}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -287,7 +287,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 710287605}
   m_OnClick:
     m_PersistentCalls:
@@ -556,7 +556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7855828753910906463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ RectTransform:
   - {fileID: 2418799663213064328}
   - {fileID: 8742972828482440500}
   m_Father: {fileID: 277222944}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.201}
   m_AnchorMax: {x: 1, y: 0.40300003}
@@ -1136,7 +1136,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 7486562113473925783}
   m_OnClick:
     m_PersistentCalls:
@@ -1909,15 +1909,15 @@ RectTransform:
   - {fileID: 3958718435313984248}
   - {fileID: 259694508538127863}
   - {fileID: 9220333552935548931}
-  - {fileID: 7855828753910906463}
   - {fileID: 262615876}
+  - {fileID: 7855828753910906463}
   m_Father: {fileID: 277222943}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.13749139}
+  m_AnchorMin: {x: 0, y: 0.047511384}
   m_AnchorMax: {x: 1, y: 0.67234534}
-  m_AnchoredPosition: {x: 0, y: -27.5}
-  m_SizeDelta: {x: -2, y: 53}
+  m_AnchoredPosition: {x: 0, y: -17.5}
+  m_SizeDelta: {x: -2, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1289290403167666955
 CanvasRenderer:
@@ -1934,7 +1934,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7593847423141287842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

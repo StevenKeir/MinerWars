@@ -51,7 +51,7 @@ public class ShopMenu : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            print("Someone Entered me ;)");
+            //print("Someone Entered me ;)");
             someOneInShop = true;
         }
     }
@@ -60,7 +60,7 @@ public class ShopMenu : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            print("Someone Left me :(");
+            //print("Someone Left me :(");
             someOneInShop = false;
         }
     }

@@ -429,6 +429,11 @@ public class PlayerMovement : MonoBehaviour
         {
             GameSettings.GS.upgradedExplosion.color = new Color(GameSettings.GS.upgradedExplosion.color.r, GameSettings.GS.upgradedExplosion.color.g, GameSettings.GS.upgradedExplosion.color.b, 255f);
         }
+
+        if (hasBaricade)
+        {
+            GameSettings.GS.barricade.color = new Color(GameSettings.GS.barricade.color.r, GameSettings.GS.barricade.color.g, GameSettings.GS.barricade.color.b, 255f);
+        }
     }
 
  
