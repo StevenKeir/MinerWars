@@ -206,6 +206,8 @@ MonoBehaviour:
   startCooldownTimer: 2
   cooldownTimer: 0
   startTimer: 0
+  barricadeStartTimer: 0
+  barricadeCooldownTimer: 0
 --- !u!114 &2083
 MonoBehaviour:
   m_ObjectHideFlags: 0

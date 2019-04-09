@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     public bool startTimer = false;
 
     public bool barricadeStartTimer = false;
-    public float startBarricadeCooldownTimer;
+    float startBarricadeCooldownTimer = 5f;
     public float barricadeCooldownTimer;
 
 
@@ -110,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
             DynamiteClient();
             ItemUIUpdate();
             PlaceBarricade();
+            BarricadeTimer();
             ExtraDynamiteCheck(GameSettings.GS.extraDynamiteTimesBought);
             if (startTimer)
             {
@@ -383,17 +384,19 @@ public class PlayerMovement : MonoBehaviour
     void BarricadeTimer()
     {
         barricadeCooldownTimer -= Time.deltaTime;
-        if (cooldownTimer <= 0)
+        if (barricadeCooldownTimer <= 0)
         {
             barricadeCooldownTimer = startBarricadeCooldownTimer;
+            barricadeStartTimer = false;
         }
     }
 
     void PlaceBarricade()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && barricadeStartTimer == false && hasBaricade)
         {
             PV.RPC("RPC_PlaceBarricade", RpcTarget.All);
+            barricadeStartTimer = true;
         }
     }
     void ItemUIUpdate()

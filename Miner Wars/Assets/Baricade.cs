@@ -11,11 +11,18 @@ public class Baricade : MonoBehaviour
     public Sprite defaultSprite;
     public Sprite secondHit;
     public Sprite thirdHit;
+    Collider2D myCol;
 
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        myCol = GetComponent<BoxCollider2D>();
     }
+    private void Start()
+    {
+        myCol.isTrigger = true;
+    }
+
     private void Update()
     {
         SpriteChange();
@@ -47,6 +54,14 @@ public class Baricade : MonoBehaviour
         if(collision.gameObject.tag == "Explosion")
         {
             hits++;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            myCol.isTrigger = false;
         }
     }
 
