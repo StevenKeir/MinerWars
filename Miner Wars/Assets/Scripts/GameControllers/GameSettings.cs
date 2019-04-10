@@ -51,6 +51,9 @@ public class GameSettings : MonoBehaviour
     public Image TNT2FillImage;
     public Image TNT3FillImage;
 
+    [Header("All Players in scene")]
+    public List<AvatarSetup> players = new List<AvatarSetup>();
+
 
     private void OnEnable()
     {

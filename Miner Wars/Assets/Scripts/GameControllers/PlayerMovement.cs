@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed;
     //public float rotationSpeed;
     private Rigidbody2D RB;
-
+    private AvatarSetup AV;
     /*
     [Header("Cooldown for TNT")]
     [SerializeField]
@@ -83,13 +83,9 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         //pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         PV = GetComponent<PhotonView>();
         RB = GetComponent<Rigidbody2D>();
+        AV = GetComponent<AvatarSetup>();
         startTime = Time.time;
         anim = GetComponentInChildren<Animator>();
         
@@ -97,6 +93,12 @@ public class PlayerMovement : MonoBehaviour
         {
             GameSettings.GS.localPlayer = this;
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
 
@@ -171,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PV.IsMine && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false)
+        if (PV.IsMine && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false /*&& AV.immuneTime == false*/)
         {
             OtherMovement();
             // for flipping character

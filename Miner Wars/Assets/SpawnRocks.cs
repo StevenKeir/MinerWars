@@ -10,13 +10,18 @@ public class SpawnRocks : MonoBehaviour
     public Transform[] destructablePoints;
     public Transform[] nonDestructablePoints;
 
+    public GameObject[] destructableGameobjects = new GameObject[57];
+    
+
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
         {
             StartCoroutine(Spawn());
+            
         }
     }
+
 
     IEnumerator Spawn()
     {
@@ -24,7 +29,6 @@ public class SpawnRocks : MonoBehaviour
         {
             yield return new WaitForSeconds(0f);
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "DestructibleRock"), destructablePoints[i].transform.position, Quaternion.identity, 0);
-            //print(i);
         }
         for (int i = 0; i < nonDestructablePoints.Length; i++)
         {

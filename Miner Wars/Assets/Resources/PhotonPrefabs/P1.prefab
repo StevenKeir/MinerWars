@@ -227,7 +227,7 @@ MonoBehaviour:
   isAlive: 0
   playerDamage: 20
   immuneTimer: 0
-  initialImmuneTimer: 3
+  initialImmuneTimer: 1
   immuneTime: 0
   winningStance: {fileID: 21300010, guid: bc5dc4047c7e0d540a4051e6aaec86fa, type: 3}
   losingStance: {fileID: 21300000, guid: bc5dc4047c7e0d540a4051e6aaec86fa, type: 3}

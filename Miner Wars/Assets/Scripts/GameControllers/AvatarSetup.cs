@@ -17,7 +17,7 @@ public class AvatarSetup : MonoBehaviour
     private float immuneTimer;
     public float initialImmuneTimer;
     [SerializeField]
-    private bool immuneTime;
+    public bool immuneTime;
 
     Animator anim;
     SpriteRenderer sprite;
@@ -39,6 +39,7 @@ public class AvatarSetup : MonoBehaviour
     {
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
+        GameSettings.GS.players.Add(this);
     }
 
     private void Update()
@@ -56,11 +57,12 @@ public class AvatarSetup : MonoBehaviour
         {
             if (immuneTime == false)
             {
-                playerHealth -= playerDamage;
+                //playerHealth -= playerDamage;
+                ScoreCounter.SC.localScore -= playerDamage / 2;
                 immuneTime = true;
                 if (PV.IsMine)
                 {
-                    GameSettings.GS.healthBar.value = playerHealth;
+                    //GameSettings.GS.healthBar.value = playerHealth;
                 }
 
             }
@@ -71,7 +73,7 @@ public class AvatarSetup : MonoBehaviour
             if (PV.IsMine)
             {
                 myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
-                ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth / 2;
+                ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth * 2;
                 GameSettings.GS.text.text = "Gold: " + myGoldCount;
             }
             Destroy(collision.gameObject);
