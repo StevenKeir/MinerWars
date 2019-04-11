@@ -23,6 +23,8 @@ public class SpawnRocks : MonoBehaviour
     }
 
 
+
+
     IEnumerator Spawn()
     {
         for (int i = 0; i < destructablePoints.Length; i++)
