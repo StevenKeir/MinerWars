@@ -9,21 +9,36 @@ public class Rock : MonoBehaviour
     PhotonView PV;
     public int randomValue;
     bool hit;
+    BoxCollider2D col;
+    //public 
+    //Reference to the collider and sprite
+    LayerMask layer;
+    public float radius;
+
 
     //Initialize the references and setting the random value for which it uses to put out a random gold piece. also setting hit to false to it will set to true only is hit.
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        col = GetComponent<BoxCollider2D>();
         randomValue = Random.Range(0, 11);
         hit = false;
+    }
+    private void Start()
+    {
+        layer = (int)1 << LayerMask.NameToLayer("Player");
     }
 
     //Checks if the rock was hit if so sends to the masterclient to destroy the object, then since it has a PhotonView it deletes it on both clients.
     private void Update()
     {
+        //RespawnAfterTime();
+
+
         //Was in a if(PhotonNetwork.isMasterClient) but had issues with errors saying it couldn't destory the object, even tho it did it anyway.
         if (hit)
         {
+
             if (randomValue >= 9)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "GoldBig"), transform.position, Quaternion.identity, 0);
@@ -53,6 +68,19 @@ public class Rock : MonoBehaviour
         }
     }
 
+    void RespawnAfterTime()
+    {
+        //When hit check if player in the the area with physics.SphereOverlap2D if
+
+        Debug.Log(Physics2D.OverlapCircle(col.transform.position, radius, layer));
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(col.transform.position, radius);
+    }
     [PunRPC]
     void RPC_DestroyMe()
     {

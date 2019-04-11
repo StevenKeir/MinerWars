@@ -26,6 +26,9 @@ public class AvatarSetup : MonoBehaviour
     public Sprite winningStance;
     public Sprite losingStance;
 
+    [Header("Score related")]
+    public int scoreModifier;
+
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -58,7 +61,7 @@ public class AvatarSetup : MonoBehaviour
             if (immuneTime == false)
             {
                 //playerHealth -= playerDamage;
-                ScoreCounter.SC.localScore -= playerDamage / 2;
+                ScoreCounter.SC.localScore -= playerDamage;
                 immuneTime = true;
                 if (PV.IsMine)
                 {
@@ -73,7 +76,7 @@ public class AvatarSetup : MonoBehaviour
             if (PV.IsMine)
             {
                 myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
-                ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth * 2;
+                ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth * scoreModifier;
                 GameSettings.GS.text.text = "Gold: " + myGoldCount;
             }
             Destroy(collision.gameObject);
