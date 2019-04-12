@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationEnded: 0
   startHitBoxRemoveTimer: 0
+  hitBarricade: 0
 --- !u!114 &5386094330097232938
 MonoBehaviour:
   m_ObjectHideFlags: 0

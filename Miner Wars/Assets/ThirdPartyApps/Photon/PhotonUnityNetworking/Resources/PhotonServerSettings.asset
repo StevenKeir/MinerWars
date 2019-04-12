@@ -57,5 +57,7 @@ MonoBehaviour:
   - RPC_PlaceBarricade
   - RPC_DisableSprites
   - RPC_EnableSprites
+  - RPC_SendSpriteChangeHit
+  - RPC_SendSpriteChangeHitNotMaster
   DisableAutoOpenWizard: 1
   ShowSettings: 1

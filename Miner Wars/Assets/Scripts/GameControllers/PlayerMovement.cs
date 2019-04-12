@@ -395,7 +395,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlaceBarricade()
     {
-        if (Input.GetKey(KeyCode.E) && barricadeStartTimer == false && hasBaricade)
+        if (Input.GetKeyUp(KeyCode.E) && barricadeStartTimer == false && hasBaricade)
         {
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Barricade"), transform.position, Quaternion.identity, 0);
             barricadeStartTimer = true;

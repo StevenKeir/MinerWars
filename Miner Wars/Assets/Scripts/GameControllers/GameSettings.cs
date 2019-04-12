@@ -51,6 +51,7 @@ public class GameSettings : MonoBehaviour
     public Image TNT2FillImage;
     public Image TNT3FillImage;
 
+    public bool hitCheckTest = false;
     [Header("All Players in scene")]
     public List<AvatarSetup> players = new List<AvatarSetup>();
 

@@ -10,9 +10,11 @@ public class Explosion : MonoBehaviour
     float hitBoxRemoveTimer;
     public float startHitBoxRemoveTimer;
     BoxCollider2D collider;
+    public bool hitBarricade;
 
     private void Awake()
     {
+        GameSettings.GS.hitCheckTest = hitBarricade;
         PV = this.gameObject.GetComponent<PhotonView>();
         animationEnded = false;
 
