@@ -25,7 +25,10 @@ public class Baricade : MonoBehaviour
 
     private void Update()
     {
-        SpriteChange();
+        if (PV.IsMine)
+        {
+            SpriteChange();
+        }
     }
 
     void SpriteChange()

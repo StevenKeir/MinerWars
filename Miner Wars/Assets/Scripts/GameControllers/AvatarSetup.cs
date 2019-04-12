@@ -61,10 +61,11 @@ public class AvatarSetup : MonoBehaviour
             if (immuneTime == false)
             {
                 //playerHealth -= playerDamage;
-                ScoreCounter.SC.localScore -= playerDamage;
+                ;
                 immuneTime = true;
                 if (PV.IsMine)
                 {
+                    ScoreCounter.SC.localScore -= playerDamage;
                     //GameSettings.GS.healthBar.value = playerHealth;
                 }
 

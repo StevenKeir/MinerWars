@@ -397,7 +397,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E) && barricadeStartTimer == false && hasBaricade)
         {
-            PV.RPC("RPC_PlaceBarricade", RpcTarget.All);
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Barricade"), transform.position, Quaternion.identity, 0);
             barricadeStartTimer = true;
         }
     }
@@ -464,7 +464,7 @@ public class PlayerMovement : MonoBehaviour
     [PunRPC]
     void RPC_PlaceBarricade()
     {
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Barricade"), transform.position, Quaternion.identity, 0);
+        
     }
 
 }

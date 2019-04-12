@@ -10,17 +10,19 @@ public class Rock : MonoBehaviour
     public int randomValue;
     bool hit;
     BoxCollider2D col;
-    //public 
-    //Reference to the collider and sprite
+    SpriteRenderer sprite;
     LayerMask layer;
     public float radius;
-
+    bool isDisabled;
+    float timer;
+    float starTimer;
 
     //Initialize the references and setting the random value for which it uses to put out a random gold piece. also setting hit to false to it will set to true only is hit.
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
         col = GetComponent<BoxCollider2D>();
+        sprite = GetComponent<SpriteRenderer>();
         randomValue = Random.Range(0, 11);
         hit = false;
     }
@@ -32,9 +34,7 @@ public class Rock : MonoBehaviour
     //Checks if the rock was hit if so sends to the masterclient to destroy the object, then since it has a PhotonView it deletes it on both clients.
     private void Update()
     {
-        //RespawnAfterTime();
-
-
+        RespawnAfterTime();
         //Was in a if(PhotonNetwork.isMasterClient) but had issues with errors saying it couldn't destory the object, even tho it did it anyway.
         if (hit)
         {
@@ -55,7 +55,8 @@ public class Rock : MonoBehaviour
             {
                 //print("No gold found");
             }
-            PV.RPC("RPC_DestroyMe", RpcTarget.MasterClient);
+            isDisabled = true;
+            DisableGraphics();
             hit = false;
         }
     }
@@ -68,11 +69,24 @@ public class Rock : MonoBehaviour
         }
     }
 
+    void DisableGraphics()
+    {
+        if (isDisabled)
+        {
+            PV.RPC("RPC_DisableSprites", RpcTarget.AllBuffered);
+        }
+        else
+        {
+            PV.RPC("RPC_EnableSprites", RpcTarget.AllBuffered);
+        }
+    }
+
     void RespawnAfterTime()
     {
-        //When hit check if player in the the area with physics.SphereOverlap2D if
-
-        Debug.Log(Physics2D.OverlapCircle(col.transform.position, radius, layer));
+        if(Physics2D.OverlapCircle(col.transform.position, radius, layer))
+        {
+            //Debug.Log("We are hit by player...");
+        }
     }
 
 
@@ -81,12 +95,24 @@ public class Rock : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(col.transform.position, radius);
     }
+
     [PunRPC]
     void RPC_DestroyMe()
     {
         PhotonNetwork.Destroy(this.gameObject);
     }
 
+    [PunRPC]
+    void RPC_DisableSprites()
+    {
+        sprite.enabled = false;
+        col.enabled = false;
+    }
 
-
+    [PunRPC]
+    void RPC_EnableSprites()
+    {
+        sprite.enabled = true;
+        col.enabled = true;
+    }
 }

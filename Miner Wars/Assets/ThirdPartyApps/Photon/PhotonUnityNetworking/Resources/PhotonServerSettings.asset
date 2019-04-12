@@ -55,5 +55,7 @@ MonoBehaviour:
   - RPC_DestroyThis
   - RPC_PlaceBaricade
   - RPC_PlaceBarricade
+  - RPC_DisableSprites
+  - RPC_EnableSprites
   DisableAutoOpenWizard: 1
   ShowSettings: 1
