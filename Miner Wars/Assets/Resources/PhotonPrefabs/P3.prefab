@@ -11,16 +11,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: P3
       objectReference: {fileID: 0}
-    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: winningStance
-      value: 
-      objectReference: {fileID: 21300014, guid: ef542636758f9a0479fdbbc70b29f4d9,
-        type: 3}
-    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: losingStance
+    - target: {fileID: 1666, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
         type: 3}
+    - target: {fileID: 1646, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
     - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
@@ -29,12 +28,13 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[1]
       value: 
       objectReference: {fileID: 2422091717923164995}
-    - target: {fileID: 1646, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Controller
+    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: winningStance
       value: 
-      objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
-    - target: {fileID: 1666, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Sprite
+      objectReference: {fileID: 21300014, guid: ef542636758f9a0479fdbbc70b29f4d9,
+        type: 3}
+    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: losingStance
       value: 
       objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
         type: 3}
@@ -73,6 +73,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: P3
       objectReference: {fileID: 0}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: viewIdField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300020, guid: ef542636758f9a0479fdbbc70b29f4d9,
+        type: 3}
+    - target: {fileID: 1516, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
     - target: {fileID: 645, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -117,27 +138,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: viewIdField
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: ObservedComponents.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300020, guid: ef542636758f9a0479fdbbc70b29f4d9,
-        type: 3}
-    - target: {fileID: 1516, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
 --- !u!114 &2422091717923165022 stripped
