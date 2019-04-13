@@ -9,7 +9,7 @@ public class Explosion : MonoBehaviour
     public bool animationEnded;
     float hitBoxRemoveTimer;
     public float startHitBoxRemoveTimer;
-    BoxCollider2D collider;
+    //BoxCollider2D collider;
     public bool hitBarricade;
 
     private void Awake()

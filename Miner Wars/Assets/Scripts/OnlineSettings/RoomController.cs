@@ -210,6 +210,18 @@ public class RoomController : MonoBehaviourPunCallbacks, IInRoomCallbacks
         }
     }
 
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+        Debug.Log(otherPlayer.NickName + " has left the game");
+        playersInRoom--;
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
+        GameSettings.GS.gameEnded = true;
+        //DontDestr
+    }
+
+
     [PunRPC]
     private void RPC_LoadedGameScene()
     {

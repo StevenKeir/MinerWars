@@ -28,9 +28,12 @@ public class Lobby : MonoBehaviourPunCallbacks
         PV = GetComponent<PhotonView>();
     }
 
-    private void Start()
+    public void LateUpdate()
     {
-        PhotonNetwork.ConnectUsingSettings(); // Connects to master server.
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster()

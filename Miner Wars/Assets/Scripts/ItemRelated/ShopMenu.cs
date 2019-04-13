@@ -11,7 +11,7 @@ public class ShopMenu : MonoBehaviour
     public bool someOneInShop = false;
     public bool shopOpen = false;
 
-    private void OnEnable()
+    private void Awake()
     {
         shopWindow = GameSettings.GS.shopWindow;
     }

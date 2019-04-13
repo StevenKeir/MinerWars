@@ -18,6 +18,7 @@ public class ScoreCounter : MonoBehaviour
     public TMP_Text endGameScoreTally;
     public Image slot1;
     public Image slot2;
+    public bool dontCount = false;
 
 
     private void OnEnable()
@@ -25,6 +26,14 @@ public class ScoreCounter : MonoBehaviour
         if (ScoreCounter.SC == null)
         {
             ScoreCounter.SC = this;
+        }
+        else
+        {
+            if (ScoreCounter.SC != null)
+            {
+                Destroy(ScoreCounter.SC.gameObject);
+                ScoreCounter.SC = this;
+            }
         }
     }
 
@@ -41,13 +50,13 @@ public class ScoreCounter : MonoBehaviour
         playerOneText.text = "Player 1: " + scoreList[0];
         playerTwoText.text = "Player 2: " + scoreList[1];
 
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && dontCount == false)
         {
             scoreList[0] = localScore;
             PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[0]);
             EndGameTallyUp();
         }
-        else
+        else if(!PhotonNetwork.IsMasterClient && dontCount == false)
         {
             scoreList[1] = localScore;
             PV.RPC("RPC_SendScore", RpcTarget.Others, scoreList[1]);

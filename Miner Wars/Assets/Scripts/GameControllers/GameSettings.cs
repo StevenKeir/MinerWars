@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameSettings : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class GameSettings : MonoBehaviour
     public int upgradedExplosionTimesBought;
 
     [Header("Timer Settings")]
-    public float startTimerTime;
+    //public float startTimerTime;
     public float gamelength;
     public TMP_Text timerText;
     public bool startTimer = false;
@@ -58,6 +59,7 @@ public class GameSettings : MonoBehaviour
 
     private void OnEnable()
     {
+        //Setting a singleton
         if (GameSettings.GS == null)
         {
             GameSettings.GS = this;
@@ -66,21 +68,14 @@ public class GameSettings : MonoBehaviour
 
     private void Awake()
     {
+        //Setting the instance of the PhotonView
         PV = GetComponent<PhotonView>();
-        //UpdateTimerUI();
-        startTimerTime = gamelength;
+        //Setting All the alphas of the UI images to 0 aka invisible..
         TNT2.color = new Color(TNT2.color.r, TNT2.color.g, TNT2.color.b, 0f);
         TNT3.color = new Color(TNT3.color.r, TNT3.color.g, TNT3.color.b, 0f);
         speedBoots.color = new Color(speedBoots.color.r, speedBoots.color.g, speedBoots.color.b, 0f);
         upgradedExplosion.color = new Color(upgradedExplosion.color.r, upgradedExplosion.color.g, upgradedExplosion.color.b, 0f);
         barricade.color = new Color(barricade.color.r, barricade.color.g, barricade.color.b, 0f);
-
-
-    }
-
-    private void Start()
-    {
-
     }
 
     private void Update()
@@ -96,7 +91,8 @@ public class GameSettings : MonoBehaviour
 
     private void UpdateTimerUI()
     {
-        if (PhotonNetwork.IsMasterClient && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false)
+        //Telling all other clients to start timer, This is more for appoximate time since there is a delay, will later implement a true synced timer by taking the PhotonNetwork.Time And calulating the different and making them the same between clients. but have other focuses at the moment
+        if (PhotonNetwork.IsMasterClient && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false && ScoreCounter.SC.dontCount == false)
         {
             PV.RPC("RPC_SendTimerUpdate", RpcTarget.AllBuffered);
         }
@@ -104,6 +100,7 @@ public class GameSettings : MonoBehaviour
 
     public void OnClickUpgradeDynamite()
     {
+        //Playing the function when UI button is clicked and only if the player has the gold.
         if (localPlayerAvatar.myGoldCount >= upgradedExplosionPrice)
         {
             localPlayer.hasUpgradedExplosion = true;
@@ -111,15 +108,12 @@ public class GameSettings : MonoBehaviour
             text.text = "Gold: " + localPlayerAvatar.myGoldCount;
             ShopUI.shopUI.upgradedDynamiteButton.interactable = false;
             ShopUI.shopUI.upgradedExplosionPrice.text = "Out of Stock";
-
-
-            //upgradedExplosionTimesBought++;
-            //ShopUI.shopUI.upgradedExplosionPrice.text = upgradedExplosionPrice.ToString() + "g  | " + upgradedExplosionTimesBought + "/2";
         }
     }
 
     public void OnClickExtraDynamite()
     {
+        //Playing the function when UI button is clicked and only if the player has the gold.
         if (localPlayerAvatar.myGoldCount >= extraDynamitePrice)
         {
             localPlayer.hasExtraDynamite = true;
@@ -132,6 +126,7 @@ public class GameSettings : MonoBehaviour
 
     public void OnClickSpeedBoots()
     {
+        //Playing the function when UI button is clicked and only if the player has the gold.
         if (localPlayerAvatar.myGoldCount >= bootPrice)
         {
             localPlayer.hasBoots = true;
@@ -140,21 +135,12 @@ public class GameSettings : MonoBehaviour
             ShopUI.shopUI.bootsButton.interactable = false;
             ShopUI.shopUI.bootPrice.text = "Out of Stock";
         }
-    }
-    /*
-    public void OnClickHealthIncrease()
-    {
-        if (localPlayerAvatar.myGoldCount >= healthIncreasePrice)
-        {
-            localPlayer.hasHealthIncrease = true;
-            localPlayerAvatar.myGoldCount -= healthIncreasePrice;
-            text.text = "Gold: " + localPlayerAvatar.myGoldCount;
-        }
-    }
-    */
+    } 
+
     public void OnClickBarricadeUpgrade()
     {
-        if(localPlayerAvatar.myGoldCount >= baricadePrice)
+        //Playing the function when UI button is clicked and only if the player has the gold.
+        if (localPlayerAvatar.myGoldCount >= baricadePrice)
         {
             localPlayer.hasBaricade = true;
             localPlayerAvatar.myGoldCount -= baricadePrice;
@@ -164,11 +150,42 @@ public class GameSettings : MonoBehaviour
         }
     }
 
+    public void DisconnectPlayer()
+    {
+        //Disconnects the player from the current game, deleting all old instances of DontDestroyOnLoad objects, this will be done by photon anyway but doing it myself just incase.
+        StartCoroutine(DisconnectAndLoad());
+    }
+
+    IEnumerator DisconnectAndLoad()
+    {
+        //Leaves current room
+        PhotonNetwork.LeaveRoom();
+        //Only Does this if not in a room.
+        while (!PhotonNetwork.InRoom)
+        {
+            //Deleting all old instances of DontDestroyOnLoad objects and loads main menu
+            ScoreCounter.SC.dontCount = true;
+            Destroy(MultiplayerSetting.multiplayerSetting.gameObject);
+            yield return new WaitForSeconds(0.1f);
+            Destroy(RoomController.room.gameObject);
+            yield return new WaitForSeconds(0.1f);
+            Destroy(PlayerInfo.playerInfo.gameObject);
+            yield return new WaitForSeconds(0.1f);
+            SceneManager.LoadScene(0);
+            yield return null;
+            
+        }
+    }
     void EndGame()
     {
+        //Function to play when the game has concluded, this is done so can determine the winner.
         if (PhotonNetwork.IsMasterClient)
         {
             if(gamelength <= 0f)
+            {
+                PV.RPC("RPC_GameEnded", RpcTarget.AllBuffered);
+            }
+            else if(gameEnded == true)
             {
                 PV.RPC("RPC_GameEnded", RpcTarget.AllBuffered);
             }
@@ -178,6 +195,7 @@ public class GameSettings : MonoBehaviour
     [PunRPC]
     void RPC_SendTimerUpdate()
     {
+        //Starts the timer for the game and lets other players know the game has started, also disables the loading screen.
         this.startTimer = true;
         GameSettings.GS.isGameRunning = true;
         loadingScreen.SetActive(false);
@@ -186,6 +204,7 @@ public class GameSettings : MonoBehaviour
     [PunRPC]
     void RPC_GameEnded()
     {
+        //Lets scoreCounter.cs know and other scripts that the game has ended continuing to result screen.
         gameEnded = true;
         this.startTimer = false;
         ScoreCounter.SC.endGamePanel.SetActive(true);
