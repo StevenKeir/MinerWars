@@ -7,6 +7,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 248, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Name
+      value: P4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: winningStance
+      value: 
+      objectReference: {fileID: 21300012, guid: d83691d6e99a20c449b4f12d6c5e8133,
+        type: 3}
+    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: losingStance
+      value: 
+      objectReference: {fileID: 21300000, guid: d83691d6e99a20c449b4f12d6c5e8133,
+        type: 3}
+    - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 9091591924864708988}
+    - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 9091591924864708961}
+    - target: {fileID: 1646, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b8132254e828c949a5d25a327521d19, type: 2}
+    - target: {fileID: 1666, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d83691d6e99a20c449b4f12d6c5e8133,
+        type: 3}
     - target: {fileID: 241, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_Name
       value: P4
@@ -19,14 +50,10 @@ PrefabInstance:
     - target: {fileID: 2082, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 9091591924864708976}
+      objectReference: {fileID: 0}
     - target: {fileID: 2082, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
-      objectReference: {fileID: 9091591924864708981}
-    - target: {fileID: 2080, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: hasHealthIncrease
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2083, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: winningStance
@@ -46,27 +73,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: P4
       objectReference: {fileID: 0}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: viewIdField
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: ObservedComponents.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: ObservedComponents.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d83691d6e99a20c449b4f12d6c5e8133,
-        type: 3}
-    - target: {fileID: 1516, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4b8132254e828c949a5d25a327521d19, type: 2}
     - target: {fileID: 645, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -111,11 +117,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: viewIdField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1866, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d83691d6e99a20c449b4f12d6c5e8133,
+        type: 3}
+    - target: {fileID: 1516, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4b8132254e828c949a5d25a327521d19, type: 2}
+    - target: {fileID: 2080, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: hasHealthIncrease
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
---- !u!114 &9091591924864708976 stripped
+--- !u!114 &9091591924864708988 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2081, guid: d9dc834349c544af88bebd51aef8bb98,
+  m_CorrespondingSourceObject: {fileID: 2093, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}
   m_PrefabInstance: {fileID: 9091591924864710993}
   m_PrefabAsset: {fileID: 0}
@@ -125,9 +156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9091591924864708981 stripped
+--- !u!114 &9091591924864708961 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2084, guid: d9dc834349c544af88bebd51aef8bb98,
+  m_CorrespondingSourceObject: {fileID: 2096, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}
   m_PrefabInstance: {fileID: 9091591924864710993}
   m_PrefabAsset: {fileID: 0}
