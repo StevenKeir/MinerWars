@@ -96,7 +96,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomValue: 0
-  radius: 2
+  radius: 5
+  isDisabled: 0
+  timer: 0
+  startTimer: 0
+  playerNearby: 0
+  minTime: 60
+  maxTime: 90
 --- !u!61 &4453525585322843449
 BoxCollider2D:
   m_ObjectHideFlags: 0

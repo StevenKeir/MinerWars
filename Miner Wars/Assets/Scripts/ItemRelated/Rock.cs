@@ -13,32 +13,40 @@ public class Rock : MonoBehaviour
     SpriteRenderer sprite;
     LayerMask layer;
     public float radius;
-    bool isDisabled;
-    float timer;
-    float starTimer;
+    public bool isDisabled;
+    public float timer;
+    public bool startTimer;
+    public bool playerNearby;
+    float startingTime;
+    public float minTime;
+    public float maxTime;
 
     //Initialize the references and setting the random value for which it uses to put out a random gold piece. also setting hit to false to it will set to true only is hit.
-    private void Awake()
+    private void Awake() //Setting the reference
     {
         PV = GetComponent<PhotonView>();
         col = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-        randomValue = Random.Range(0, 11);
-        hit = false;
     }
-    private void Start()
+
+    private void Start()//Using the references, if needed.
     {
         layer = (int)1 << LayerMask.NameToLayer("Player");
+        hit = false;
+        randomValue = Random.Range(0, 11);
+        startingTime = Random.Range(minTime, maxTime);
+        startTimer = false;
+        timer = startingTime;
     }
 
     //Checks if the rock was hit if so sends to the masterclient to destroy the object, then since it has a PhotonView it deletes it on both clients.
     private void Update()
     {
-        RespawnAfterTime();
+        PlayerCheck();
+        RespawnTimer();
         //Was in a if(PhotonNetwork.isMasterClient) but had issues with errors saying it couldn't destory the object, even tho it did it anyway.
         if (hit)
         {
-
             if (randomValue >= 9)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "GoldBig"), transform.position, Quaternion.identity, 0);
@@ -56,9 +64,10 @@ public class Rock : MonoBehaviour
                 //print("No gold found");
             }
             isDisabled = true;
-            DisableGraphics();
+            startTimer = true;
             hit = false;
         }
+        DisableGraphics();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,6 +75,37 @@ public class Rock : MonoBehaviour
         if (collision.gameObject.tag == "Explosion")
         {
             hit = true;
+        }
+    }
+
+    void RespawnTimer()
+    {
+        if (isDisabled)
+        {
+            //startTimer = true;
+            if (startTimer)
+            {
+                timer -= Time.deltaTime;
+            }
+            if (timer <= 0.00f)
+            {
+                startTimer = false;
+                startingTime = Random.Range(minTime, maxTime);
+                timer = startingTime;
+                RespawnRock();
+            }
+        }
+    }
+
+    void RespawnRock()
+    {
+        if (playerNearby)
+        {
+            startTimer = true;
+        }
+        else if (!playerNearby)
+        {
+            isDisabled = false;
         }
     }
 
@@ -81,11 +121,15 @@ public class Rock : MonoBehaviour
         }
     }
 
-    void RespawnAfterTime()
+    void PlayerCheck()
     {
         if(Physics2D.OverlapCircle(col.transform.position, radius, layer))
         {
-            //Debug.Log("We are hit by player...");
+            playerNearby = true;
+        }
+        else
+        {
+            playerNearby = false;
         }
     }
 
