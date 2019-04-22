@@ -35,6 +35,7 @@ public class Dynamite : MonoBehaviour
             if (PV.IsMine)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Explosion"), transform.position, Quaternion.identity, 0);
+                
                 PhotonNetwork.Destroy(this.gameObject);
             }
 

@@ -119,6 +119,7 @@ MonoBehaviour:
   animationEnded: 0
   startHitBoxRemoveTimer: 0
   hitBarricade: 0
+  spawnCrator: 0
 --- !u!114 &2111299307055814988
 MonoBehaviour:
   m_ObjectHideFlags: 0
