@@ -52,14 +52,27 @@ public class ScoreCounter : MonoBehaviour
 
         if (PhotonNetwork.IsMasterClient && dontCount == false)
         {
-            scoreList[0] = localScore;
-            PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[0]);
+            //scoreList[0] = localScore;
+            //PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[0]);
+
+            if (scoreList[0] != localScore)
+            {
+                scoreList[0] = localScore;
+                PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[0]);
+            }
+
             EndGameTallyUp();
         }
         else if(!PhotonNetwork.IsMasterClient && dontCount == false)
         {
-            scoreList[1] = localScore;
-            PV.RPC("RPC_SendScore", RpcTarget.Others, scoreList[1]);
+            //scoreList[1] = localScore;
+            //PV.RPC("RPC_SendScore", RpcTarget.Others, scoreList[1]);
+
+            if (scoreList[1] != localScore)
+            {
+                scoreList[1] = localScore;
+                PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[1]);
+            }
         }
     }
 
@@ -92,7 +105,6 @@ public class ScoreCounter : MonoBehaviour
     void RPC_MasterClientSendScore(int playerScore)
     {
         scoreList[0] = playerScore;
-        //playerOneText.text = "Player 1: " + scoreList[0];
     }
 
     [PunRPC]

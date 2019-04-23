@@ -80,7 +80,6 @@ public class GameSettings : MonoBehaviour
 
     private void Update()
     {
-        UpdateTimerUI();
         EndGame();
         if (startTimer)
         {
@@ -92,7 +91,7 @@ public class GameSettings : MonoBehaviour
     private void UpdateTimerUI()
     {
         //Telling all other clients to start timer, This is more for appoximate time since there is a delay, will later implement a true synced timer by taking the PhotonNetwork.Time And calulating the different and making them the same between clients. but have other focuses at the moment
-        if (PhotonNetwork.IsMasterClient && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false && ScoreCounter.SC.dontCount == false)
+        if (PhotonNetwork.IsMasterClient && GameSettings.GS.isGameRunning == true && ScoreCounter.SC.dontCount == false)
         {
             PV.RPC("RPC_SendTimerUpdate", RpcTarget.AllBuffered);
         }
@@ -192,21 +191,14 @@ public class GameSettings : MonoBehaviour
         }
     }
 
-    [PunRPC]
-    void RPC_SendTimerUpdate()
-    {
-        //Starts the timer for the game and lets other players know the game has started, also disables the loading screen.
-        this.startTimer = true;
-        GameSettings.GS.isGameRunning = true;
-        loadingScreen.SetActive(false);
-    }
+
 
     [PunRPC]
     void RPC_GameEnded()
     {
         //Lets scoreCounter.cs know and other scripts that the game has ended continuing to result screen.
         gameEnded = true;
-        this.startTimer = false;
+        startTimer = false;
         ScoreCounter.SC.endGamePanel.SetActive(true);
     }
 }

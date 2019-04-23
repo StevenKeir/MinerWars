@@ -33,10 +33,6 @@ public class Baricade : MonoBehaviour
     {
         //HitCheck();
         HitTimer();
-        SpriteChange();
-    }
-    void SpriteChange()
-    {
         if (!PhotonNetwork.IsMasterClient)
         {
             switch (hits)
@@ -58,6 +54,10 @@ public class Baricade : MonoBehaviour
                     break;
             }
         }
+    }
+    void SpriteChange()
+    {
+
         
         if (PhotonNetwork.IsMasterClient)
         {
@@ -108,6 +108,7 @@ public class Baricade : MonoBehaviour
             {
                 hit = true;
                 hits++;
+                SpriteChange();
             }
         }
     }

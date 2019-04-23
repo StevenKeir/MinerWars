@@ -111,13 +111,13 @@ public class Rock : MonoBehaviour
 
     void DisableGraphics()
     {
-        if (isDisabled)
+        if (isDisabled && sprite.enabled == true)
         {
             PV.RPC("RPC_DisableSprites", RpcTarget.AllBuffered);
         }
         else
         {
-            PV.RPC("RPC_EnableSprites", RpcTarget.AllBuffered);
+            //PV.RPC("RPC_EnableSprites", RpcTarget.AllBuffered);
         }
     }
 

@@ -36,6 +36,10 @@ public class AvatarSetup : MonoBehaviour
         {
             GameSettings.GS.localPlayerAvatar = this;
         }
+        if (PV.IsMine)
+        {
+            //EndGameSlotUpdater();
+        }
     }
 
     private void Start()
@@ -48,10 +52,7 @@ public class AvatarSetup : MonoBehaviour
     private void Update()
     {
         PlayerInformation();
-        if (PV.IsMine)
-        {
-            EndGameSlotUpdater();
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
