@@ -7,9 +7,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnQuitButtonClick()
     {
+        //On click of quit button
         Application.Quit();
-
-
-
     }
 }

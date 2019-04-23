@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         PauseMenu();
+        //Checking if it's the local player and if the game is running and not ended.
         if (PV.IsMine && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false)
         {
             UpdateAnimator();

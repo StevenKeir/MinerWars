@@ -11,15 +11,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: P4
       objectReference: {fileID: 0}
-    - target: {fileID: 1666, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: winningStance
+      value: 
+      objectReference: {fileID: 21300012, guid: d83691d6e99a20c449b4f12d6c5e8133,
+        type: 3}
+    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: losingStance
       value: 
       objectReference: {fileID: 21300000, guid: d83691d6e99a20c449b4f12d6c5e8133,
         type: 3}
-    - target: {fileID: 1646, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4b8132254e828c949a5d25a327521d19, type: 2}
     - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
@@ -28,13 +29,12 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[1]
       value: 
       objectReference: {fileID: 9091591924864708961}
-    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: winningStance
+    - target: {fileID: 1646, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 21300012, guid: d83691d6e99a20c449b4f12d6c5e8133,
-        type: 3}
-    - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: losingStance
+      objectReference: {fileID: 9100000, guid: 4b8132254e828c949a5d25a327521d19, type: 2}
+    - target: {fileID: 1666, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d83691d6e99a20c449b4f12d6c5e8133,
         type: 3}

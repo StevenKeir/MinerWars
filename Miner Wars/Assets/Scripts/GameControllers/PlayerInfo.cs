@@ -30,6 +30,7 @@ public class PlayerInfo : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    //Holds the players info
     private void Start()
     {
         if (PlayerPrefs.HasKey("MyCharacter"))

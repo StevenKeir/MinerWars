@@ -28,9 +28,6 @@ public class MenuController : MonoBehaviour
             PlayerInfo.playerInfo.mySelectedCharacter = whichCharacter;
             PlayerPrefs.SetInt("MyCharacter",whichCharacter);
         }
-
-
-
     }
 
     private void Update()
@@ -40,6 +37,7 @@ public class MenuController : MonoBehaviour
 
     public void TextChange()
     {
+        //Checking character the player has selected the sets the text to the corisponding name
         if(PlayerPrefs.GetInt("MyCharacter") == 0)
         {
             text.text = "Selected Character: Rob";
@@ -64,23 +62,27 @@ public class MenuController : MonoBehaviour
 
     public void CharacterSelectionButton ()
     {
+        //Main menu on press of character select.
         mainButtons.SetActive(false);
         characterSelect.SetActive(true);
     }
 
     public void QuitButton()
     {
+        //On quit button is selected
         Application.Quit();
     }
 
     public void ControlsButton()
     {
+        //On click of controls button
         mainButtons.SetActive(false);
         controlsDisplay.SetActive(true);
     }
 
     public void BackButton()
     {
+        //On click of back button
         mainButtons.SetActive(true);
         characterSelect.SetActive(false);
         controlsDisplay.SetActive(false);

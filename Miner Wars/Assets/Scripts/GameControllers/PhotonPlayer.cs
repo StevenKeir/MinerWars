@@ -9,12 +9,11 @@ public class PhotonPlayer : MonoBehaviour
     private PhotonView pv;
     public GameObject myAvatar;
 
-    // Start is called before the first frame update
+    //Once the player picks a character, this will spawn their corisponding avatar / skin. 
     void Start()
     {
         pv = GetComponent<PhotonView>();
         int spawnPicker = Random.Range(0, GameSettings.GS.spawnPoints.Length);
-
         if (pv.IsMine)
         {
             if (PlayerPrefs.GetInt("MyCharacter") == 0)

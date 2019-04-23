@@ -80,6 +80,7 @@ public class GameSettings : MonoBehaviour
 
     private void Update()
     {
+        //Endgame function plays once the game has ended, also we have a timer for the countdown.
         EndGame();
         if (startTimer)
         {

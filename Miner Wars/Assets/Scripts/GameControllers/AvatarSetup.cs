@@ -44,37 +44,36 @@ public class AvatarSetup : MonoBehaviour
 
     private void Start()
     {
+        //Setting the instances, Not really required.
         immuneTime = false;
         immuneTimer = initialImmuneTimer;
-        GameSettings.GS.players.Add(this);
     }
 
     private void Update()
     {
+        //Immunity check function
         PlayerInformation();
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Checks if the player collides with an exoplosion.
         if (collision.gameObject.tag == "Explosion")
         {
+            //Checks if you're not immune if no then take the damage, then start the immunity function.
             if (immuneTime == false)
             {
-                //playerHealth -= playerDamage;
-                ;
                 immuneTime = true;
                 if (PV.IsMine)
                 {
                     ScoreCounter.SC.localScore -= playerDamage;
-                    //GameSettings.GS.healthBar.value = playerHealth;
                 }
-
             }
-
         }
+        //Checks if the player collides with gold.
         if (collision.gameObject.tag == "Gold")
         {
+            //Checking if it's the local player colliding if so add the score to the local score and update the UI element. 
             if (PV.IsMine)
             {
                 myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
@@ -157,7 +156,6 @@ public class AvatarSetup : MonoBehaviour
         //myCharacter = Instantiate(PlayerInfo.playerInfo.allCharacters[whichCharacter], transform.position, transform.rotation, transform);
         //anim.runtimeAnimatorController = PlayerInfo.playerInfo.animControllers[whichCharacter];
         //sprite.sprite = PlayerInfo.playerInfo.allSprites[whichCharacter];
-
     }
 
     [PunRPC]
