@@ -71,7 +71,7 @@ public class ScoreCounter : MonoBehaviour
             if (scoreList[1] != localScore)
             {
                 scoreList[1] = localScore;
-                PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[1]);
+                PV.RPC("RPC_SendScore", RpcTarget.Others, scoreList[1]);
             }
         }
     }
