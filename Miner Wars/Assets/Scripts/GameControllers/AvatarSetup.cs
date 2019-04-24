@@ -29,9 +29,13 @@ public class AvatarSetup : MonoBehaviour
     [Header("Score related")]
     public int scoreModifier;
 
+    [Header("Sound")]
+    int soundInt; 
+
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+        sprite = GetComponent<SpriteRenderer>();
         if (PV.IsMine)
         {
             GameSettings.GS.localPlayerAvatar = this;
@@ -66,8 +70,12 @@ public class AvatarSetup : MonoBehaviour
                 immuneTime = true;
                 if (PV.IsMine)
                 {
+                    soundInt = (int)Random.Range(0, 3);
                     ScoreCounter.SC.localScore -= playerDamage;
+                    HurtSound(soundInt);
+                    StartCoroutine(HitFlash());
                 }
+                
             }
         }
         //Checks if the player collides with gold.
@@ -79,8 +87,39 @@ public class AvatarSetup : MonoBehaviour
                 myGoldCount += collision.gameObject.GetComponent<Gold>().goldWorth;
                 ScoreCounter.SC.localScore += collision.gameObject.GetComponent<Gold>().goldWorth * scoreModifier;
                 GameSettings.GS.text.text = "Gold: " + myGoldCount;
+                GameSettings.GS.goldPickup.Play();
             }
             Destroy(collision.gameObject);
+        }
+    }
+
+    IEnumerator HitFlash()
+    {
+        sprite.color = new Color(255, 0, 0);
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = new Color(255, 255, 255);
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = new Color(255, 0, 0);
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = new Color(255, 255, 255);
+    }
+
+    void HurtSound(int hurtSound)
+    {
+        switch (hurtSound)
+        {
+            case 0:
+                GameSettings.GS.hurtSound.Play();
+                break;
+            case 1:
+                GameSettings.GS.hurtSound1.Play();
+                break;
+            case 2:
+                GameSettings.GS.hurtSound2.Play();
+                break;
+            case 3:
+                GameSettings.GS.hurtSound3.Play();
+                break;
         }
     }
 
@@ -148,6 +187,7 @@ public class AvatarSetup : MonoBehaviour
         }
     }
 
+  
 
     [PunRPC]
     void RPC_AddCharacter(int whichCharacter)

@@ -386,11 +386,14 @@ public class PlayerMovement : MonoBehaviour
 
     void BarricadeTimer()
     {
-        barricadeCooldownTimer -= Time.deltaTime;
-        if (barricadeCooldownTimer <= 0)
+        if (hasBaricade && barricadeStartTimer)
         {
-            barricadeCooldownTimer = startBarricadeCooldownTimer;
-            barricadeStartTimer = false;
+            barricadeCooldownTimer -= Time.deltaTime;
+            if (barricadeCooldownTimer <= 0)
+            {
+                barricadeCooldownTimer = startBarricadeCooldownTimer;
+                barricadeStartTimer = false;
+            }
         }
     }
 

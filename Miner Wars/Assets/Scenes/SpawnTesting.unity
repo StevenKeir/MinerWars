@@ -2759,7 +2759,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 69.8
+  m_fontSize: 44.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3121,7 +3121,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 38.15
+  m_fontSize: 27.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5781,6 +5781,13 @@ MonoBehaviour:
   TNT3FillImage: {fileID: 0}
   hitCheckTest: 0
   players: []
+  goldPickup: {fileID: 877912797}
+  enterShop: {fileID: 405697012}
+  explosionSound: {fileID: 532873840}
+  hurtSound: {fileID: 330573775}
+  hurtSound1: {fileID: 1530161942}
+  hurtSound2: {fileID: 1605375950}
+  hurtSound3: {fileID: 706825723}
 --- !u!114 &1162808919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7394,12 +7401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footsteps:
-  - {fileID: 1173127336}
-  - {fileID: 330573775}
-  - {fileID: 1530161942}
-  - {fileID: 1605375950}
-  - {fileID: 706825723}
-  - {fileID: 320262624}
   - {fileID: 904083777}
   - {fileID: 748659030}
   - {fileID: 1350774919}
@@ -7407,12 +7408,12 @@ MonoBehaviour:
   - {fileID: 370876895}
   - {fileID: 1160690942}
   - {fileID: 1103116630}
-  howManySteps: 13
+  howManySteps: 7
   stepNumber: 0
   timer: 0
   stepTime: 0
-  minTime: 4
-  maxTime: 8
+  minTime: 6
+  maxTime: 12
 --- !u!1 &1566762406
 GameObject:
   m_ObjectHideFlags: 0
@@ -7801,7 +7802,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 68.25
+  m_fontSize: 49.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9999,7 +10000,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 38.15
+  m_fontSize: 27.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

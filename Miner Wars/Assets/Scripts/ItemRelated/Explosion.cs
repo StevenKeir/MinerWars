@@ -14,6 +14,7 @@ public class Explosion : MonoBehaviour
     public bool hitBarricade;
     public bool spawnCrator;
     int cratorInt = 0;
+    public bool playSound;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class Explosion : MonoBehaviour
     private void LateUpdate()
     {
         AnimationEnded();
+        PlaySound();
     }
 
     void AnimationEnded()
@@ -40,6 +42,12 @@ public class Explosion : MonoBehaviour
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Crator"), transform.position, Quaternion.identity, 0);
         }
     }
-
+    void PlaySound()
+    {
+        if (playSound)
+        {
+            GameSettings.GS.explosionSound.Play();
+        }
+    }
 
 }

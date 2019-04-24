@@ -32,6 +32,7 @@ public class ShopMenu : MonoBehaviour
                 shopWindow.SetActive(true);
                 shopOpen = true;
                 print("Shop opened");
+                GameSettings.GS.enterShop.Play();
             }
             else if (Input.GetKeyUp(KeyCode.F) && someOneInShop && shopOpen)
             {

@@ -56,6 +56,14 @@ public class GameSettings : MonoBehaviour
     [Header("All Players in scene")]
     public List<AvatarSetup> players = new List<AvatarSetup>();
 
+    [Header("Audio")]
+    public AudioSource goldPickup;
+    public AudioSource enterShop;
+    public AudioSource explosionSound;
+    public AudioSource hurtSound;
+    public AudioSource hurtSound1;
+    public AudioSource hurtSound2;
+    public AudioSource hurtSound3;
 
     private void OnEnable()
     {
