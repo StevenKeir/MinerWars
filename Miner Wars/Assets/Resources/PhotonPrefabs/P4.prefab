@@ -23,11 +23,11 @@ PrefabInstance:
     - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 9091591924864708988}
+      objectReference: {fileID: 9091591924864708961}
     - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
-      objectReference: {fileID: 9091591924864708961}
+      objectReference: {fileID: 9091591924864708962}
     - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: winningStance
       value: 
@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
---- !u!114 &9091591924864708988 stripped
+--- !u!114 &9091591924864708961 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2093, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9091591924864708961 stripped
+--- !u!114 &9091591924864708962 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2096, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}

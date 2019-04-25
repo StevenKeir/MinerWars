@@ -22,14 +22,16 @@ public class Rock : MonoBehaviour
     public float maxTime;
 
     //Initialize the references and setting the random value for which it uses to put out a random gold piece. also setting hit to false to it will set to true only is hit.
-    private void Awake() //Setting the reference
+    //Setting the reference
+    private void Awake() 
     {
         PV = GetComponent<PhotonView>();
         col = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()//Using the references, if needed.
+    //Using the references, if needed.
+    private void Start()
     {
         layer = (int)1 << LayerMask.NameToLayer("Player");
         hit = false;
@@ -70,6 +72,7 @@ public class Rock : MonoBehaviour
         DisableGraphics();
     }
 
+    //Checks if the explosion has hit the rock if set the bool
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Explosion")
@@ -78,6 +81,7 @@ public class Rock : MonoBehaviour
         }
     }
 
+    //respawn the rock after some time.
     void RespawnTimer()
     {
         if (isDisabled)
@@ -97,6 +101,7 @@ public class Rock : MonoBehaviour
         }
     }
 
+    //Respawns the rock only if there is no player nearby.
     void RespawnRock()
     {
         if (playerNearby)
@@ -109,6 +114,7 @@ public class Rock : MonoBehaviour
         }
     }
 
+    //Disable the sprite when the function 
     void DisableGraphics()
     {
         if (isDisabled && sprite.enabled == true)
@@ -121,6 +127,7 @@ public class Rock : MonoBehaviour
         }
     }
 
+    //Checks if the player is nearby
     void PlayerCheck()
     {
         if(Physics2D.OverlapCircle(col.transform.position, radius, layer))
@@ -133,7 +140,7 @@ public class Rock : MonoBehaviour
         }
     }
 
-
+    //Used to debug the range of the overlap circle
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

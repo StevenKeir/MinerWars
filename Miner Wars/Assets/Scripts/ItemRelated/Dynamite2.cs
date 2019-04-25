@@ -10,12 +10,11 @@ public class Dynamite2 : MonoBehaviour
     bool starttimer;
     public float floatTime;
 
+    //For some reason i made two of the same script, should been in the same one and used a if statement to spawn the right object.
     private void Start()
     {
         PV = GetComponent<PhotonView>();
         starttimer = true;
-        //floatTime = 3;
-
     }
 
 
@@ -29,19 +28,12 @@ public class Dynamite2 : MonoBehaviour
         }
         if (floatTime <= 0)
         {
-            //PV.RPC("RPC_ExplosionSpawn", RpcTarget.MasterClient);
             if (PV.IsMine)
             {
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Explosion2"), transform.position, Quaternion.identity, 0);
                 PhotonNetwork.Destroy(this.gameObject);
             }
-
         }
-
-
-
-
-
     }
 
 

@@ -16,18 +16,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
         type: 3}
-    - target: {fileID: 1646, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
     - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[0]
       value: 
-      objectReference: {fileID: 2422091717923164995}
+      objectReference: {fileID: 2422091717923165022}
     - target: {fileID: 2094, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: ObservedComponents.Array.data[1]
       value: 
-      objectReference: {fileID: 2422091717923164992}
+      objectReference: {fileID: 2422091717923164995}
     - target: {fileID: 2095, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: winningStance
       value: 
@@ -38,6 +34,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9eba9f5c903a72941b6e9090e84ed4be,
         type: 3}
+    - target: {fileID: 1646, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 260ba9bc6804725428c372b9b8045b2f, type: 2}
     - target: {fileID: 241, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
       propertyPath: m_Name
       value: P3
@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9dc834349c544af88bebd51aef8bb98, type: 3}
---- !u!114 &2422091717923164995 stripped
+--- !u!114 &2422091717923165022 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2093, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2422091717923164992 stripped
+--- !u!114 &2422091717923164995 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2096, guid: d9dc834349c544af88bebd51aef8bb98,
     type: 3}

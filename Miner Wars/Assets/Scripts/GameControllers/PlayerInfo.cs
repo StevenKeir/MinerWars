@@ -15,6 +15,7 @@ public class PlayerInfo : MonoBehaviour
 
     private void OnEnable()
     {
+        //Creates the singleton
         if(PlayerInfo.playerInfo == null)
         {
             PlayerInfo.playerInfo = this;
@@ -27,6 +28,7 @@ public class PlayerInfo : MonoBehaviour
                 PlayerInfo.playerInfo = this;
             }
         }
+        //Makes sure the object won't destroy on load, as it hold all the info we need on the next scene.
         DontDestroyOnLoad(this.gameObject);
     }
 

@@ -28,6 +28,7 @@ public class Lobby : MonoBehaviourPunCallbacks
         PV = GetComponent<PhotonView>();
     }
 
+    //Checks if we are not connected if so trys to connect to the photon server, this was meant to be in awake but as i found it doesn't connect when you disconnect from a game inprogress.
     public void LateUpdate()
     {
         if (!PhotonNetwork.IsConnected)
@@ -60,39 +61,27 @@ public class Lobby : MonoBehaviourPunCallbacks
         CreateRoom();
     }
 
-
+    //Creates a room for the player to join with the set settings.
     void CreateRoom()
     {
-
-        
         Debug.Log("Trying to create room");
         int randRoomName = Random.Range(0, 1000);
         RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)MultiplayerSetting.multiplayerSetting.maxPlayers };
         PhotonNetwork.CreateRoom("Room " + randRoomName, roomOptions);
-
+   
         //Sets the RoomInfo
         roomInfo.numberMaxPlayers = MultiplayerSetting.multiplayerSetting.maxPlayers;
         roomInfo.roomName = ("Room " + randRoomName).ToString();
-        //roomInfo.roomNumber = randRoomName;
-        
-
-        
-
     }
 
 
-
+    
     public override void OnJoinedRoom()
     {
         Debug.Log("Room joined");
-        //base.OnJoinedRoom();
-        //cancelButton.SetActive(false);
-        //offlineButton.SetActive(false);
-        //currentRoomButton.SetActive(true);
-        //leaveRoomButton.SetActive(true);
-        //roomText.text = PhotonNetwork.CurrentRoom.Name.ToString();
     }
 
+    //If we fail to create a room, retry to create the room
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("Tried to create a new room but failed, must be one of that name existing");

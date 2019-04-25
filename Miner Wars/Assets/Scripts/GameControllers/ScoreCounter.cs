@@ -23,6 +23,7 @@ public class ScoreCounter : MonoBehaviour
 
     private void OnEnable()
     {
+        //Sets a singleton
         if (ScoreCounter.SC == null)
         {
             ScoreCounter.SC = this;
@@ -37,6 +38,7 @@ public class ScoreCounter : MonoBehaviour
         }
     }
 
+    //Setting the references 
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -47,14 +49,13 @@ public class ScoreCounter : MonoBehaviour
 
     private void Update()
     {
+        //Sets the text for each player to the right item in the array.
         playerOneText.text = "Player 1: " + scoreList[0];
         playerTwoText.text = "Player 2: " + scoreList[1];
-
+        
+        //Checks if we are the Masterclient/Host if so send our score to the other player only is the score has changed.
         if (PhotonNetwork.IsMasterClient && dontCount == false)
         {
-            //scoreList[0] = localScore;
-            //PV.RPC("RPC_MasterClientSendScore", RpcTarget.Others, scoreList[0]);
-
             if (scoreList[0] != localScore)
             {
                 scoreList[0] = localScore;
@@ -63,11 +64,9 @@ public class ScoreCounter : MonoBehaviour
 
             EndGameTallyUp();
         }
-        else if(!PhotonNetwork.IsMasterClient && dontCount == false)
+        //Checks if we are not the Masterclient/Host if so send our score to the other player only is the score has changed.
+        else if (!PhotonNetwork.IsMasterClient && dontCount == false)
         {
-            //scoreList[1] = localScore;
-            //PV.RPC("RPC_SendScore", RpcTarget.Others, scoreList[1]);
-
             if (scoreList[1] != localScore)
             {
                 scoreList[1] = localScore;
@@ -76,6 +75,7 @@ public class ScoreCounter : MonoBehaviour
         }
     }
 
+    //Function that sends the ending score to the master client to decide the winner, has some issues when the other player leaves but was made last minute.
     void EndGameTallyUp()
     {
         if((scoreList[0] > scoreList[1]) && (GameSettings.GS.gameEnded == true))
@@ -95,18 +95,19 @@ public class ScoreCounter : MonoBehaviour
         }
     }
 
+    //RPC call for photon to send the players scores accross the network.
     [PunRPC]
     void RPC_SendScore(int playerScore)
     {
         scoreList[1] = playerScore;
     }
-
+    //RPC call for photon to send the players scores accross the network.
     [PunRPC]
     void RPC_MasterClientSendScore(int playerScore)
     {
         scoreList[0] = playerScore;
     }
-
+    //RPC call that no longer is needed.
     [PunRPC]
     void RPC_EndGameSend(string winner)
     {

@@ -10,12 +10,12 @@ public class Explosion : MonoBehaviour
     public bool animationEnded;
     float hitBoxRemoveTimer;
     public float startHitBoxRemoveTimer;
-    //BoxCollider2D collider;
     public bool hitBarricade;
     public bool spawnCrator;
     int cratorInt = 0;
     public bool playSound;
 
+    //Setting the references
     private void Awake()
     {
         GameSettings.GS.hitCheckTest = hitBarricade;
@@ -24,12 +24,14 @@ public class Explosion : MonoBehaviour
         spawnCrator = false;
     }
 
+    //Plays the animation and sounds, no idea why it's in lateUpdate....
     private void LateUpdate()
     {
         AnimationEnded();
         PlaySound();
     }
 
+    //Spawns the crator once the animation has ended which is set by using the animator component.
     void AnimationEnded()
     {
         if (animationEnded == true)
@@ -42,6 +44,8 @@ public class Explosion : MonoBehaviour
             PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Crator"), transform.position, Quaternion.identity, 0);
         }
     }
+
+    //Plays the sound once the animator has ticked the bool
     void PlaySound()
     {
         if (playSound)

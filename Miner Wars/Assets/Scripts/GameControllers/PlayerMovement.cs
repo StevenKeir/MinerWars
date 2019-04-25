@@ -10,36 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private PhotonView PV;
     [Header("Movement options, used in all movement types")]
     public float movementSpeed;
-    //public float rotationSpeed;
     private Rigidbody2D RB;
     private AvatarSetup AV;
-    /*
-    [Header("Cooldown for TNT")]
-    [SerializeField]
-    private float cooldown = 3f;
-    [SerializeField]
-    private float startCooldown = 3f;
-    [SerializeField]
-    private bool startTimer = false;
-    [SerializeField]
-    private bool offCooldown = true;
-    [SerializeField]
-    private float secondCooldown = 1.5f;
-    [SerializeField]
-    private float secondStartCooldown = 1.5f;
-    [SerializeField]
-    private bool secondStartTimer = false;
-    [SerializeField]
-    private bool secondOffCooldown = true;
-    [SerializeField]
-    private bool nextDynamite = false;
-    [SerializeField]
-    private float startNextTimer = 0.5f;
-    [SerializeField]
-    private float nextTimer = 0.5f;
-    [SerializeField]
-    bool nextTimerStart;
-    */
 
     [Header("Test movement options")]
     public float minSpeed;
@@ -70,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("New dynamite system")]
     public int dynamiteCount = 0;
     public int maxDynamiteCount = 5;
-    //public int explosionUpgradeValue = 0;
     public float startCooldownTimer;
     public float cooldownTimer;
     public bool startTimer = false;
@@ -82,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        //pauseWindow = GameObject.FindGameObjectWithTag("PauseWindow");
         PV = GetComponent<PhotonView>();
         RB = GetComponent<Rigidbody2D>();
         AV = GetComponent<AvatarSetup>();
@@ -94,13 +64,6 @@ public class PlayerMovement : MonoBehaviour
             GameSettings.GS.localPlayer = this;
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
 
     private void Update()
     {
@@ -127,57 +90,15 @@ public class PlayerMovement : MonoBehaviour
                     DynamiteTimer();
                 }
             }
-            /*
-            PlaceDynamiteClient(); 
-            if (startTimer == true)
-            {
-                cooldown -= Time.deltaTime;
-            }
-            if (cooldown <= 0)
-            {
-                startTimer = false;
-                offCooldown = true;
-                cooldown = startCooldown;
-            }
-
-            if (secondStartTimer == true)
-            {
-                secondCooldown -= Time.deltaTime;
-            }
-            if (secondCooldown <= 0)
-            {
-                secondStartTimer = false;
-                secondOffCooldown = true;
-                secondCooldown = secondStartCooldown;
-                if (hasExtraDynamite)
-                {
-                    nextDynamite = false;
-                }
-            }
-
-            if (hasExtraDynamite)
-            {
-                if (nextTimerStart == true)
-                {
-                    nextTimer -= Time.deltaTime;
-                }
-                if (nextTimer <= 0)
-                {
-                    nextDynamite = true;
-                    nextTimerStart = false;
-                    nextTimer = startNextTimer;
-                }
-            }
-            */
         }
     }
 
     void FixedUpdate()
     {
-        if (PV.IsMine && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false /*&& AV.immuneTime == false*/)
+        if (PV.IsMine && GameSettings.GS.isGameRunning == true && GameSettings.GS.gameEnded == false)
         {
             OtherMovement();
-            // for flipping character
+            //For flipping character sprite
             float h = Input.GetAxis("Horizontal");
             if (h > 0 && !facingRight)
                 Flip();
@@ -190,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //flip sprite for left movement
+    //flip sprite for left / right movement 
     void Flip()
     {
         facingRight = !facingRight;
@@ -200,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OtherMovement() 
-    //Simple movement for now
+    //Simple movement, which i tried to improve but couldn't get a satisfiying movement. wished i worked harder on this has it doesn't feel nice at times and feels clunky.
     {
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
@@ -215,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Updates the animator so it know which way to face the sprite
     void UpdateDirection()
     {
         if(moveY > 0)
@@ -239,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //Updates the animator so it know which way to face the sprite
     void UpdateAnimator()
     {
         if ((moveX >= 0.3f || moveY >= 0.3f) || (moveX <= -0.3f || moveY <= -0.3f))
@@ -266,7 +189,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-
+    //Pulls up a menu for which the player can choose to quit, or disconnect.
     void PauseMenu()
     {
         if (PV.IsMine)
@@ -294,41 +217,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-    /*
-    void PlaceDynamiteClient()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == true && hasUpgradedExplosion == false)
-        {
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
-            offCooldown = false;
-            startTimer = true;
-            nextTimerStart = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == true && hasUpgradedExplosion == true)
-        {
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
-            offCooldown = false;
-            startTimer = true;
-            nextTimerStart = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == false)
-        {
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity, 0);
-            secondOffCooldown = false;
-            secondStartTimer = true;
-            nextDynamite = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && offCooldown == false && nextDynamite == true && hasExtraDynamite == true && hasUpgradedExplosion == true)
-        {
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
-            secondOffCooldown = false;
-            secondStartTimer = true;
-            nextDynamite = false;
-        }
-    }
-    */
 
     void DynamiteTimer()
     {
@@ -374,13 +262,6 @@ public class PlayerMovement : MonoBehaviour
                 PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
                 dynamiteCount--;
             }
-            /*
-            if (Input.GetKeyDown(KeyCode.Space) && GameSettings.GS.upgradedExplosionTimesBought == 2)
-            {
-                PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite2"), transform.position, Quaternion.identity, 0);
-                dynamiteCount--;
-            }
-            */
         }
     }
 
@@ -405,45 +286,50 @@ public class PlayerMovement : MonoBehaviour
             barricadeStartTimer = true;
         }
     }
+
+    
     void ItemUIUpdate()
     {
         if (maxDynamiteCount == 2)
         {
+            //Setting the UI elements to visiable, to inidicate what items have been purchased.
             GameSettings.GS.TNT2.color = new Color(GameSettings.GS.TNT2.color.r, GameSettings.GS.TNT2.color.g, GameSettings.GS.TNT2.color.b, 255f);
             if(dynamiteCount == 1)
             {
+                //This was meant to be a cooldown indicator, as the player as of now doesn't know how long till the next tnt is available. 
                 //Add Fill code
                 //GameSettings.GS.TNT2FillImage.color = new Color(GameSettings.GS.TNT2FillImage.color.r, GameSettings.GS.TNT2FillImage.color.g, GameSettings.GS.TNT2FillImage.color.g //Something to do with timer);
             }
         }
         if (maxDynamiteCount == 3)
         {
+            //Setting the UI elements to visiable, to inidicate what items have been purchased.
             GameSettings.GS.TNT3.color = new Color(GameSettings.GS.TNT3.color.r, GameSettings.GS.TNT3.color.g, GameSettings.GS.TNT3.color.b, 255f);
             if (dynamiteCount == 2)
             {
-               //Add Fill code
-               // GameSettings.GS.TNT3FillImage.color = new Color(GameSettings.GS.TNT3FillImage.color.r, GameSettings.GS.TNT3FillImage.color.g, GameSettings.GS.TNT3FillImage.color.g //Something to do with timer);
+                //This was meant to be a cooldown indicator, as the player as of now doesn't know how long till the next tnt is available. 
+                //Add Fill code
+                //GameSettings.GS.TNT3FillImage.color = new Color(GameSettings.GS.TNT3FillImage.color.r, GameSettings.GS.TNT3FillImage.color.g, GameSettings.GS.TNT3FillImage.color.g //Something to do with timer);
             }
         }
-
+        //Setting the UI elements to visiable, to inidicate what items have been purchased.
         if (hasBoots)
         {
             GameSettings.GS.speedBoots.color = new Color(GameSettings.GS.speedBoots.color.r, GameSettings.GS.speedBoots.color.g, GameSettings.GS.speedBoots.color.b, 255f);
         }
-
+        //Setting the UI elements to visiable, to inidicate what items have been purchased.
         if (hasUpgradedExplosion)
         {
             GameSettings.GS.upgradedExplosion.color = new Color(GameSettings.GS.upgradedExplosion.color.r, GameSettings.GS.upgradedExplosion.color.g, GameSettings.GS.upgradedExplosion.color.b, 255f);
         }
-
+        //Setting the UI elements to visiable, to inidicate what items have been purchased.
         if (hasBaricade)
         {
             GameSettings.GS.barricade.color = new Color(GameSettings.GS.barricade.color.r, GameSettings.GS.barricade.color.g, GameSettings.GS.barricade.color.b, 255f);
         }
     }
 
- 
-
+    //A switch statement that takes in the amound times the player has purchased the upgrade.
     void ExtraDynamiteCheck(int timesBought)
     {
         switch (timesBought)
@@ -458,17 +344,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
+    //RPC call for photon so it knows to instanstiate the corisponding item, No longer used as had issues with latency. 
     [PunRPC]
     void RPC_PlaceDynamite()
     {
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Dynamite"), transform.position, Quaternion.identity,0);
-    }
-
-    [PunRPC]
-    void RPC_PlaceBarricade()
-    {
-        
     }
 
 }

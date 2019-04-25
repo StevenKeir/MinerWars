@@ -10,6 +10,8 @@ public class AllRoomInfo : MonoBehaviourPunCallbacks
     public int numberMaxPlayers;
     public int currentPlayers;
 
+
+    //Photon related info for when a room is created.
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);

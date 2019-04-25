@@ -68,12 +68,13 @@ public class AvatarSetup : MonoBehaviour
             if (immuneTime == false)
             {
                 immuneTime = true;
+                StartCoroutine(HitFlash());
                 if (PV.IsMine)
                 {
                     soundInt = (int)Random.Range(0, 3);
                     ScoreCounter.SC.localScore -= playerDamage;
                     HurtSound(soundInt);
-                    StartCoroutine(HitFlash());
+                    
                 }
                 
             }

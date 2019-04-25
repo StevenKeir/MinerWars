@@ -24,11 +24,11 @@ public class ShopMenu : MonoBehaviour
 
     private void Update()
     { 
+        //If the game is running and we are the local player then open the shop.
         if (PV.IsMine && GameSettings.GS.isGameRunning == true)
         {
             if (Input.GetKeyUp(KeyCode.F) && someOneInShop && !shopOpen)
             {
-                //GameSettings.GS.shopWindow.SetActive(true);
                 shopWindow.SetActive(true);
                 shopOpen = true;
                 print("Shop opened");
@@ -36,7 +36,6 @@ public class ShopMenu : MonoBehaviour
             }
             else if (Input.GetKeyUp(KeyCode.F) && someOneInShop && shopOpen)
             {
-                //GameSettings.GS.shopWindow.SetActive(false);
                 shopWindow.SetActive(false);
                 shopOpen = false;
             }
@@ -52,7 +51,6 @@ public class ShopMenu : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            //print("Someone Entered me ;)");
             someOneInShop = true;
         }
     }
@@ -61,7 +59,6 @@ public class ShopMenu : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            //print("Someone Left me :(");
             someOneInShop = false;
         }
     }
